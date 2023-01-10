@@ -43,10 +43,6 @@ INSERT INTO collectors values(2,'Piyal','Ahmed')
 INSERT INTO collectors values(3,'Ashraf','Shuvo')
 INSERT INTO collectors values(4,'Arafath','Shakil')
 
-SELECT * FROM painting
-SELECT * FROM artist
-SELECT * FROM collectors
-SELECT * FROM sales
 
 
 
@@ -64,36 +60,35 @@ INSERT INTO sales values(3,'2023-01-3',4,1,1,200000)
 INSERT INTO sales values(4,'2023-01-2',3,2,4,250000)
 
 
-SELECT MAX(artist_id)  FROM sales   
-
-SELECT * FROM artist where id = (SELECT MAX(artist_id)  FROM sales  )
-
-
-SELECT TOP 1 artist_id, COUNT(artist_id) AS 'OCCUR' FROM sales GROUP BY artist_id ORDER BY 'OCCUR' DESC 
-
-
-SELECT artist_id, COUNT(artist_id) AS 'Items sold' FROM sales GROUP BY artist_id ORDER BY 'Items sold' DESC
-SELECT * FROM artist where id = (SELECT TOP 1 artist_id, COUNT(artist_id) AS 'OCCUR' FROM sales GROUP BY artist_id ORDER BY 'OCCUR' DESC )
+SELECT * FROM painting
+SELECT * FROM artist
+SELECT * FROM collectors
+SELECT * FROM sales
 
 
 -- QUERY 1
+-- TO FIND THE DETAILS OF THE PAINTING WHICH HAS MORE PRICE THAN THE AVERAGE
 SELECT * FROM painting where  listed_price > ( SELECT AVG(listed_price) FROM painting)
 
 SELECT * FROM sales
 
 -- QUERY 2
-SELECT * FROM collectors where id  IN(SELECT  collector_id from sales)
-
-SELECT artist_id, SUM(sells_price) as 'Income' FROM sales GROUP BY (artist_id)
+-- TO FIND THE DETAILS OF THE COLLECTORS WHO HAS COLLECTED AT LEAST ONE PAINTING
+SELECT * FROM collectors where id  IN(SELECT collector_id from sales)
 
 -- QUERY 3
 -- LIST THE ARTISTS TOTAL INCOME WITH THEIR NAME 
-SELECT * FROM artist where artist.id in (SELECT artist_id FROM sales GROUP BY (artist_id))
+ 
+SELECT A.ID, A.first_name + ' ' + A.last_name AS 'Artist Name' , B.Income as 'Total Income' FROM artist A  JOIN 
+(SELECT artist_id, SUM(sells_price) as 'Income' FROM sales GROUP BY (artist_id)) 
+AS B ON B.artist_id = A.ID
 
 -- QUERY 4
--- LIST THE COLLECTORS TOTAL COLELTION WITH THEIR NAMES AND ID 
+-- LIST THE COLLECTORS TOTAL COLELTION WITH THEIR NAMES AND ID
+SELECT C.ID, C.first_name + ' ' + C.last_name AS 'Artist Name' , S.[Painting In Collection ] FROM collectors C JOIN
+(SELECT collector_id, COUNT(collector_id) as 'Painting In Collection ' FROM sales GROUP BY (collector_id))
+AS S ON S.collector_id = c.ID
 
 --QUERY 5
 --THE DETAILS OF ARTIST WITH ZERO SALES
-
-SELECT artist.*,SUM(sales.sells_price) as 'Income' FROM artist,sales  where artist.id  IN(SELECT artist_id FROM sales GROUP BY (artist_id)) GROUP BY (sales.artist_id)
+SELECT * FROM collectors where id  NOT IN(SELECT artist_id from sales)
