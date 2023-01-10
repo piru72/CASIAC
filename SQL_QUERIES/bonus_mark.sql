@@ -75,14 +75,25 @@ SELECT TOP 1 artist_id, COUNT(artist_id) AS 'OCCUR' FROM sales GROUP BY artist_i
 SELECT artist_id, COUNT(artist_id) AS 'Items sold' FROM sales GROUP BY artist_id ORDER BY 'Items sold' DESC
 SELECT * FROM artist where id = (SELECT TOP 1 artist_id, COUNT(artist_id) AS 'OCCUR' FROM sales GROUP BY artist_id ORDER BY 'OCCUR' DESC )
 
+
+-- QUERY 1
 SELECT * FROM painting where  listed_price > ( SELECT AVG(listed_price) FROM painting)
 
 SELECT * FROM sales
+
+-- QUERY 2
 SELECT * FROM collectors where id  IN(SELECT  collector_id from sales)
 
 SELECT artist_id, SUM(sells_price) as 'Income' FROM sales GROUP BY (artist_id)
 
-
+-- QUERY 3
+-- LIST THE ARTISTS TOTAL INCOME WITH THEIR NAME 
 SELECT * FROM artist where artist.id in (SELECT artist_id FROM sales GROUP BY (artist_id))
+
+-- QUERY 4
+-- LIST THE COLLECTORS TOTAL COLELTION WITH THEIR NAMES AND ID 
+
+--QUERY 5
+--THE DETAILS OF ARTIST WITH ZERO SALES
 
 SELECT artist.*,SUM(sales.sells_price) as 'Income' FROM artist,sales  where artist.id  IN(SELECT artist_id FROM sales GROUP BY (artist_id)) GROUP BY (sales.artist_id)
