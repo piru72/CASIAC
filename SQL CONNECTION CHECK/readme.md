@@ -1,6 +1,6 @@
 Steps for Connecting NetBeans Project to MSSQL Server
 1. Find the guide folder above and follow the instructions with caution.
-<br> Thing to keep in mind
+<br> Things to keep in mind
 <br> 1. In the sql server configuration manager check if SQL Server Browser is running (Check out sql servers also)
 <br> 2.  Add sqljdbc4.jar , mssql-jdbc-11.2.3.jre8.jar to Libraries. I have also added them in the JAR folder.
 <br> 3. In the  ConnectMSSQL class I have updated the url a little bit like below . For the full sample  project you can check SqlConnectionCheck folder above
