@@ -1,3 +1,8 @@
+```
+Apache NetBeans IDE 13
+JDK 11
+```
+
 Steps for Connecting NetBeans Project to MSSQL Server
 1. Find the guide folder above and follow the instructions with caution.
 <br> Things to keep in mind
