@@ -1,5 +1,5 @@
 
-USE CASIAC
+Use ProjectDB;
 
 --> CREATE THE TABLE 
 CREATE	TABLE TASKS(
@@ -7,7 +7,7 @@ CREATE	TABLE TASKS(
 	TaskDetails varchar(150) not null,
 	Deadline date NOT NULL,
 	TaskPriority varchar(50) NOT NULL,
-	LawyerId int NOT NULL FOREIGN KEY REFERENCES LAWYERS(ID),
+	LawyerId int NOT NULL FOREIGN KEY REFERENCES Advocate(LawyerId),
 	TaskStatus VARCHAR(50) NOT NULL,
 	CompletedTime DATETIME NULL DEFAULT '2023-01-20',
 	CreatedTime DATETIME NOT NULL
