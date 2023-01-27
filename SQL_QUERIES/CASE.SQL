@@ -12,6 +12,8 @@ CREATE TABLE CASES (
 	PaymentId INT NOT NULL FOREIGN KEY REFERENCES PAYMENT(PaymentId)
 	);
 
+--> RENAMED THE NAME OF LOCATION COLUMN TO CASELOCATION
+EXEC sp_rename 'Cases.Location', 'CaseLocation';
 
 --> INSERT DATAS INTO THE TABLE
 
@@ -24,3 +26,27 @@ INSERT INTO CASES VALUES(3002,'Fight',1003,1002,'District Court','2022-01-26',70
 --> ALL THE DATA
 
 SELECT * FROM CASES
+
+--> ALL THE CASES WITH A SPECIFIC CATEGORY
+
+SELECT * FROM CASES WHERE Category ='Land'
+
+--> ALL THE CASES WITH A SPECIFIC LOCATION
+SELECT * FROM CASES WHERE Location ='Main Court'
+
+
+--> DETAILS WITH THE CLIENT  NAME, LAWYERS NAME , PAYMENT AMOUNT
+SELECT CaseId,
+CLIENT.FirstName+ ' '  + CLIENT.LastName AS 'CLIENT NAME',
+Category,
+worker.FirstName + ' ' + worker.LastName AS 'Case Worker',
+introducer.FirstName + ' ' + introducer.LastName AS 'Case Introduces',
+CaseLocation AS 'Location',
+OpeningDate,
+payment.Amount AS 'Amount'
+FROM CASES , CLIENT , Advocate  worker, Advocate introducer , PAYMENT payment
+WHERE
+CLIENT.ClientId = CASES.ClientId AND 
+CASES.CaseWorker = worker.AdvocateId AND  
+CASES.IntroducedBy = introducer.AdvocateId AND 
+CASES.PaymentId = payment.PaymentId 

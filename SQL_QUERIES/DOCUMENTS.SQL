@@ -21,5 +21,14 @@ INSERT INTO DOCUMENT VALUES('PDF',3003,'Kept in file')
 
 SELECT * FROM DOCUMENT
 
+--> ALL THE DATA WITH THE DETAILS
+
+SELECT DocumentId ,
+DocumentType ,
+CLIENT.FirstName + ' ' +CLIENT.LastName AS 'CLIENT NAME',
+DocumentLocation 
+FROM DOCUMENT , CLIENT 
+WHERE DOCUMENT.ClientId = CLIENT.ClientId
+
 
 

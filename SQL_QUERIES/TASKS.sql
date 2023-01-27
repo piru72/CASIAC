@@ -47,6 +47,11 @@ SELECT * FROM TASKS WHERE TaskPriority = 'MEDIUM'
 --> SHOW THE DETAILS WITH A DIFFERENT COLUMN NAME
 SELECT TaskDetails as 'Task Details' FROM TASKS
 
+-->  SHOW DETAILS WITH THE LAWER NAME
+SELECT taskId , TaskDetails,Deadline,TaskPriority, ADVOCATE.FirstName + ' ' + Advocate.LastName AS  'Advocate Name' ,TaskStatus , CompletedTime,CreatedTime 
+FROM TASKS , Advocate 
+WHERE TASKS.LawyerId = Advocate.AdvocateId
+
 
 --> DATA DEFINATION LANGUAGE (DDL) THINGS
 --> DELETE ALL THE DATAS BUT KEEP THE TABLE STATUS SAME AS BEFORE

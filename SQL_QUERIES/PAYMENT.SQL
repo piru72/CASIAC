@@ -21,3 +21,9 @@ CREATE TABLE PAYMENT(
 --> ALL THE DATA
 
 SELECT * FROM PAYMENT
+
+-->  SHOW DETAILS WITH THE CLIENT NAME
+
+SELECT PaymentId , Client.FirstName + ' ' + CLIENT.LastName As 'Client Name' , CreatedTime ,UpdatedTime , Status, Amount , Detail
+FROM PAYMENT , CLIENT
+WHERE PAYMENT.ClientId = CLIENT.ClientId

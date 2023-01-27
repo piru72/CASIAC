@@ -23,3 +23,14 @@ INSERT INTO NOTE VALUES(3001,1001,1002,'Yusha did a very good job')
 --> ALL THE DATAS
 
 SELECT * FROM NOTE
+
+--> ALL THE DATA WITH THE DETAILS
+
+SELECT NoteId ,
+CLIENT.FirstName + ' '  + CLIENT.LastName AS 'CLIENT NAME',
+MODDER.FirstName + ' ' + MODDER.LastName AS 'Modified BY',
+CREATOR.FirstName + ' '+ CREATOR.LastName AS ' CREATED BY',
+Note 
+FROM NOTE , CLIENT , Advocate MODDER , Advocate CREATOR
+
+WHERE NOTE.ClientId = CLIENT.ClientId AND NOTE.ModifiedBy = MODDER.AdvocateId AND NOTE.CreatedBy = CREATOR.AdvocateId
