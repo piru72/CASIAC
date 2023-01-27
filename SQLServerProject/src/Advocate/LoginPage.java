@@ -415,7 +415,7 @@ public class LoginPage extends javax.swing.JFrame {
     PreparedStatement pst1 = null;
     ResultSet result = null;
     DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl("PARVEZ");
+    String databaseUrl = dbc.getDatabaseUrl();
     String StoredUsername = "";
     String AdminPassword = "123456";
    
@@ -599,7 +599,7 @@ public class LoginPage extends javax.swing.JFrame {
        
         String user = usernameText.getText();
         String pass = passwordField.getText();
-        phase1 objhome = new phase1();
+        MainDashboard objhome = new MainDashboard();
         try {
 
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
@@ -621,7 +621,7 @@ public class LoginPage extends javax.swing.JFrame {
                         System.out.println("Password Matched!!");
                         authentication = true;
                         StoredUsername = result.getString("FirstName");
-                        phase1 phaseObj = new phase1(StoredUsername);
+                        MainDashboard phaseObj = new MainDashboard(StoredUsername);
                         
                         
                     } else {
