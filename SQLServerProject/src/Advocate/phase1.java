@@ -81,26 +81,26 @@ public class phase1 extends javax.swing.JFrame {
         Panel_setting_menu = new javax.swing.JPanel();
         label_settings_menu = new javax.swing.JLabel();
         tab_container = new javax.swing.JTabbedPane();
-        jPanel7 = new javax.swing.JPanel();
+        tab_dashboard = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         storedUserLabel = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
+        tab_address_book = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel16 = new javax.swing.JPanel();
+        tab_appointment = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        tab_todoList = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
+        tab_caseFolder = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
+        tab_accounts = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
+        tab_communication = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jPanel20 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tab_settings = new javax.swing.JPanel();
+        ScrollPane_user_list = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        searchTextField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        searchBox_userName = new javax.swing.JTextField();
+        title_searchBox_userName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -487,7 +487,7 @@ public class phase1 extends javax.swing.JFrame {
 
         main_container.add(menu_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 130, 470));
 
-        jPanel7.setBackground(new java.awt.Color(102, 255, 255));
+        tab_dashboard.setBackground(new java.awt.Color(102, 255, 255));
 
         jPanel21.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -508,164 +508,164 @@ public class phase1 extends javax.swing.JFrame {
             .addComponent(storedUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout tab_dashboardLayout = new javax.swing.GroupLayout(tab_dashboard);
+        tab_dashboard.setLayout(tab_dashboardLayout);
+        tab_dashboardLayout.setHorizontalGroup(
+            tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_dashboardLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(555, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        tab_dashboardLayout.setVerticalGroup(
+            tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_dashboardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(416, Short.MAX_VALUE))
         );
 
-        tab_container.addTab("tab1", jPanel7);
+        tab_container.addTab("tab1", tab_dashboard);
 
-        jPanel8.setBackground(new java.awt.Color(102, 255, 204));
+        tab_address_book.setBackground(new java.awt.Color(204, 0, 102));
+
+        jLabel6.setText("jLabel6");
+
+        javax.swing.GroupLayout tab_address_bookLayout = new javax.swing.GroupLayout(tab_address_book);
+        tab_address_book.setLayout(tab_address_bookLayout);
+        tab_address_bookLayout.setHorizontalGroup(
+            tab_address_bookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_address_bookLayout.createSequentialGroup()
+                .addGap(354, 354, 354)
+                .addComponent(jLabel6)
+                .addContainerGap(399, Short.MAX_VALUE))
+        );
+        tab_address_bookLayout.setVerticalGroup(
+            tab_address_bookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_address_bookLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(jLabel6)
+                .addContainerGap(337, Short.MAX_VALUE))
+        );
+
+        tab_container.addTab("tab3", tab_address_book);
+
+        tab_appointment.setBackground(new java.awt.Color(102, 255, 204));
 
         jLabel5.setText("jLabel5");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout tab_appointmentLayout = new javax.swing.GroupLayout(tab_appointment);
+        tab_appointment.setLayout(tab_appointmentLayout);
+        tab_appointmentLayout.setHorizontalGroup(
+            tab_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_appointmentLayout.createSequentialGroup()
                 .addGap(344, 344, 344)
                 .addComponent(jLabel5)
                 .addContainerGap(409, Short.MAX_VALUE))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        tab_appointmentLayout.setVerticalGroup(
+            tab_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_appointmentLayout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addComponent(jLabel5)
                 .addContainerGap(326, Short.MAX_VALUE))
         );
 
-        tab_container.addTab("tab2", jPanel8);
+        tab_container.addTab("tab2", tab_appointment);
 
-        jPanel9.setBackground(new java.awt.Color(204, 0, 102));
-
-        jLabel6.setText("jLabel6");
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(354, 354, 354)
-                .addComponent(jLabel6)
-                .addContainerGap(399, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jLabel6)
-                .addContainerGap(337, Short.MAX_VALUE))
-        );
-
-        tab_container.addTab("tab3", jPanel9);
-
-        jPanel16.setBackground(new java.awt.Color(204, 204, 0));
+        tab_todoList.setBackground(new java.awt.Color(204, 204, 0));
 
         jLabel14.setText("jLabel6");
 
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
+        javax.swing.GroupLayout tab_todoListLayout = new javax.swing.GroupLayout(tab_todoList);
+        tab_todoList.setLayout(tab_todoListLayout);
+        tab_todoListLayout.setHorizontalGroup(
+            tab_todoListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_todoListLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel14)
                 .addContainerGap(399, Short.MAX_VALUE))
         );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
+        tab_todoListLayout.setVerticalGroup(
+            tab_todoListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_todoListLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel14)
                 .addContainerGap(337, Short.MAX_VALUE))
         );
 
-        tab_container.addTab("tab3", jPanel16);
+        tab_container.addTab("tab3", tab_todoList);
 
-        jPanel17.setBackground(new java.awt.Color(0, 51, 51));
+        tab_caseFolder.setBackground(new java.awt.Color(0, 51, 51));
 
         jLabel15.setText("jLabel6");
 
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
+        javax.swing.GroupLayout tab_caseFolderLayout = new javax.swing.GroupLayout(tab_caseFolder);
+        tab_caseFolder.setLayout(tab_caseFolderLayout);
+        tab_caseFolderLayout.setHorizontalGroup(
+            tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_caseFolderLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel15)
                 .addContainerGap(399, Short.MAX_VALUE))
         );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
+        tab_caseFolderLayout.setVerticalGroup(
+            tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_caseFolderLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel15)
                 .addContainerGap(337, Short.MAX_VALUE))
         );
 
-        tab_container.addTab("tab3", jPanel17);
+        tab_container.addTab("tab3", tab_caseFolder);
 
-        jPanel18.setBackground(new java.awt.Color(153, 0, 153));
+        tab_accounts.setBackground(new java.awt.Color(153, 0, 153));
 
         jLabel16.setText("jLabel6");
 
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
+        javax.swing.GroupLayout tab_accountsLayout = new javax.swing.GroupLayout(tab_accounts);
+        tab_accounts.setLayout(tab_accountsLayout);
+        tab_accountsLayout.setHorizontalGroup(
+            tab_accountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_accountsLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel16)
                 .addContainerGap(399, Short.MAX_VALUE))
         );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
+        tab_accountsLayout.setVerticalGroup(
+            tab_accountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_accountsLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel16)
                 .addContainerGap(337, Short.MAX_VALUE))
         );
 
-        tab_container.addTab("tab3", jPanel18);
+        tab_container.addTab("tab3", tab_accounts);
 
-        jPanel19.setBackground(new java.awt.Color(153, 0, 255));
+        tab_communication.setBackground(new java.awt.Color(153, 0, 255));
 
         jLabel17.setText("jLabel6");
 
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
+        javax.swing.GroupLayout tab_communicationLayout = new javax.swing.GroupLayout(tab_communication);
+        tab_communication.setLayout(tab_communicationLayout);
+        tab_communicationLayout.setHorizontalGroup(
+            tab_communicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_communicationLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel17)
                 .addContainerGap(399, Short.MAX_VALUE))
         );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
+        tab_communicationLayout.setVerticalGroup(
+            tab_communicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_communicationLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel17)
                 .addContainerGap(337, Short.MAX_VALUE))
         );
 
-        tab_container.addTab("tab3", jPanel19);
+        tab_container.addTab("tab3", tab_communication);
 
-        jPanel20.setBackground(new java.awt.Color(102, 102, 255));
+        tab_settings.setBackground(new java.awt.Color(102, 102, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -675,43 +675,43 @@ public class phase1 extends javax.swing.JFrame {
                 "Lawyer_ID", "First_Name", "Last_Name", "Email", "Birth_Date", "Gender"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        ScrollPane_user_list.setViewportView(jTable1);
 
-        searchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        searchBox_userName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchTextFieldKeyReleased(evt);
+                searchBox_userNameKeyReleased(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel3.setText("Search");
+        title_searchBox_userName.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        title_searchBox_userName.setText("Search");
 
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
+        javax.swing.GroupLayout tab_settingsLayout = new javax.swing.GroupLayout(tab_settings);
+        tab_settings.setLayout(tab_settingsLayout);
+        tab_settingsLayout.setHorizontalGroup(
+            tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_settingsLayout.createSequentialGroup()
                 .addGap(108, 108, 108)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(title_searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+        tab_settingsLayout.setVerticalGroup(
+            tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_settingsLayout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(title_searchBox_userName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
-        tab_container.addTab("tab3", jPanel20);
+        tab_container.addTab("tab3", tab_settings);
 
         main_container.add(tab_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 790, 510));
 
@@ -902,15 +902,15 @@ public void search(String str){
          trs.setRowFilter(RowFilter.regexFilter(str));
 
 }
-    private void searchTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTextFieldKeyReleased
+    private void searchBox_userNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userNameKeyReleased
                     // TODO add your handling code here:
             
                     //connection.close();
                  
-            String searchStr = searchTextField.getText();
+            String searchStr = searchBox_userName.getText();
             search(searchStr);
         
-    }//GEN-LAST:event_searchTextFieldKeyReleased
+    }//GEN-LAST:event_searchBox_userNameKeyReleased
 
     /**
      * @param args the command line arguments
@@ -963,24 +963,15 @@ public void search(String str){
     private javax.swing.JPanel Panel_dashbord_menu;
     private javax.swing.JPanel Panel_setting_menu;
     private javax.swing.JPanel Panel_toDoList_menu;
+    private javax.swing.JScrollPane ScrollPane_user_list;
     private javax.swing.JPanel header_container;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
     private javax.swing.JLabel label_account_menu;
     private javax.swing.JLabel label_addressBook_menu;
@@ -993,10 +984,19 @@ public void search(String str){
     private javax.swing.JButton logOut_button;
     private javax.swing.JPanel main_container;
     private javax.swing.JPanel menu_container;
-    private javax.swing.JTextField searchTextField;
+    private javax.swing.JTextField searchBox_userName;
     private javax.swing.JLabel software_name;
     private static javax.swing.JLabel storedUserLabel;
+    private javax.swing.JPanel tab_accounts;
+    private javax.swing.JPanel tab_address_book;
+    private javax.swing.JPanel tab_appointment;
+    private javax.swing.JPanel tab_caseFolder;
+    private javax.swing.JPanel tab_communication;
     private javax.swing.JTabbedPane tab_container;
+    private javax.swing.JPanel tab_dashboard;
+    private javax.swing.JPanel tab_settings;
+    private javax.swing.JPanel tab_todoList;
+    private javax.swing.JLabel title_searchBox_userName;
     private javax.swing.JLabel user_name;
     // End of variables declaration//GEN-END:variables
 }

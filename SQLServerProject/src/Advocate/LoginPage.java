@@ -418,7 +418,6 @@ public class LoginPage extends javax.swing.JFrame {
     String StoredUsername = "";
     String AdminPassword = "123456";
    
-   
 
     private void selectTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTextActionPerformed
         // TODO add your handling code here:
