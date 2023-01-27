@@ -4,6 +4,7 @@
  */
 package Advocate;
 
+import Database.DatabaseCredentials;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.awt.Color;
@@ -34,7 +35,7 @@ public class phase1 extends javax.swing.JFrame {
      */
     LoginPage object = new LoginPage();
     DatabaseCredentials dbc_1 = new DatabaseCredentials();
-    String databaseUrl = dbc_1.getDatabaseUrl();
+    String databaseUrl = dbc_1.getDatabaseUrl("PARVEZ");
     Connection connection = null;
 
     Color defaultColor, clickedColor, white;
@@ -396,16 +397,16 @@ public class phase1 extends javax.swing.JFrame {
         Panel_setting_menuLayout.setHorizontalGroup(
             Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_setting_menuLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(25, 25, 25)
                 .addComponent(label_settings_menu)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         Panel_setting_menuLayout.setVerticalGroup(
             Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_setting_menuLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+            .addGroup(Panel_setting_menuLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(label_settings_menu)
-                .addContainerGap())
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout menu_containerLayout = new javax.swing.GroupLayout(menu_container);
@@ -449,9 +450,9 @@ public class phase1 extends javax.swing.JFrame {
                 .addComponent(Panel_caseFolder_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(Panel_communication_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_containerLayout.createSequentialGroup()
                     .addContainerGap(284, Short.MAX_VALUE)

@@ -4,6 +4,7 @@
  */
 package Advocate;
 
+import Database.DatabaseCredentials;
 import javax.swing.JTextField;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -414,7 +415,7 @@ public class LoginPage extends javax.swing.JFrame {
     PreparedStatement pst1 = null;
     ResultSet result = null;
     DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
+    String databaseUrl = dbc.getDatabaseUrl("PARVEZ");
     String StoredUsername = "";
     String AdminPassword = "123456";
    
