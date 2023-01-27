@@ -16,6 +16,8 @@ Create Table Advocate(
 
 );
 
+EXEC sp_rename 'Advocate.Password', 'AdvocatePassword';
+
 --> INSERT DATAS INTO THE TABLE
 Insert into Advocate
 values('Super','ADMIN','casiacAdmin12@yahoo.com','01790603952','Syltherin','2001-06-20','Female','Rampura - dhaka')
@@ -34,6 +36,8 @@ values('Waziha','Afrin','wazzihaa@yahoo.com','0170135589','poik$','1988-09-20','
 
 --> ALL THE DATAS
 Select *From Advocate
+
+Select Password FROM Advocate
 
 --> ALL THE MALE LAWYERS
 SELECT * FROM Advocate WHERE Gender = 'MALE'
