@@ -175,7 +175,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_dashbord_menuLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(label_dashboard_menu)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         Panel_dashbord_menuLayout.setVerticalGroup(
             Panel_dashbord_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +207,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_AddressBook_menuLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(label_addressBook_menu)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         Panel_AddressBook_menuLayout.setVerticalGroup(
             Panel_AddressBook_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +239,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_Appointment_menuLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(label_appointment_menu)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         Panel_Appointment_menuLayout.setVerticalGroup(
             Panel_Appointment_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +271,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_toDoList_menuLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(label_todoList_menu)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         Panel_toDoList_menuLayout.setVerticalGroup(
             Panel_toDoList_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,7 +367,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_communication_menuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_communication_menu)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         Panel_communication_menuLayout.setVerticalGroup(
             Panel_communication_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -839,7 +839,7 @@ Color tableColor = new Color(colorObject.r1,colorObject.g1,colorObject.b1);
         jTable1.setOpaque(false);
                
        try {
-            connection = DriverManager.getConnection(databaseUrl);
+            connection = DriverManager.getConnection(databaseUrl,"sa","123456");
             Statement st = connection.createStatement();
            String sql = "Select AdvocateId,FirstName,LastName,Email,PhoneNumber,DateOfBirth,Gender,Address_ From Advocate";
             ResultSet rs = st.executeQuery(sql);
