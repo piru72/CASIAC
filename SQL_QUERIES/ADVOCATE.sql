@@ -1,29 +1,32 @@
 Create Database ProjectDB;
 Use ProjectDB;
 
+
+--> CREATE THE TABLE
 Create Table Advocate(
-    LawyerId int Identity(1001,1) NOT NULL Primary Key,
-	LFName varchar(50) NOT NULL,
-	LLName varchar(50) NOT NULL,
-	LEmail varchar(50) NOT NULL Unique,
-	LPhone varchar(11) NOT NULL,
-    LPass varchar(20) NOT NULL,
-	LDate Date NOT NULL,
-	LGender varchar(10) NOT NULL
+    AdvocateId int Identity(1001,1) NOT NULL Primary Key,
+	FirstName varchar(50) NOT NULL,
+	LastName varchar(50) NOT NULL,
+	Email varchar(50) NOT NULL Unique,
+	PhoneNumber varchar(11) NOT NULL,
+    Password varchar(20) NOT NULL,
+	DateOfBirth Date NOT NULL,
+	Gender varchar(10) NOT NULL,
+	Address_ VARCHAR(50)  NOT NULL DEFAULT'DHAKA'
 
 );
 
 --> INSERT DATAS INTO THE TABLE
 Insert into Advocate
-values('Super','ADMIN','casiacAdmin12@yahoo.com','01790603952','Syltherin','2001-06-20','Female')
+values('Super','ADMIN','casiacAdmin12@yahoo.com','01790603952','Syltherin','2001-06-20','Female','Rampura - dhaka')
 Insert into Advocate
-values('Arif','Shuvo','ashrDali@yahoo.com','0190934589','abcd@','1985-04-20','male')
+values('Arif','Shuvo','ashrDali@yahoo.com','0190934589','abcd@','1985-04-20','male', 'Khilgaon - Dhaka')
 Insert into Advocate
-values('Riyadul','Islam','thisisRiyad@yahoo.com','0170933509','1234@','1990-01-01','male')
+values('Riyadul','Islam','thisisRiyad@yahoo.com','0170933509','1234@','1990-01-01','male','Banasreee - Dhaka')
 Insert into Advocate
-values('Sabrina','Akter','akterSabina31@gmail.com','0188930589','kiop@','1993-04-22','Female')
+values('Sabrina','Akter','akterSabina31@gmail.com','0188930589','kiop@','1993-04-22','Female','Badda - Dhaka')
 Insert into Advocate
-values('Waziha','Afrin','wazzihaa@yahoo.com','0170135589','poik$','1988-09-20','Female')
+values('Waziha','Afrin','wazzihaa@yahoo.com','0170135589','poik$','1988-09-20','Female',' Malibagh - Dhaka')
 
 
 
@@ -33,31 +36,31 @@ values('Waziha','Afrin','wazzihaa@yahoo.com','0170135589','poik$','1988-09-20','
 Select *From Advocate
 
 --> ALL THE MALE LAWYERS
-SELECT * FROM Advocate WHERE LGender = 'MALE'
+SELECT * FROM Advocate WHERE Gender = 'MALE'
 
 --> FIRST NAME ADN LAST NAME
-SELECT LFName , LLName FROM Advocate
+SELECT FirstName , LastName FROM Advocate
 
 --> NOT EQUAL
-SELECT LFName , LLName FROM Advocate WHERE LFName <> 'PARVEZ'
+SELECT FirstName , LastName FROM Advocate WHERE FirstName <> 'PARVEZ'
 
 --> DISTINCT FIRST NAME 
-SELECT DISTINCT LFName FROM Advocate
+SELECT DISTINCT FirstName FROM Advocate
 
 --> MERGE TWO COLUMS
-SELECT LFName + ' ' + LLName as 'LAWYER NAME' FROM Advocate
+SELECT FirstName + ' ' + LastName as 'LAWYER NAME' FROM Advocate
 
 --> ORDER BY ASSCENDING ORDER
-SELECT * FROM Advocate  ORDER BY LFName
+SELECT * FROM Advocate  ORDER BY FirstName
 
 --> ORDER BY DESSCENDING ORDER
-SELECT * FROM Advocate  ORDER BY LFName DESC
+SELECT * FROM Advocate  ORDER BY FirstName DESC
 
 
-select LEmail From Advocate
+select Email From Advocate
 
 
-SELECT LPass,LFName FROM Advocate WHERE LEmail ='parvezdirom2000@gmai.com'
+SELECT Password,FirstName FROM Advocate WHERE Email ='parvezdirom2000@gmai.com'
 
 
 --> OPERATORS
@@ -65,16 +68,16 @@ SELECT LPass,LFName FROM Advocate WHERE LEmail ='parvezdirom2000@gmai.com'
 
 
 -- > STARTS WITH TAB AND ENDS WITH ANYTHING
-SELECT * FROM ADVOCATE WHERE LFName LIKE 'TAB%'
+SELECT * FROM ADVOCATE WHERE FirstName LIKE 'TAB%'
 
 --> ENDS WITH UM AND STARTS WITH ANYTHING
-SELECT * FROM ADVOCATE WHERE LFName LIKE '%UM'
+SELECT * FROM ADVOCATE WHERE FirstName LIKE '%UM'
 
 --> HAS SU ANYWHERE IN MIDDLE 
-SELECT * FROM ADVOCATE WHERE LFName LIKE '%SU%'
+SELECT * FROM ADVOCATE WHERE FirstName LIKE '%SU%'
 
 --> THE THIRD CHARACTER IS B
-SELECT * FROM ADVOCATE WHERE LFName LIKE '__B%'
+SELECT * FROM ADVOCATE WHERE FirstName LIKE '__B%'
  
 
 
