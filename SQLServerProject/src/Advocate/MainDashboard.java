@@ -841,23 +841,24 @@ Color tableColor = new Color(colorObject.r1,colorObject.g1,colorObject.b1);
        try {
             connection = DriverManager.getConnection(databaseUrl);
             Statement st = connection.createStatement();
-            String sql = "Select LawyerId,LFName,LLName,LEmail,LPhone,LDate,LGender From Advocate";
-
+           String sql = "Select AdvocateId,FirstName,LastName,Email,PhoneNumber,DateOfBirth,Gender,Address_ From Advocate";
             ResultSet rs = st.executeQuery(sql);
+            
             while (rs.next()) {
-                String SID = rs.getString("LawyerId");
-                String FirstName = rs.getString("LFName");
-                String LastName = rs.getString("LLName");
-                String Email = rs.getString("LEmail");
-                String phoneNumber = rs.getString("LPhone");
-                String BirthDate = rs.getString("LDate");
-                String Gender = rs.getString("LGender");
-                String tbData[] = {SID, FirstName, LastName, Email, phoneNumber, BirthDate, Gender};
+                String SID = rs.getString("AdvocateId");
+                String FirstName = rs.getString("FirstName");
+                String LastName = rs.getString("LastName");
+                String Email = rs.getString("Email");
+                String phoneNumber = rs.getString("PhoneNumber");
+                String BirthDate = rs.getString("DateOfBirth");
+                String Gender = rs.getString("Gender");
+                String address = rs.getString("Address_");
+                String tbData[] = {SID, FirstName, LastName, Email, phoneNumber, BirthDate, Gender,address};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 tblModel.addRow(tbData);
 
             }
-        } catch (Exception e) {
+                   } catch (Exception e) {
             e.printStackTrace();
         }
 
