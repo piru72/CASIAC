@@ -1,5 +1,8 @@
 /SQLServerProject/nbproject/private/
 /SQLServerProject/build/
 /SQLServerProject/dist/
-SQLServerProject/src/Database/DatabaseCredentials.java
+/SQLServerProject/src/Database/DatabaseCredentials.java
 DatabaseCredentials.java
+Database/
+tara.txt
+**/Database/
