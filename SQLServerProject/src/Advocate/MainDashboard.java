@@ -21,6 +21,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
@@ -36,14 +39,22 @@ public class MainDashboard extends javax.swing.JFrame {
     LoginPage object = new LoginPage();
     DatabaseCredentials dbc_1 = new DatabaseCredentials();
     String databaseUrl = dbc_1.getDatabaseUrl();
+    String AdminPassword = "123456";
     Connection connection = null;
+   Statement st = null;
+    PreparedStatement pst = null;
+   
+    ResultSet result = null;
 
+    
+    
     Color defaultColor, clickedColor, white;
     color colorObject = new color();
 
     public MainDashboard() {
         initComponents();
         this.tab_container.setEnabledAt(7, false);
+        this.nestedTabbedCase.setEnabledAt(0, true);
 
         defaultColor = new Color(255, 204, 0);
         clickedColor = new Color(51, 51, 51);
@@ -93,6 +104,29 @@ public class MainDashboard extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         tab_caseFolder = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        nestedTabbedCase = new javax.swing.JTabbedPane();
+        nestedCaseMenuBar = new javax.swing.JPanel();
+        openNewCaseRadioBtn = new javax.swing.JRadioButton();
+        MyFolderRadioBtn = new javax.swing.JRadioButton();
+        activeFolderRadioBtn = new javax.swing.JRadioButton();
+        openNewCaseJpanel = new javax.swing.JPanel();
+        backJlabel = new javax.swing.JLabel();
+        clientIdjLabel = new javax.swing.JLabel();
+        clientIdTextField = new javax.swing.JTextField();
+        categoryjLabel = new javax.swing.JLabel();
+        categoryTextField = new javax.swing.JTextField();
+        caseworkerjLabel = new javax.swing.JLabel();
+        caseWorkerTextField = new javax.swing.JTextField();
+        introjLabel = new javax.swing.JLabel();
+        introTextField = new javax.swing.JTextField();
+        caseLocjLabel = new javax.swing.JLabel();
+        caseLocTextField = new javax.swing.JTextField();
+        openingDatejLabel = new javax.swing.JLabel();
+        openingDateTextField = new javax.swing.JTextField();
+        paymentjLabel = new javax.swing.JLabel();
+        paymentTextField = new javax.swing.JTextField();
+        saveBtn = new javax.swing.JButton();
+        openingDateChooser = new com.toedter.calendar.JDateChooser();
         tab_accounts = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         tab_communication = new javax.swing.JPanel();
@@ -175,7 +209,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_dashbord_menuLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(label_dashboard_menu)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         Panel_dashbord_menuLayout.setVerticalGroup(
             Panel_dashbord_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +241,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_AddressBook_menuLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(label_addressBook_menu)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         Panel_AddressBook_menuLayout.setVerticalGroup(
             Panel_AddressBook_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +273,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_Appointment_menuLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(label_appointment_menu)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         Panel_Appointment_menuLayout.setVerticalGroup(
             Panel_Appointment_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,9 +342,9 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_caseFolder_menuLayout.setVerticalGroup(
             Panel_caseFolder_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_caseFolder_menuLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(label_caseFolder_menu)
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
 
         Panel_account_menu.setBackground(new java.awt.Color(255, 255, 102));
@@ -367,7 +401,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_communication_menuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_communication_menu)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         Panel_communication_menuLayout.setVerticalGroup(
             Panel_communication_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -452,10 +486,10 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(Panel_communication_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_containerLayout.createSequentialGroup()
-                    .addContainerGap(284, Short.MAX_VALUE)
+                    .addContainerGap(292, Short.MAX_VALUE)
                     .addComponent(Panel_account_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(142, 142, 142)))
         );
@@ -577,22 +611,226 @@ public class MainDashboard extends javax.swing.JFrame {
 
         jLabel15.setText("jLabel6");
 
+        nestedTabbedCase.setEnabled(false);
+
+        openNewCaseRadioBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        openNewCaseRadioBtn.setText("Open New Case ");
+        openNewCaseRadioBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openNewCaseRadioBtnMouseClicked(evt);
+            }
+        });
+
+        MyFolderRadioBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        MyFolderRadioBtn.setText("My Folder");
+        MyFolderRadioBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MyFolderRadioBtnMouseClicked(evt);
+            }
+        });
+
+        activeFolderRadioBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        activeFolderRadioBtn.setText("Active Folders");
+        activeFolderRadioBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                activeFolderRadioBtnMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout nestedCaseMenuBarLayout = new javax.swing.GroupLayout(nestedCaseMenuBar);
+        nestedCaseMenuBar.setLayout(nestedCaseMenuBarLayout);
+        nestedCaseMenuBarLayout.setHorizontalGroup(
+            nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
+                        .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MyFolderRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(activeFolderRadioBtn))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
+                        .addComponent(openNewCaseRadioBtn)
+                        .addGap(15, 477, Short.MAX_VALUE))))
+        );
+        nestedCaseMenuBarLayout.setVerticalGroup(
+            nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(openNewCaseRadioBtn)
+                .addGap(18, 18, 18)
+                .addComponent(MyFolderRadioBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(activeFolderRadioBtn)
+                .addContainerGap(195, Short.MAX_VALUE))
+        );
+
+        nestedTabbedCase.addTab("", nestedCaseMenuBar);
+
+        backJlabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        backJlabel.setText("Back");
+        backJlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backJlabelMouseClicked(evt);
+            }
+        });
+
+        clientIdjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        clientIdjLabel.setText("Client ID");
+
+        categoryjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        categoryjLabel.setText("Category");
+
+        caseworkerjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        caseworkerjLabel.setText("Case Worker");
+
+        introjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        introjLabel.setText("Introduced By");
+
+        caseLocjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        caseLocjLabel.setText("Case Location");
+
+        openingDatejLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        openingDatejLabel.setText("Opening Date");
+
+        paymentjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        paymentjLabel.setText("Payment ID");
+
+        saveBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        saveBtn.setText("Save");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
+
+        openingDateChooser.setDateFormatString("yyyy-MM-dd");
+        openingDateChooser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openingDateChooserMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout openNewCaseJpanelLayout = new javax.swing.GroupLayout(openNewCaseJpanel);
+        openNewCaseJpanel.setLayout(openNewCaseJpanelLayout);
+        openNewCaseJpanelLayout.setHorizontalGroup(
+            openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(categoryjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                .addComponent(clientIdjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(caseworkerjLabel)))
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(introjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(caseLocjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(paymentjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(openingDatejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(saveBtn)
+                        .addGap(156, 156, 156))
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(paymentTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clientIdTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(categoryTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(introTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caseLocTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caseWorkerTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(openingDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(openingDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109)))
+                .addComponent(backJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        openNewCaseJpanelLayout.setVerticalGroup(
+            openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, openNewCaseJpanelLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(clientIdjLabel)
+                    .addComponent(clientIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoryjLabel)
+                    .addComponent(categoryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caseworkerjLabel)
+                    .addComponent(caseWorkerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(introjLabel)
+                    .addComponent(introTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caseLocjLabel)
+                    .addComponent(caseLocTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(openingDatejLabel)
+                            .addComponent(openingDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(paymentjLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addComponent(saveBtn))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, openNewCaseJpanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(backJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(openingDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(paymentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        nestedTabbedCase.addTab("tab2", openNewCaseJpanel);
+
         javax.swing.GroupLayout tab_caseFolderLayout = new javax.swing.GroupLayout(tab_caseFolder);
         tab_caseFolder.setLayout(tab_caseFolderLayout);
         tab_caseFolderLayout.setHorizontalGroup(
             tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_caseFolderLayout.createSequentialGroup()
-                .addGap(354, 354, 354)
-                .addComponent(jLabel15)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addGroup(tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab_caseFolderLayout.createSequentialGroup()
+                        .addGap(354, 354, 354)
+                        .addComponent(jLabel15))
+                    .addGroup(tab_caseFolderLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         tab_caseFolderLayout.setVerticalGroup(
             tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_caseFolderLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addContainerGap(8, Short.MAX_VALUE)
                 .addComponent(jLabel15)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
+
+        nestedTabbedCase.getAccessibleContext().setAccessibleName("");
 
         tab_container.addTab("tab3", tab_caseFolder);
 
@@ -691,6 +929,7 @@ public class MainDashboard extends javax.swing.JFrame {
         tab_container.addTab("tab3", tab_settings);
 
         main_container.add(tab_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 790, 510));
+        tab_container.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -800,6 +1039,7 @@ public class MainDashboard extends javax.swing.JFrame {
     private void label_caseFolder_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_caseFolder_menuMouseClicked
         // TODO add your handling code here:
         tab_container.setSelectedIndex(4);
+
         jTable1.setVisible(false);
     }//GEN-LAST:event_label_caseFolder_menuMouseClicked
 
@@ -831,19 +1071,19 @@ public class MainDashboard extends javax.swing.JFrame {
         tab_container.setEnabledAt(7, false);
         tab_container.setSelectedIndex(7);
 
-colorObject.hexToRGB();
-Color tableColor = new Color(colorObject.r1,colorObject.g1,colorObject.b1);
+        colorObject.hexToRGB();
+        Color tableColor = new Color(colorObject.r1, colorObject.g1, colorObject.b1);
         // storedUserLabel.setVisible(false);
-          jTable1.setVisible(true);
+        jTable1.setVisible(true);
         jTable1.setBackground(tableColor);
         jTable1.setOpaque(false);
-               
-       try {
-            connection = DriverManager.getConnection(databaseUrl,"sa","123456");
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
             Statement st = connection.createStatement();
-           String sql = "Select AdvocateId,FirstName,LastName,Email,PhoneNumber,DateOfBirth,Gender,Address_ From Advocate";
+            String sql = "Select AdvocateId,FirstName,LastName,Email,PhoneNumber,DateOfBirth,Gender,Address_ From Advocate";
             ResultSet rs = st.executeQuery(sql);
-            
+
             while (rs.next()) {
                 String SID = rs.getString("AdvocateId");
                 String FirstName = rs.getString("FirstName");
@@ -853,12 +1093,12 @@ Color tableColor = new Color(colorObject.r1,colorObject.g1,colorObject.b1);
                 String BirthDate = rs.getString("DateOfBirth");
                 String Gender = rs.getString("Gender");
                 String address = rs.getString("Address_");
-                String tbData[] = {SID, FirstName, LastName, Email, phoneNumber, BirthDate, Gender,address};
+                String tbData[] = {SID, FirstName, LastName, Email, phoneNumber, BirthDate, Gender, address};
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 tblModel.addRow(tbData);
 
             }
-                   } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -872,23 +1112,122 @@ Color tableColor = new Color(colorObject.r1,colorObject.g1,colorObject.b1);
     private void label_settings_menuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_settings_menuMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_label_settings_menuMouseReleased
-public void search(String str){
- 
-  DefaultTableModel   model = (DefaultTableModel) jTable1.getModel();
-         TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
-         jTable1.setRowSorter(trs);
-         trs.setRowFilter(RowFilter.regexFilter(str));
+    public void search(String str) {
 
-}
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        jTable1.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+
+    }
     private void searchBox_userNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userNameKeyReleased
-                    // TODO add your handling code here:
-            
-                    //connection.close();
-                 
-            String searchStr = searchBox_userName.getText();
-            search(searchStr);
-        
+        // TODO add your handling code here:
+
+        //connection.close();
+        String searchStr = searchBox_userName.getText();
+        search(searchStr);
+
     }//GEN-LAST:event_searchBox_userNameKeyReleased
+
+    private void openNewCaseRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openNewCaseRadioBtnMouseClicked
+        // TODO add your handling code here:
+        if (openNewCaseRadioBtn.isSelected()) {
+              this.openingDateTextField.setVisible(false);
+            MyFolderRadioBtn.setSelected(false);
+            activeFolderRadioBtn.setSelected(false);
+            this.nestedTabbedCase.setSelectedIndex(1);
+        }
+        //  
+    }//GEN-LAST:event_openNewCaseRadioBtnMouseClicked
+
+    private void activeFolderRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeFolderRadioBtnMouseClicked
+        // TODO add your handling code here:
+
+        if (activeFolderRadioBtn.isSelected()) {
+            MyFolderRadioBtn.setSelected(false);
+            openNewCaseRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_activeFolderRadioBtnMouseClicked
+
+    private void MyFolderRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyFolderRadioBtnMouseClicked
+        // TODO add your handling code here:
+        if (MyFolderRadioBtn.isSelected()) {
+            openNewCaseRadioBtn.setSelected(false);
+            activeFolderRadioBtn.setSelected(false);
+    }//GEN-LAST:event_MyFolderRadioBtnMouseClicked
+    }
+    private void backJlabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backJlabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(0);
+    }//GEN-LAST:event_backJlabelMouseClicked
+    public boolean nullCheck(ArrayList< String> s) {
+
+        boolean val1 = false;
+        for (int i = 0; i < s.size(); i++) {
+            if (s.get(i).length() == 0) {
+                val1 = true;
+                break;
+            }
+        }
+        return val1;
+    }
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+          String selectdate = ((JTextField) openingDateChooser.getDateEditor().getUiComponent()).getText();
+        openingDateTextField.setText(selectdate);
+      
+        String clientId = clientIdTextField.getText();
+        String category = categoryTextField.getText();
+        String caseWorker = caseWorkerTextField.getText();
+        String Intro = introTextField.getText();
+        String location = caseLocTextField.getText();
+        String openingDate = openingDateTextField.getText();
+        String paymentId = paymentTextField.getText();
+
+        ArrayList< String> stList = new ArrayList<>();
+    
+        stList.add(clientId);
+        stList.add(category);
+        stList.add(caseWorker);
+        stList.add(Intro);
+        stList.add(location);
+        stList.add(openingDate);
+        stList.add(paymentId);
+
+        boolean checkNull = nullCheck(stList);
+        int flag = 0;
+        String insertQuery = "INSERT into Cases (ClientId,Category,CaseWorker,IntroducedBy,CaseLocation,OpeningDate,PaymentId) Values"
+                + " ( '" + clientId + "','" + category + "','" + caseWorker + "','" + Intro + "','" + location + "','" + openingDate + "','" + paymentId + "' )";
+
+        if (checkNull == true) {
+            JOptionPane.showMessageDialog(null, "Fill up the required fields information.", "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            flag = 1;
+        }
+        
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            st = connection.createStatement();
+            
+           if(flag == 1)
+           {
+               st.executeUpdate(insertQuery);
+           }
+
+        } catch (SQLException ex) {
+            
+            ex.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void openingDateChooserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openingDateChooserMouseClicked
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_openingDateChooserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -935,6 +1274,7 @@ public void search(String str){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton MyFolderRadioBtn;
     private javax.swing.JPanel Panel_AddressBook_menu;
     private javax.swing.JPanel Panel_Appointment_menu;
     private javax.swing.JPanel Panel_account_menu;
@@ -944,7 +1284,19 @@ public void search(String str){
     private javax.swing.JPanel Panel_setting_menu;
     private javax.swing.JPanel Panel_toDoList_menu;
     private javax.swing.JScrollPane ScrollPane_user_list;
+    private javax.swing.JRadioButton activeFolderRadioBtn;
+    private javax.swing.JLabel backJlabel;
+    private javax.swing.JTextField caseLocTextField;
+    private javax.swing.JLabel caseLocjLabel;
+    private javax.swing.JTextField caseWorkerTextField;
+    private javax.swing.JLabel caseworkerjLabel;
+    private javax.swing.JTextField categoryTextField;
+    private javax.swing.JLabel categoryjLabel;
+    private javax.swing.JTextField clientIdTextField;
+    private javax.swing.JLabel clientIdjLabel;
     private javax.swing.JPanel header_container;
+    private javax.swing.JTextField introTextField;
+    private javax.swing.JLabel introjLabel;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -964,6 +1316,16 @@ public void search(String str){
     private javax.swing.JButton logOut_button;
     private javax.swing.JPanel main_container;
     private javax.swing.JPanel menu_container;
+    private javax.swing.JPanel nestedCaseMenuBar;
+    private javax.swing.JTabbedPane nestedTabbedCase;
+    private javax.swing.JPanel openNewCaseJpanel;
+    private javax.swing.JRadioButton openNewCaseRadioBtn;
+    private com.toedter.calendar.JDateChooser openingDateChooser;
+    private javax.swing.JTextField openingDateTextField;
+    private javax.swing.JLabel openingDatejLabel;
+    private javax.swing.JTextField paymentTextField;
+    private javax.swing.JLabel paymentjLabel;
+    private javax.swing.JButton saveBtn;
     private javax.swing.JTextField searchBox_userName;
     private javax.swing.JLabel software_name;
     private static javax.swing.JLabel storedUserLabel;

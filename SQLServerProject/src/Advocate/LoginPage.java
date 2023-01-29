@@ -258,7 +258,7 @@ public class LoginPage extends javax.swing.JFrame {
                                             .addComponent(femaleRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(otherRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                                             .addComponent(selectBtn2))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -412,7 +412,7 @@ public class LoginPage extends javax.swing.JFrame {
     Connection connection = null;
     Statement st = null;
     PreparedStatement pst = null;
-    PreparedStatement pst1 = null;
+   
     ResultSet result = null;
     DatabaseCredentials dbc = new DatabaseCredentials();
     String databaseUrl = dbc.getDatabaseUrl();

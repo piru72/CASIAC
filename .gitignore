@@ -6,3 +6,4 @@ DatabaseCredentials.java
 Database/
 tara.txt
 **/Database/
+/SQL CONNECTION CHECK/SqlConnectionCheck/nbproject/private/
