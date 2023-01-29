@@ -49,4 +49,56 @@ WHERE
 CLIENT.ClientId = CASES.ClientId AND 
 CASES.CaseWorker = worker.AdvocateId AND  
 CASES.IntroducedBy = introducer.AdvocateId AND 
-CASES.PaymentId = payment.PaymentId 
+CASES.PaymentId = payment.PaymentId  
+
+--> QUERY FOR MY FOLDER -- TO VIEW ALL THE CASES THE CURRENT ADVOCATE IS HANDLING AND THERIR DETAILS
+SELECT CaseId,
+CLIENT.FirstName+ ' '  + CLIENT.LastName AS 'CLIENT NAME',
+Category,
+introducer.FirstName + ' ' + introducer.LastName AS 'Case Introduces',
+CaseLocation AS 'Location',
+OpeningDate,
+payment.Amount AS 'Amount'
+FROM CASES , CLIENT , Advocate  worker, Advocate introducer , PAYMENT payment
+WHERE
+CLIENT.ClientId = CASES.ClientId AND 
+CASES.CaseWorker = worker.AdvocateId AND  
+CASES.IntroducedBy = introducer.AdvocateId AND 
+CASES.PaymentId = payment.PaymentId  AND
+CASES.CaseWorker = 1001
+
+
+--> QUERY FOR MY FOLDER CATEGORY-- TO VIEW ALL THE CASES OF A SPECIFIC CATEGORY
+SELECT CaseId,
+CLIENT.FirstName+ ' '  + CLIENT.LastName AS 'CLIENT NAME',
+Category,
+introducer.FirstName + ' ' + introducer.LastName AS 'Case Introduces',
+CaseLocation AS 'Location',
+OpeningDate,
+payment.Amount AS 'Amount'
+FROM CASES , CLIENT , Advocate  worker, Advocate introducer , PAYMENT payment
+WHERE
+CLIENT.ClientId = CASES.ClientId AND 
+CASES.CaseWorker = worker.AdvocateId AND  
+CASES.IntroducedBy = introducer.AdvocateId AND 
+CASES.PaymentId = payment.PaymentId  AND
+CASES.CaseWorker = 1001 AND 
+Category = 'Land'
+
+
+--> QUERY FOR MY FOLDER LOCATION-- TO VIEW ALL THE CASES OF A SPECIFIC LOCATION
+SELECT CaseId,
+CLIENT.FirstName+ ' '  + CLIENT.LastName AS 'CLIENT NAME',
+Category,
+introducer.FirstName + ' ' + introducer.LastName AS 'Case Introduces',
+CaseLocation AS 'Location',
+OpeningDate,
+payment.Amount AS 'Amount'
+FROM CASES , CLIENT , Advocate  worker, Advocate introducer , PAYMENT payment
+WHERE
+CLIENT.ClientId = CASES.ClientId AND 
+CASES.CaseWorker = worker.AdvocateId AND  
+CASES.IntroducedBy = introducer.AdvocateId AND 
+CASES.PaymentId = payment.PaymentId  AND
+CASES.CaseWorker = 1001 AND 
+CaseLocation = 'Main Court'
