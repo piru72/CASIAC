@@ -40,7 +40,7 @@ public class MainDashboard extends javax.swing.JFrame {
     DatabaseCredentials dbc_1 = new DatabaseCredentials();
     String databaseUrl = dbc_1.getDatabaseUrl();
     String AdminPassword = "123456";
-    int clientId ;
+    int clientId;
     boolean statusClientInfo = false;
     Connection connection = null;
     Statement st = null;
@@ -143,6 +143,20 @@ public class MainDashboard extends javax.swing.JFrame {
         locationTextField = new javax.swing.JTextField();
         saveClientInfo = new javax.swing.JButton();
         AddPaymentjPanel = new javax.swing.JPanel();
+        createdTimejLabel = new javax.swing.JLabel();
+        createdTimeDateChooser = new com.toedter.calendar.JDateChooser();
+        createdTimejTextField = new javax.swing.JTextField();
+        updatedTimejLabel = new javax.swing.JLabel();
+        updatedTimeDateChooser = new com.toedter.calendar.JDateChooser();
+        updatedTimeTextField = new javax.swing.JTextField();
+        statusjLabel = new javax.swing.JLabel();
+        statusTextField = new javax.swing.JTextField();
+        amountjLabel = new javax.swing.JLabel();
+        amountTextField = new javax.swing.JTextField();
+        detailJlabel = new javax.swing.JLabel();
+        detailTextField = new javax.swing.JTextField();
+        savePaymentBtn = new javax.swing.JButton();
+        backPaymentjLabel = new javax.swing.JLabel();
         tab_accounts = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         tab_communication = new javax.swing.JPanel();
@@ -682,7 +696,7 @@ public class MainDashboard extends javax.swing.JFrame {
                             .addComponent(openNewCaseRadioBtn)
                             .addComponent(activeFolderRadioBtn)
                             .addComponent(MyFolderRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 477, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
                         .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(boxArchiveRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -709,7 +723,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(folderLocRadioBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boxArchiveRadioBtn)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         nestedTabbedCase.addTab("", nestedCaseMenuBar);
@@ -958,15 +972,109 @@ public class MainDashboard extends javax.swing.JFrame {
 
         nestedTabbedCase.addTab("tab2", AddClientjPanel);
 
+        createdTimejLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        createdTimejLabel.setText("Created Time");
+
+        createdTimeDateChooser.setDateFormatString("yyyy-MM-dd");
+
+        updatedTimejLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        updatedTimejLabel.setText("Updated Time");
+
+        updatedTimeDateChooser.setDateFormatString("yyyy-MM-dd");
+
+        statusjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        statusjLabel.setText("Status");
+
+        amountjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        amountjLabel.setText("Amount");
+
+        detailJlabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        detailJlabel.setText("Detail");
+
+        savePaymentBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        savePaymentBtn.setText("Save");
+        savePaymentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePaymentBtnActionPerformed(evt);
+            }
+        });
+
+        backPaymentjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        backPaymentjLabel.setText("Back");
+        backPaymentjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backPaymentjLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout AddPaymentjPanelLayout = new javax.swing.GroupLayout(AddPaymentjPanel);
         AddPaymentjPanel.setLayout(AddPaymentjPanelLayout);
         AddPaymentjPanelLayout.setHorizontalGroup(
             AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddPaymentjPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(statusjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updatedTimejLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                        .addComponent(createdTimejLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(amountjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detailJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(createdTimeDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(updatedTimeDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(statusTextField)
+                    .addComponent(amountTextField)
+                    .addComponent(detailTextField))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(createdTimejTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(updatedTimeTextField))
+                .addGap(75, 75, 75))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddPaymentjPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddPaymentjPanelLayout.createSequentialGroup()
+                        .addComponent(savePaymentBtn)
+                        .addGap(240, 240, 240))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddPaymentjPanelLayout.createSequentialGroup()
+                        .addComponent(backPaymentjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62))))
         );
         AddPaymentjPanelLayout.setVerticalGroup(
             AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(AddPaymentjPanelLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createdTimeDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(AddPaymentjPanelLayout.createSequentialGroup()
+                        .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(createdTimejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(createdTimejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(updatedTimejLabel)
+                                .addComponent(updatedTimeDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(updatedTimeTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(39, 39, 39)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusjLabel)
+                    .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(amountjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(detailJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(savePaymentBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(backPaymentjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         nestedTabbedCase.addTab("tab4", AddPaymentjPanel);
@@ -1403,29 +1511,27 @@ public class MainDashboard extends javax.swing.JFrame {
         this.nestedTabbedCase.setSelectedIndex(2);
 
     }//GEN-LAST:event_addClientBtnActionPerformed
-public void SavedClientID()
-{
-    
-    
-    if(statusClientInfo == true){
-        String savedClientEmail = emailTextField.getText();
-       
-        try {
-             String savedClientIdQuery = "SELECT ClientId FROM Client where Email = ?";
-            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            pst = connection.prepareStatement(savedClientIdQuery);
-           pst.setString(1, savedClientEmail);
-            result = pst.executeQuery();
-            if(result.next())
-            {
-                 clientId = result.getInt("ClientId");
+    public void SavedClientID() {
+
+        if (statusClientInfo == true) {
+            String savedClientEmail = emailTextField.getText();
+
+            try {
+                String savedClientIdQuery = "SELECT ClientId FROM Client where Email = ?";
+                connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+                pst = connection.prepareStatement(savedClientIdQuery);
+                pst.setString(1, savedClientEmail);
+                result = pst.executeQuery();
+                if (result.next()) {
+                    clientId = result.getInt("ClientId");
+                }
+
+            } catch (SQLException ex) {
             }
-                             
-        } catch (SQLException ex) {
-                 }
+        }
+
+        //System.out.println("ID "+clientId);
     }
-       System.out.println("ID "+clientId);
-}
     private void saveClientInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveClientInfoActionPerformed
         // TODO add your handling code here:
         String clientFirstName = firstNameTextField.getText();
@@ -1444,27 +1550,78 @@ public void SavedClientID()
         boolean clientInfoNullCheck = nullCheck(clientList);
         String insertClientQuery = "INSERT into CLIENT (FirstName,LastName,Email,PhoneNumber,Location) Values"
                 + "('" + clientFirstName + "','" + clientLastName + "','" + clientEmail + "','" + clientPhone + "','" + clientLoc + "' )";
-               int status = 0;
         if (clientInfoNullCheck != true) {
             try {
                 connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
                 st = connection.createStatement();
                 st.executeUpdate(insertClientQuery);
                 statusClientInfo = true;
-                               
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
 
         }
-      
+
 
     }//GEN-LAST:event_saveClientInfoActionPerformed
 
     private void addPaymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPaymentBtnActionPerformed
         // TODO add your handling code here:
+        if(statusClientInfo == true){
         this.nestedTabbedCase.setSelectedIndex(3);
+        createdTimejTextField.setVisible(false);
+        updatedTimeTextField.setVisible(false);
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Without Client Information,You can't insert data into Payment Table!",
+                        "Swing Tester", JOptionPane.WARNING_MESSAGE);
+
+        }
+
+
     }//GEN-LAST:event_addPaymentBtnActionPerformed
+
+    private void backPaymentjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backPaymentjLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(0);
+    }//GEN-LAST:event_backPaymentjLabelMouseClicked
+
+    private void savePaymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePaymentBtnActionPerformed
+        // TODO add your handling code here:
+        String selectPaymentdate = ((JTextField) createdTimeDateChooser.getDateEditor().getUiComponent()).getText();
+        createdTimejTextField.setText(selectPaymentdate);
+        String selectPaymentdate2 = ((JTextField) updatedTimeDateChooser.getDateEditor().getUiComponent()).getText();
+        updatedTimeTextField.setText(selectPaymentdate2);
+
+        String PaymentStatus = statusTextField.getText();
+        String money = amountTextField.getText();
+        String PaymentDetail = detailTextField.getText();
+        String createDate = createdTimejTextField.getText();
+        String updateDate = updatedTimeTextField.getText();
+
+        ArrayList< String> PaymentList = new ArrayList<>();
+        PaymentList.add(createDate);
+        PaymentList.add(updateDate);
+        PaymentList.add(PaymentStatus);
+        PaymentList.add(money);
+        PaymentList.add(PaymentDetail);
+        boolean PaymentInfoNullCheck = nullCheck(PaymentList);
+
+        if ( PaymentInfoNullCheck != true) {
+            String PaymentInsertQuery = "INSERT into PAYMENT (ClientId,CreatedTime,UpdatedTime,Status,Amount,Detail) Values"
+                    + "('" + clientId + "','" + createDate + "','" + updateDate + "','" + PaymentStatus + "','" + money + "','" + PaymentDetail + "' )";
+            try {
+                connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+                st = connection.createStatement();
+                st.executeUpdate(PaymentInsertQuery);
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+        }
+        
+    }//GEN-LAST:event_savePaymentBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1527,8 +1684,11 @@ public void SavedClientID()
     private javax.swing.JRadioButton activeFolderRadioBtn;
     private javax.swing.JButton addClientBtn;
     private javax.swing.JButton addPaymentBtn;
+    private javax.swing.JTextField amountTextField;
+    private javax.swing.JLabel amountjLabel;
     private javax.swing.JRadioButton archivedFolderRadioBtn;
     private javax.swing.JLabel backJlabel;
+    private javax.swing.JLabel backPaymentjLabel;
     private javax.swing.JRadioButton boxArchiveRadioBtn;
     private javax.swing.JTextField caseLocTextField;
     private javax.swing.JLabel caseLocjLabel;
@@ -1537,6 +1697,11 @@ public void SavedClientID()
     private javax.swing.JTextField categoryTextField;
     private javax.swing.JLabel categoryjLabel;
     private javax.swing.JLabel clientFirstName;
+    private com.toedter.calendar.JDateChooser createdTimeDateChooser;
+    private javax.swing.JLabel createdTimejLabel;
+    private javax.swing.JTextField createdTimejTextField;
+    private javax.swing.JLabel detailJlabel;
+    private javax.swing.JTextField detailTextField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField firstNameTextField;
@@ -1579,8 +1744,11 @@ public void SavedClientID()
     private javax.swing.JLabel phoneTextField;
     private javax.swing.JButton saveBtn;
     private javax.swing.JButton saveClientInfo;
+    private javax.swing.JButton savePaymentBtn;
     private javax.swing.JTextField searchBox_userName;
     private javax.swing.JLabel software_name;
+    private javax.swing.JTextField statusTextField;
+    private javax.swing.JLabel statusjLabel;
     private static javax.swing.JLabel storedUserLabel;
     private javax.swing.JPanel tab_accounts;
     private javax.swing.JPanel tab_address_book;
@@ -1592,6 +1760,9 @@ public void SavedClientID()
     private javax.swing.JPanel tab_settings;
     private javax.swing.JPanel tab_todoList;
     private javax.swing.JLabel title_searchBox_userName;
+    private com.toedter.calendar.JDateChooser updatedTimeDateChooser;
+    private javax.swing.JTextField updatedTimeTextField;
+    private javax.swing.JLabel updatedTimejLabel;
     private javax.swing.JLabel user_name;
     // End of variables declaration//GEN-END:variables
 }
