@@ -616,7 +616,7 @@ public class LoginPage extends javax.swing.JFrame {
             } else {
                 while (result.next()) {
                     String retrievedPass = result.getString("AdvocatePassword");
-                    //String retrievedPass = "abcd@";
+                   
                     if (retrievedPass.equals(pass)) {
                         System.out.println("Password Matched!!");
                         authentication = true;
