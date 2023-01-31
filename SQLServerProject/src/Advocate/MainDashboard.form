@@ -799,16 +799,24 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="MyFolderRadioBtn" min="-2" pref="98" max="-2" attributes="0"/>
+                                              <Component id="openNewCaseRadioBtn" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="activeFolderRadioBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="MyFolderRadioBtn" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="15" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="openNewCaseRadioBtn" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="15" pref="477" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="boxArchiveRadioBtn" min="-2" pref="98" max="-2" attributes="0"/>
+                                              <Component id="archivedFolderRadioBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="folderLocRadioBtn" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="folderCategoriesRadioBtn" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -817,13 +825,21 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Component id="openNewCaseRadioBtn" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="MyFolderRadioBtn" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="activeFolderRadioBtn" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="195" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="archivedFolderRadioBtn" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="folderCategoriesRadioBtn" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="folderLocRadioBtn" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="boxArchiveRadioBtn" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -862,6 +878,41 @@
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="activeFolderRadioBtnMouseClicked"/>
                           </Events>
                         </Component>
+                        <Component class="javax.swing.JRadioButton" name="archivedFolderRadioBtn">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="All Archived Folder"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="folderCategoriesRadioBtn">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Folder Categories"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="folderCategoriesRadioBtnActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="folderLocRadioBtn">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Folder Location"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="boxArchiveRadioBtn">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Box Archive"/>
+                          </Properties>
+                        </Component>
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="openNewCaseJpanel">
@@ -881,10 +932,7 @@
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="categoryjLabel" pref="59" max="32767" attributes="0"/>
-                                                  <Component id="clientIdjLabel" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="categoryjLabel" min="-2" pref="59" max="-2" attributes="0"/>
                                               <Component id="caseworkerjLabel" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -898,49 +946,48 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="paymentjLabel" min="-2" pref="82" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="openingDatejLabel" min="-2" pref="82" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="categoryTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="introTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="caseLocTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="caseWorkerTextField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="openingDateChooser" pref="155" max="32767" attributes="0"/>
+                                  </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="paymentTextField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="clientIdTextField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="categoryTextField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="introTextField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="caseLocTextField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="caseWorkerTextField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="openingDateChooser" pref="155" max="32767" attributes="0"/>
-                                          </Group>
+                                      <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace pref="76" max="32767" attributes="0"/>
-                                          <Component id="openingDateTextField" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="openingDateTextField" min="-2" pref="155" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="addClientBtn" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="addPaymentBtn" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="backJlabel" min="-2" pref="63" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="backJlabel" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="clientIdjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="clientIdTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="categoryjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="categoryTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -968,13 +1015,13 @@
                                               <Component id="openingDateTextField" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="paymentjLabel" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="addPaymentBtn" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace pref="33" max="32767" attributes="0"/>
                                                   <Component id="saveBtn" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="backJlabel" min="-2" pref="30" max="-2" attributes="0"/>
                                               </Group>
@@ -985,7 +1032,7 @@
                                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                           <Component id="openingDateChooser" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="paymentTextField" min="-2" max="-2" attributes="0"/>
+                                          <Component id="addClientBtn" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1004,16 +1051,6 @@
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backJlabelMouseClicked"/>
                           </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="clientIdjLabel">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Arial" size="12" style="1"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Client ID"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="clientIdTextField">
                         </Component>
                         <Component class="javax.swing.JLabel" name="categoryjLabel">
                           <Properties>
@@ -1065,16 +1102,6 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="openingDateTextField">
                         </Component>
-                        <Component class="javax.swing.JLabel" name="paymentjLabel">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Arial" size="12" style="1"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Payment ID"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="paymentTextField">
-                        </Component>
                         <Component class="javax.swing.JButton" name="saveBtn">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1092,6 +1119,379 @@
                           </Properties>
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="openingDateChooserMouseClicked"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="addClientBtn">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Add Client"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addClientBtnActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="addPaymentBtn">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Add Payment"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addPaymentBtnActionPerformed"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="AddClientjPanel">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                          <JTabbedPaneConstraints tabName="tab2">
+                            <Property name="tabTitle" type="java.lang.String" value="tab2"/>
+                          </JTabbedPaneConstraints>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="0" pref="410" max="32767" attributes="0"/>
+                                  <Component id="saveClientInfo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                                  <Component id="ClientBackjLabel" min="-2" pref="63" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="phoneTextField" max="32767" attributes="0"/>
+                                          <Component id="emailLabel" max="32767" attributes="0"/>
+                                          <Component id="lastNameLabel" max="32767" attributes="0"/>
+                                          <Component id="clientFirstName" pref="66" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="locationLabel" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="firstNameTextField" max="32767" attributes="0"/>
+                                      <Component id="lastNameTextField" max="32767" attributes="0"/>
+                                      <Component id="emailTextField" max="32767" attributes="0"/>
+                                      <Component id="numberTextField" max="32767" attributes="0"/>
+                                      <Component id="locationTextField" pref="131" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="numberTextField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="clientFirstName" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                              <Component id="firstNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lastNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                                  <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="emailTextField" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                          <Component id="phoneTextField" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="locationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="locationTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                          <Component id="ClientBackjLabel" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="saveClientInfo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="ClientBackjLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Back"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ClientBackjLabelMouseClicked"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="clientFirstName">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="First Name"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="firstNameTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lastNameLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Last Name"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="lastNameTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="emailLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Email"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="emailTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="phoneTextField">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Phone"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="numberTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="locationLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Location"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="locationTextField">
+                        </Component>
+                        <Component class="javax.swing.JButton" name="saveClientInfo">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Save"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveClientInfoActionPerformed"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="AddPaymentjPanel">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                          <JTabbedPaneConstraints tabName="tab4">
+                            <Property name="tabTitle" type="java.lang.String" value="tab4"/>
+                          </JTabbedPaneConstraints>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="statusjLabel" max="32767" attributes="0"/>
+                                          <Component id="updatedTimejLabel" pref="85" max="32767" attributes="0"/>
+                                          <Component id="createdTimejLabel" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="amountjLabel" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Component id="detailJlabel" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="createdTimeDateChooser" pref="118" max="32767" attributes="0"/>
+                                      <Component id="updatedTimeDateChooser" max="32767" attributes="0"/>
+                                      <Component id="statusTextField" max="32767" attributes="0"/>
+                                      <Component id="amountTextField" max="32767" attributes="0"/>
+                                      <Component id="detailTextField" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="254" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="createdTimejTextField" pref="116" max="32767" attributes="0"/>
+                                      <Component id="updatedTimeTextField" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="savePaymentBtn" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="backPaymentjLabel" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="createdTimeDateChooser" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="createdTimejTextField" min="-2" max="-2" attributes="0"/>
+                                              <Component id="createdTimejLabel" min="-2" pref="26" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="updatedTimejLabel" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="updatedTimeDateChooser" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="updatedTimeTextField" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="statusjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="statusTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="amountjLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="amountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="detailJlabel" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="detailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="savePaymentBtn" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="backPaymentjLabel" min="-2" pref="22" max="-2" attributes="0"/>
+                                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="createdTimejLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Created Time"/>
+                          </Properties>
+                        </Component>
+                        <Component class="com.toedter.calendar.JDateChooser" name="createdTimeDateChooser">
+                          <Properties>
+                            <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="createdTimejTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="updatedTimejLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Updated Time"/>
+                          </Properties>
+                        </Component>
+                        <Component class="com.toedter.calendar.JDateChooser" name="updatedTimeDateChooser">
+                          <Properties>
+                            <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="updatedTimeTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="statusjLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Status"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="statusTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="amountjLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Amount"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="amountTextField">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="detailJlabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Detail"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="detailTextField">
+                        </Component>
+                        <Component class="javax.swing.JButton" name="savePaymentBtn">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Save"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="savePaymentBtnActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="backPaymentjLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="12" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Back"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backPaymentjLabelMouseClicked"/>
                           </Events>
                         </Component>
                       </SubComponents>
