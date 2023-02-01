@@ -178,6 +178,7 @@ public class MainDashboard extends javax.swing.JFrame {
         main_container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         header_container.setBackground(new java.awt.Color(0, 0, 0));
+        header_container.setPreferredSize(new java.awt.Dimension(540, 444));
 
         software_name.setForeground(new java.awt.Color(255, 255, 255));
         software_name.setText("CASIAC");
@@ -198,26 +199,26 @@ public class MainDashboard extends javax.swing.JFrame {
         header_containerLayout.setHorizontalGroup(
             header_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(header_containerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(software_name)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 744, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
+                .addComponent(software_name, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 657, Short.MAX_VALUE)
                 .addComponent(user_name)
                 .addGap(18, 18, 18)
                 .addComponent(logOut_button)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
         header_containerLayout.setVerticalGroup(
             header_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, header_containerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(header_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(software_name)
                     .addComponent(user_name)
                     .addComponent(logOut_button))
-                .addGap(445, 445, 445))
+                .addGap(27, 27, 27))
         );
 
-        main_container.add(header_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 60));
+        main_container.add(header_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 80));
 
         menu_container.setBackground(new java.awt.Color(255, 255, 102));
 
@@ -377,7 +378,7 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_caseFolder_menuLayout.setVerticalGroup(
             Panel_caseFolder_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_caseFolder_menuLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label_caseFolder_menu)
                 .addGap(34, 34, 34))
         );
@@ -486,20 +487,15 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Panel_AddressBook_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Panel_toDoList_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Panel_caseFolder_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Panel_toDoList_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Panel_communication_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Panel_setting_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(menu_containerLayout.createSequentialGroup()
-                    .addContainerGap()
                     .addComponent(Panel_account_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel_caseFolder_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel_AddressBook_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         menu_containerLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {Panel_AddressBook_menu, Panel_Appointment_menu, Panel_communication_menu, Panel_dashbord_menu, Panel_toDoList_menu});
@@ -507,52 +503,47 @@ public class MainDashboard extends javax.swing.JFrame {
         menu_containerLayout.setVerticalGroup(
             menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_containerLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Panel_AddressBook_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(50, 50, 50)
                 .addComponent(Panel_toDoList_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(52, 52, 52)
                 .addComponent(Panel_caseFolder_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(Panel_communication_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Panel_account_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Panel_communication_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_containerLayout.createSequentialGroup()
-                    .addContainerGap(292, Short.MAX_VALUE)
-                    .addComponent(Panel_account_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(142, 142, 142)))
+                .addGap(69, 69, 69))
         );
 
         menu_containerLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {Panel_AddressBook_menu, Panel_Appointment_menu, Panel_communication_menu, Panel_dashbord_menu, Panel_toDoList_menu});
 
-        main_container.add(menu_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 130, 470));
+        main_container.add(menu_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 130, 690));
 
         tab_dashboard.setBackground(new java.awt.Color(102, 255, 255));
 
         jPanel21.setBackground(new java.awt.Color(102, 102, 102));
 
-        storedUserLabel.setBackground(new java.awt.Color(102, 102, 102));
-        storedUserLabel.setFont(new java.awt.Font("Constantia", 1, 14)); // NOI18N
-        storedUserLabel.setForeground(new java.awt.Color(255, 255, 255));
-
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
         jPanel21Layout.setHorizontalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
-                .addComponent(storedUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 38, Short.MAX_VALUE))
+            .addGap(0, 205, Short.MAX_VALUE)
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(storedUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addGap(0, 55, Short.MAX_VALUE)
         );
+
+        storedUserLabel.setBackground(new java.awt.Color(102, 102, 102));
+        storedUserLabel.setFont(new java.awt.Font("Constantia", 1, 14)); // NOI18N
+        storedUserLabel.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout tab_dashboardLayout = new javax.swing.GroupLayout(tab_dashboard);
         tab_dashboard.setLayout(tab_dashboardLayout);
@@ -560,15 +551,22 @@ public class MainDashboard extends javax.swing.JFrame {
             tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_dashboardLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(storedUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(625, Short.MAX_VALUE))
         );
         tab_dashboardLayout.setVerticalGroup(
             tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab_dashboardLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(636, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_dashboardLayout.createSequentialGroup()
+                .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tab_dashboardLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab_dashboardLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(storedUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 8, Short.MAX_VALUE)))
+                .addGap(602, 602, 602))
         );
 
         tab_container.addTab("tab1", tab_dashboard);
@@ -591,7 +589,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_address_bookLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel6)
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_address_book);
@@ -614,7 +612,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_appointmentLayout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addComponent(jLabel5)
-                .addContainerGap(546, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab2", tab_appointment);
@@ -637,7 +635,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_todoListLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel14)
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_todoList);
@@ -1101,7 +1099,7 @@ public class MainDashboard extends javax.swing.JFrame {
         tab_caseFolderLayout.setVerticalGroup(
             tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_caseFolderLayout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1130,7 +1128,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_accountsLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel16)
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_accounts);
@@ -1153,7 +1151,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_communicationLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel17)
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addContainerGap(537, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_communication);
@@ -1227,24 +1225,21 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_settingsLayout.createSequentialGroup()
                 .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(tab_settingsLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_settingsLayout.createSequentialGroup()
+                        .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(64, 64, 64))
-                        .addGroup(tab_settingsLayout.createSequentialGroup()
-                            .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(tab_settingsLayout.createSequentialGroup()
-                                    .addComponent(searchBox_userName6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(23, 23, 23)
-                                    .addComponent(searchBox_userName1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(searchBox_userName2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(searchBox_userName3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(searchBox_userName4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap()))
+                            .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(tab_settingsLayout.createSequentialGroup()
+                                .addComponent(searchBox_userName6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)
+                                .addComponent(searchBox_userName1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchBox_userName2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchBox_userName3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(searchBox_userName4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(64, 64, 64))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_settingsLayout.createSequentialGroup()
                         .addComponent(title_searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(357, 357, 357))))
@@ -1265,12 +1260,12 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(searchBox_userName6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_settings);
 
-        main_container.add(tab_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 860, 730));
+        main_container.add(tab_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 860, 710));
         tab_container.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1809,7 +1804,7 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel21;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable jTable1;
     private javax.swing.JLabel label_account_menu;
     private javax.swing.JLabel label_addressBook_menu;
     private javax.swing.JLabel label_appointment_menu;
