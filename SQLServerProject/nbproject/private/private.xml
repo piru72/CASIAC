@@ -4,9 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Advocate/LoginPage.java</file>
-            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/NewClass.java</file>
-            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Colour/color.java</file>
-            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Advocate/MainDashboard.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/AdvocateDao.java</file>
             <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/interfaces/IAdvocateDAO.java</file>
         </group>
     </open-files>
