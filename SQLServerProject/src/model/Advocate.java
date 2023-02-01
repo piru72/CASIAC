@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author parve
@@ -16,7 +18,7 @@ public class Advocate {
     private String email;
     private String phoneNumber;
     private String AdvocatePassword;
-    private String dateOfbirth;
+    private Date dateOfbirth;
     private String Gender;
     private String address__;
 
@@ -48,7 +50,7 @@ public class Advocate {
         this.AdvocatePassword = AdvocatePassword;
     }
 
-    public void setDateOfbirth(String dateOfbirth) {
+    public void setDateOfbirth(Date dateOfbirth) {
         this.dateOfbirth = dateOfbirth;
     }
 
@@ -84,7 +86,7 @@ public class Advocate {
         return AdvocatePassword;
     }
 
-    public String getDateOfbirth() {
+    public Date getDateOfbirth() {
         return dateOfbirth;
     }
 

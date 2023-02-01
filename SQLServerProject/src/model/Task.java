@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author parve
@@ -12,7 +14,7 @@ public class Task {
     
     private String TaskId;
     private String TaskDetails;
-    private String Deadline;
+    private Date Deadline;
     private String TaskPriority;
     private String LawyerId;
     private String TaskStatus;
@@ -39,11 +41,11 @@ public class Task {
         this.TaskDetails = TaskDetails;
     }
 
-    public String getDeadline() {
+    public Date getDeadline() {
         return Deadline;
     }
 
-    public void setDeadline(String Deadline) {
+    public void setDeadline(Date Deadline) {
         this.Deadline = Deadline;
     }
 
