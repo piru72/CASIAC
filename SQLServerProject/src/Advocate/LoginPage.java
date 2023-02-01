@@ -4,7 +4,7 @@
  */
 package Advocate;
 
-import Database.DatabaseCredentials;
+import DatabaseCredentials.DatabaseCredentials;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;

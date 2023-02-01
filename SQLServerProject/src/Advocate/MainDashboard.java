@@ -4,7 +4,7 @@
  */
 package Advocate;
 
-import Database.DatabaseCredentials;
+import DatabaseCredentials.DatabaseCredentials;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.awt.Color;

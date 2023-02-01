@@ -3,7 +3,6 @@
 /SQLServerProject/dist/
 /SQLServerProject/src/Database/DatabaseCredentials.java
 DatabaseCredentials.java
-Database/
+DatabaseCredentials/
 tara.txt
-**/Database/
 /SQL CONNECTION CHECK/SqlConnectionCheck/nbproject/private/
