@@ -4,6 +4,7 @@
  */
 package Advocate;
 
+import Database.AdvocateDao;
 import DatabaseCredentials.DatabaseCredentials;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -18,6 +19,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import model.Advocate;
 
 /**
  *
@@ -459,58 +461,56 @@ public class LoginPage extends javax.swing.JFrame {
         boolean validMob = checkValidPhoneNumber(ph);
         // boolean uniqueUser =uniqueUsername(em);
 
-        int flag = 0;
-        String insertSQL = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender) Values"
-        + " ('" + insertFirstName + "','" + insertLastName + "','" + em + "','" + ph + "','" + pas + "','" + bD + "','" + gnd + "' )";
+        Advocate advocate = new Advocate();
+        advocate.setFirstName(insertFirstName);
+        advocate.setLastName(insertLastName);
+        advocate.setEmail(em);
+        advocate.setPhoneNumber(ph);
+        advocate.setAdvocatePassword(pas);
+        advocate.setDateOfbirth(bD);
+        advocate.setGender(gnd);
+        advocate.setAddress__(gnd);
+
+       
+      
 
         if (validEmail == true && checkStrong == true && validMob == true && nullVal != true) {
-            flag = 1;
-        } else if (pas == null ? retypedPassword != null : !pas.equals(retypedPassword) )
-        {
+            
+            // If all the given information is valid signin up an advocate
+            AdvocateDao advocateDao = new AdvocateDao();
+            advocateDao.createAdvocate(advocate);
+            
+            firstNameTxt.setText("");
+            lastNameTxt.setText("");
+            EmailTxt.setText("");
+            phoneTxt.setText("");
+            newPassTxt.setText("");
+            retypePassTxt.setText("");
+            selectText.setText("");
+            genderTxt.setText("");
+            maleRadioBtn.setSelected(false);
+            femaleRadioBtn.setSelected(false);
+            otherRadioBtn.setSelected(false);
+            
+        } else if (pas == null ? retypedPassword != null : !pas.equals(retypedPassword)) {
             JOptionPane.showMessageDialog(null, "Password didn't Match",
-                "Warning", JOptionPane.WARNING_MESSAGE);
-        }
-        else if (checkStrong != true) {
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (checkStrong != true) {
             JOptionPane.showMessageDialog(null, "Enter some special character.",
-                "Warning", JOptionPane.WARNING_MESSAGE);
+                    "Warning", JOptionPane.WARNING_MESSAGE);
         } else if (validEmail != true) {
-            JOptionPane.showMessageDialog(null, "Username is incorrect",
-                "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Email is incorrect",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
         } else if (validMob != true) {
             JOptionPane.showMessageDialog(null, "Enter a valid phone number.",
-                "Warning", JOptionPane.WARNING_MESSAGE);
+                    "Warning", JOptionPane.WARNING_MESSAGE);
         } else if (nullVal == true) {
             JOptionPane.showMessageDialog(null, "Fill up the required fields information.", "Warning", JOptionPane.ERROR_MESSAGE);
         } else {
             System.out.println("NO!");
         }
 
-        try {
-
-            firstNameTxt.setText("");
-            lastNameTxt.setText("");
-            EmailTxt.setText("");
-            phoneTxt.setText("");
-            newPassTxt.setText("");
-            selectText.setText("");
-            genderTxt.setText("");
-
-            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            st = connection.createStatement();
-
-            if (flag == 1) {
-                st.executeUpdate(insertSQL);
-            }
-
-            //System.out.println("Inserteddd!!");
-        } catch (SQLException e) {
-            System.out.println("Connection Failed");
-            e.printStackTrace();
-        }
-
-        maleRadioBtn.setSelected(false);
-        femaleRadioBtn.setSelected(false);
-        otherRadioBtn.setSelected(false);
+       
     }//GEN-LAST:event_signupBtnActionPerformed
 
     private void phoneTxtActionPerformed(ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
@@ -585,9 +585,9 @@ public class LoginPage extends javax.swing.JFrame {
         emails.add(inp);
 
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
-        + "[a-zA-Z0-9_+&*-]+)*@"
-        + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
-        + "A-Z]{2,7}$";
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
 
         for (String email : emails) {
@@ -628,7 +628,7 @@ public class LoginPage extends javax.swing.JFrame {
             if (!result.isBeforeFirst()) {
                 System.out.println("User Doesn't Exist");
                 JOptionPane.showMessageDialog(null, "Username Doesn't Exist!",
-                    "Swing Tester", JOptionPane.WARNING_MESSAGE);
+                        "Swing Tester", JOptionPane.WARNING_MESSAGE);
             } else {
                 while (result.next()) {
                     String retrievedPass = result.getString("AdvocatePassword");
@@ -642,7 +642,7 @@ public class LoginPage extends javax.swing.JFrame {
                     } else {
                         System.out.println("Password Didn't match!");
                         JOptionPane.showMessageDialog(null, "Wrong Password!",
-                            "Swing Tester", JOptionPane.WARNING_MESSAGE);
+                                "Swing Tester", JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }
@@ -663,13 +663,12 @@ public class LoginPage extends javax.swing.JFrame {
     Connection connection = null;
     Statement st = null;
     PreparedStatement pst = null;
-   
+
     ResultSet result = null;
     DatabaseCredentials dbc = new DatabaseCredentials();
     String databaseUrl = dbc.getDatabaseUrl();
     String StoredUsername = "";
     String AdminPassword = "123456";
-   
 
     public boolean checkNull(ArrayList< String> s) {
         boolean val1 = false;
@@ -709,6 +708,7 @@ public class LoginPage extends javax.swing.JFrame {
         }
         return unique;
     }
+
     public boolean checkStrongPassword(String p) {
         boolean checkStrongPass = false;
 
@@ -720,7 +720,9 @@ public class LoginPage extends javax.swing.JFrame {
             checkStrongPass = true;
         }
         return checkStrongPass;
-    }    public boolean checkValidPhoneNumber(String ph) {
+    }
+
+    public boolean checkValidPhoneNumber(String ph) {
         String validPh = phoneTxt.getText();
         boolean valid = false;
         if (validPh.length() == 11 && validPh.startsWith("01")) {
@@ -728,8 +730,9 @@ public class LoginPage extends javax.swing.JFrame {
         }
         return valid;
     }
+
     public static void main(String args[]) {
-              LoginPage loginObj = new LoginPage();
+        LoginPage loginObj = new LoginPage();
         loginObj.setVisible(true);
 
         loginObj.selectText.setVisible(false);

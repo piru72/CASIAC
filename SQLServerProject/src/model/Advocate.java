@@ -18,7 +18,7 @@ public class Advocate {
     private String email;
     private String phoneNumber;
     private String AdvocatePassword;
-    private Date dateOfbirth;
+    private String dateOfbirth;
     private String Gender;
     private String address__;
 
@@ -50,7 +50,7 @@ public class Advocate {
         this.AdvocatePassword = AdvocatePassword;
     }
 
-    public void setDateOfbirth(Date dateOfbirth) {
+    public void setDateOfbirth(String dateOfbirth) {
         this.dateOfbirth = dateOfbirth;
     }
 
@@ -86,7 +86,7 @@ public class Advocate {
         return AdvocatePassword;
     }
 
-    public Date getDateOfbirth() {
+    public String getDateOfbirth() {
         return dateOfbirth;
     }
 
