@@ -166,6 +166,11 @@ public class MainDashboard extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         searchBox_userName = new javax.swing.JTextField();
         title_searchBox_userName = new javax.swing.JLabel();
+        searchBox_userName1 = new javax.swing.JTextField();
+        searchBox_userName2 = new javax.swing.JTextField();
+        searchBox_userName3 = new javax.swing.JTextField();
+        searchBox_userName4 = new javax.swing.JTextField();
+        searchBox_userName6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -195,7 +200,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(header_containerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(software_name)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 744, Short.MAX_VALUE)
                 .addComponent(user_name)
                 .addGap(18, 18, 18)
                 .addComponent(logOut_button)
@@ -212,7 +217,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGap(445, 445, 445))
         );
 
-        main_container.add(header_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 60));
+        main_container.add(header_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 60));
 
         menu_container.setBackground(new java.awt.Color(255, 255, 102));
 
@@ -239,7 +244,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_dashbord_menuLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(label_dashboard_menu)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         Panel_dashbord_menuLayout.setVerticalGroup(
             Panel_dashbord_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +276,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_AddressBook_menuLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(label_addressBook_menu)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         Panel_AddressBook_menuLayout.setVerticalGroup(
             Panel_AddressBook_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +308,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_Appointment_menuLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(label_appointment_menu)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         Panel_Appointment_menuLayout.setVerticalGroup(
             Panel_Appointment_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +340,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_toDoList_menuLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(label_todoList_menu)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         Panel_toDoList_menuLayout.setVerticalGroup(
             Panel_toDoList_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,14 +561,14 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_dashboardLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(555, Short.MAX_VALUE))
+                .addContainerGap(625, Short.MAX_VALUE))
         );
         tab_dashboardLayout.setVerticalGroup(
             tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_dashboardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(416, Short.MAX_VALUE))
+                .addContainerGap(636, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab1", tab_dashboard);
@@ -579,14 +584,14 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_address_bookLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel6)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         tab_address_bookLayout.setVerticalGroup(
             tab_address_bookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_address_bookLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel6)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(557, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_address_book);
@@ -602,14 +607,14 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_appointmentLayout.createSequentialGroup()
                 .addGap(344, 344, 344)
                 .addComponent(jLabel5)
-                .addContainerGap(409, Short.MAX_VALUE))
+                .addContainerGap(479, Short.MAX_VALUE))
         );
         tab_appointmentLayout.setVerticalGroup(
             tab_appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_appointmentLayout.createSequentialGroup()
                 .addGap(135, 135, 135)
                 .addComponent(jLabel5)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addContainerGap(546, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab2", tab_appointment);
@@ -625,14 +630,14 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_todoListLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel14)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         tab_todoListLayout.setVerticalGroup(
             tab_todoListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_todoListLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel14)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(557, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_todoList);
@@ -1091,12 +1096,12 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addGroup(tab_caseFolderLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         tab_caseFolderLayout.setVerticalGroup(
             tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_caseFolderLayout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
+                .addContainerGap(228, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1118,14 +1123,14 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_accountsLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel16)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         tab_accountsLayout.setVerticalGroup(
             tab_accountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_accountsLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel16)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(557, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_accounts);
@@ -1141,20 +1146,21 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_communicationLayout.createSequentialGroup()
                 .addGap(354, 354, 354)
                 .addComponent(jLabel17)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
         tab_communicationLayout.setVerticalGroup(
             tab_communicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_communicationLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(jLabel17)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(557, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_communication);
 
-        tab_settings.setBackground(new java.awt.Color(102, 102, 255));
+        tab_settings.setBackground(new java.awt.Color(79, 164, 250));
 
+        jTable1.setForeground(new java.awt.Color(250, 250, 250));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1163,45 +1169,108 @@ public class MainDashboard extends javax.swing.JFrame {
                 "Lawyer_ID", "First_Name", "Last_Name", "Email", "Birth_Date", "Gender"
             }
         ));
+        jTable1.setEditingColumn(0);
+        jTable1.setEditingRow(0);
+        jTable1.setSelectionBackground(new java.awt.Color(200, 227, 246));
         ScrollPane_user_list.setViewportView(jTable1);
 
+        searchBox_userName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBox_userNameActionPerformed(evt);
+            }
+        });
         searchBox_userName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchBox_userNameKeyReleased(evt);
             }
         });
 
-        title_searchBox_userName.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        title_searchBox_userName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        title_searchBox_userName.setForeground(new java.awt.Color(250, 250, 250));
+        title_searchBox_userName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title_searchBox_userName.setText("Search");
+
+        searchBox_userName1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchBox_userName1KeyReleased(evt);
+            }
+        });
+
+        searchBox_userName2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchBox_userName2KeyReleased(evt);
+            }
+        });
+
+        searchBox_userName3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchBox_userName3KeyReleased(evt);
+            }
+        });
+
+        searchBox_userName4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchBox_userName4KeyReleased(evt);
+            }
+        });
+
+        searchBox_userName6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchBox_userName6KeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout tab_settingsLayout = new javax.swing.GroupLayout(tab_settings);
         tab_settings.setLayout(tab_settingsLayout);
         tab_settingsLayout.setHorizontalGroup(
             tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_settingsLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(title_searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(tab_settingsLayout.createSequentialGroup()
+                            .addComponent(searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(64, 64, 64))
+                        .addGroup(tab_settingsLayout.createSequentialGroup()
+                            .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(tab_settingsLayout.createSequentialGroup()
+                                    .addComponent(searchBox_userName6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(23, 23, 23)
+                                    .addComponent(searchBox_userName1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(searchBox_userName2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(searchBox_userName3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(searchBox_userName4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_settingsLayout.createSequentialGroup()
+                        .addComponent(title_searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(357, 357, 357))))
         );
         tab_settingsLayout.setVerticalGroup(
             tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_settingsLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+            .addGroup(tab_settingsLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addComponent(title_searchBox_userName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+                .addComponent(searchBox_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(tab_settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchBox_userName1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBox_userName2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBox_userName3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBox_userName4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBox_userName6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ScrollPane_user_list, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_settings);
 
-        main_container.add(tab_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 790, 510));
+        main_container.add(tab_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 860, 730));
         tab_container.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1393,15 +1462,6 @@ public class MainDashboard extends javax.swing.JFrame {
         trs.setRowFilter(RowFilter.regexFilter(str));
 
     }
-    private void searchBox_userNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userNameKeyReleased
-        // TODO add your handling code here:
-
-        //connection.close();
-        String searchStr = searchBox_userName.getText();
-        search(searchStr);
-
-    }//GEN-LAST:event_searchBox_userNameKeyReleased
-
     private void openNewCaseRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openNewCaseRadioBtnMouseClicked
         // TODO add your handling code here:
         if (openNewCaseRadioBtn.isSelected()) {
@@ -1623,6 +1683,38 @@ public class MainDashboard extends javax.swing.JFrame {
         
     }//GEN-LAST:event_savePaymentBtnActionPerformed
 
+    private void searchBox_userName6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userName6KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBox_userName6KeyReleased
+
+    private void searchBox_userName4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userName4KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBox_userName4KeyReleased
+
+    private void searchBox_userName3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userName3KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBox_userName3KeyReleased
+
+    private void searchBox_userName2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userName2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBox_userName2KeyReleased
+
+    private void searchBox_userName1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userName1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBox_userName1KeyReleased
+
+    private void searchBox_userNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBox_userNameKeyReleased
+        // TODO add your handling code here:
+
+        //connection.close();
+        String searchStr = searchBox_userName.getText();
+        search(searchStr);
+    }//GEN-LAST:event_searchBox_userNameKeyReleased
+
+    private void searchBox_userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBox_userNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBox_userNameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1717,7 +1809,7 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel21;
-    private static javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel label_account_menu;
     private javax.swing.JLabel label_addressBook_menu;
     private javax.swing.JLabel label_appointment_menu;
@@ -1746,6 +1838,11 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JButton saveClientInfo;
     private javax.swing.JButton savePaymentBtn;
     private javax.swing.JTextField searchBox_userName;
+    private javax.swing.JTextField searchBox_userName1;
+    private javax.swing.JTextField searchBox_userName2;
+    private javax.swing.JTextField searchBox_userName3;
+    private javax.swing.JTextField searchBox_userName4;
+    private javax.swing.JTextField searchBox_userName6;
     private javax.swing.JLabel software_name;
     private javax.swing.JTextField statusTextField;
     private javax.swing.JLabel statusjLabel;

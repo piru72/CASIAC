@@ -5,6 +5,8 @@
 package Advocate;
 
 import Database.DatabaseCredentials;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -35,7 +37,6 @@ public class LoginPage extends javax.swing.JFrame {
     private void initComponents() {
 
         LoginJpane = new javax.swing.JPanel();
-        LoginJlabel = new javax.swing.JLabel();
         CMSLabel1 = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
         usernameText = new javax.swing.JTextField();
@@ -70,11 +71,12 @@ public class LoginPage extends javax.swing.JFrame {
         signupPassLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(890, 600));
+        setResizable(false);
 
-        LoginJpane.setBackground(new java.awt.Color(0, 0, 0));
-
-        LoginJlabel.setText("LOG");
+        LoginJpane.setBackground(new java.awt.Color(79, 164, 250));
 
         CMSLabel1.setFont(new java.awt.Font("Berlin Sans FB Demi", 2, 36)); // NOI18N
         CMSLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,7 +98,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(200, 227, 246));
 
         SignUp.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         SignUp.setText("SIGN UP");
@@ -327,7 +329,7 @@ public class LoginPage extends javax.swing.JFrame {
                         .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -365,7 +367,7 @@ public class LoginPage extends javax.swing.JFrame {
                             .addComponent(femaleRadioBtn)
                             .addComponent(otherRadioBtn)
                             .addComponent(selectBtn2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(signupBtn)
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -378,22 +380,21 @@ public class LoginPage extends javax.swing.JFrame {
         LoginJpane.setLayout(LoginJpaneLayout);
         LoginJpaneLayout.setHorizontalGroup(
             LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LoginJpaneLayout.createSequentialGroup()
-                .addGap(452, 452, 452)
-                .addComponent(LoginJlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(LoginJpaneLayout.createSequentialGroup()
-                .addComponent(CMSLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LoginBtn))
-                .addGap(0, 189, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(LoginJpaneLayout.createSequentialGroup()
+                .addGroup(LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LoginBtn)
+                    .addGroup(LoginJpaneLayout.createSequentialGroup()
+                        .addComponent(CMSLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         LoginJpaneLayout.setVerticalGroup(
             LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,8 +404,7 @@ public class LoginPage extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addComponent(CMSLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LoginJpaneLayout.createSequentialGroup()
-                        .addComponent(LoginJlabel)
-                        .addGap(19, 19, 19)
+                        .addGap(35, 35, 35)
                         .addGroup(LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(passwordLabel)
                             .addComponent(usernameLabel))
@@ -412,7 +412,7 @@ public class LoginPage extends javax.swing.JFrame {
                         .addGroup(LoginJpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(LoginBtn)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -426,39 +426,98 @@ public class LoginPage extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(LoginJpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(LoginJpane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    boolean validEmail = false;
-    boolean authentication = false;
-    Connection connection = null;
-    Statement st = null;
-    PreparedStatement pst = null;
-   
-    ResultSet result = null;
-    DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
-    String StoredUsername = "";
-    String AdminPassword = "123456";
-   
 
-    private void selectTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTextActionPerformed
+    private void retypePassTxtActionPerformed(ActionEvent evt) {//GEN-FIRST:event_retypePassTxtActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_retypePassTxtActionPerformed
 
-    }//GEN-LAST:event_selectTextActionPerformed
-
-    private void selectDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDateActionPerformed
+    private void signupBtnActionPerformed(ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
         // TODO add your handling code here:
+        String insertFirstName = firstNameTxt.getText();
+        String insertLastName = lastNameTxt.getText();
+        String em = EmailTxt.getText();
+        String ph = phoneTxt.getText();
+        String pas = newPassTxt.getText();
+        String retypedPassword = retypePassTxt.getText();
+        String bD = selectText.getText();
+        String gnd = genderTxt.getText();
+        ArrayList< String> stList = new ArrayList<>();
+        stList.add(insertFirstName);
+        stList.add(insertLastName);
+        stList.add(em);
+        stList.add(ph);
+        stList.add(pas);
+        stList.add(bD);
+        stList.add(gnd);
+        boolean nullVal = checkNull(stList);
+        boolean checkStrong = checkStrongPassword(pas);
+        boolean validMob = checkValidPhoneNumber(ph);
+        // boolean uniqueUser =uniqueUsername(em);
 
-        String selectdate = ((JTextField) birthdateChooser.getDateEditor().getUiComponent()).getText();
-        selectText.setText(selectdate);
-    }//GEN-LAST:event_selectDateActionPerformed
+        int flag = 0;
+        String insertSQL = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender) Values"
+        + " ('" + insertFirstName + "','" + insertLastName + "','" + em + "','" + ph + "','" + pas + "','" + bD + "','" + gnd + "' )";
 
-    private void selectBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn2ActionPerformed
+        if (validEmail == true && checkStrong == true && validMob == true && nullVal != true) {
+            flag = 1;
+        } else if (pas == null ? retypedPassword != null : !pas.equals(retypedPassword) )
+        {
+            JOptionPane.showMessageDialog(null, "Password didn't Match",
+                "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else if (checkStrong != true) {
+            JOptionPane.showMessageDialog(null, "Enter some special character.",
+                "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (validEmail != true) {
+            JOptionPane.showMessageDialog(null, "Username is incorrect",
+                "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (validMob != true) {
+            JOptionPane.showMessageDialog(null, "Enter a valid phone number.",
+                "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (nullVal == true) {
+            JOptionPane.showMessageDialog(null, "Fill up the required fields information.", "Warning", JOptionPane.ERROR_MESSAGE);
+        } else {
+            System.out.println("NO!");
+        }
+
+        try {
+
+            firstNameTxt.setText("");
+            lastNameTxt.setText("");
+            EmailTxt.setText("");
+            phoneTxt.setText("");
+            newPassTxt.setText("");
+            selectText.setText("");
+            genderTxt.setText("");
+
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            st = connection.createStatement();
+
+            if (flag == 1) {
+                st.executeUpdate(insertSQL);
+            }
+
+            //System.out.println("Inserteddd!!");
+        } catch (SQLException e) {
+            System.out.println("Connection Failed");
+            e.printStackTrace();
+        }
+
+        maleRadioBtn.setSelected(false);
+        femaleRadioBtn.setSelected(false);
+        otherRadioBtn.setSelected(false);
+    }//GEN-LAST:event_signupBtnActionPerformed
+
+    private void phoneTxtActionPerformed(ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneTxtActionPerformed
+
+    private void selectBtn2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectBtn2ActionPerformed
         // TODO add your handling code here:
         if (maleRadioBtn.isSelected()) {
             genderTxt.setText("Male");
@@ -473,13 +532,144 @@ public class LoginPage extends javax.swing.JFrame {
             maleRadioBtn.setSelected(false);
             femaleRadioBtn.setSelected(false);
         }
-
-
     }//GEN-LAST:event_selectBtn2ActionPerformed
 
-    private void genderTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderTxtActionPerformed
+    private void genderTxtActionPerformed(ActionEvent evt) {//GEN-FIRST:event_genderTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_genderTxtActionPerformed
+
+    private void otherRadioBtnActionPerformed(ActionEvent evt) {//GEN-FIRST:event_otherRadioBtnActionPerformed
+        // TODO add your handling code here:
+        if (otherRadioBtn.isSelected()) {
+            femaleRadioBtn.setSelected(false);
+            maleRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_otherRadioBtnActionPerformed
+
+    private void femaleRadioBtnActionPerformed(ActionEvent evt) {//GEN-FIRST:event_femaleRadioBtnActionPerformed
+        // TODO add your handling code here:
+        if (femaleRadioBtn.isSelected()) {
+            maleRadioBtn.setSelected(false);
+            otherRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_femaleRadioBtnActionPerformed
+
+    private void maleRadioBtnActionPerformed(ActionEvent evt) {//GEN-FIRST:event_maleRadioBtnActionPerformed
+        // TODO add your handling code here:
+        if (maleRadioBtn.isSelected()) {
+            femaleRadioBtn.setSelected(false);
+            otherRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_maleRadioBtnActionPerformed
+
+    private void selectTextActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectTextActionPerformed
+
+    private void selectDateActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectDateActionPerformed
+        // TODO add your handling code here:
+
+        String selectdate = ((JTextField) birthdateChooser.getDateEditor().getUiComponent()).getText();
+        selectText.setText(selectdate);
+    }//GEN-LAST:event_selectDateActionPerformed
+
+    private void newPassTxtActionPerformed(ActionEvent evt) {//GEN-FIRST:event_newPassTxtActionPerformed
+        // TODO add your handling code here:/
+    }//GEN-LAST:event_newPassTxtActionPerformed
+
+    private void EmailTxtKeyPressed(KeyEvent evt) {//GEN-FIRST:event_EmailTxtKeyPressed
+        // TODO add your handling code here:
+
+        ArrayList<String> emails = new ArrayList<>();
+        String inp = EmailTxt.getText();
+        emails.add(inp);
+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+        + "[a-zA-Z0-9_+&*-]+)*@"
+        + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+        + "A-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+
+        for (String email : emails) {
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()) {
+                validEmail = true;
+            } else {
+                validEmail = false;
+            }
+
+        }
+    }//GEN-LAST:event_EmailTxtKeyPressed
+
+    private void EmailTxtActionPerformed(ActionEvent evt) {//GEN-FIRST:event_EmailTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailTxtActionPerformed
+
+    private void lastNameTxtActionPerformed(ActionEvent evt) {//GEN-FIRST:event_lastNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameTxtActionPerformed
+
+    private void LoginBtnActionPerformed(ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
+        // TODO add your handling code here:
+        String query = "SELECT Email,FirstName,AdvocatePassword FROM Advocate WHERE Email = ? ";
+
+        String user = usernameText.getText();
+        String pass = passwordField.getText();
+        MainDashboard objhome = new MainDashboard();
+        try {
+
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            pst = connection.prepareStatement(query);
+
+            pst.setString(1, user);
+
+            result = pst.executeQuery();
+
+            if (!result.isBeforeFirst()) {
+                System.out.println("User Doesn't Exist");
+                JOptionPane.showMessageDialog(null, "Username Doesn't Exist!",
+                    "Swing Tester", JOptionPane.WARNING_MESSAGE);
+            } else {
+                while (result.next()) {
+                    String retrievedPass = result.getString("AdvocatePassword");
+
+                    if (retrievedPass.equals(pass)) {
+                        System.out.println("Password Matched!!");
+                        authentication = true;
+                        StoredUsername = result.getString("FirstName");
+                        MainDashboard phaseObj = new MainDashboard(StoredUsername);
+
+                    } else {
+                        System.out.println("Password Didn't match!");
+                        JOptionPane.showMessageDialog(null, "Wrong Password!",
+                            "Swing Tester", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (authentication == true) {
+            objhome.setVisible(true);
+            this.setVisible(false);
+            usernameText.setText("");
+            passwordField.setText("");
+
+        }
+    }//GEN-LAST:event_LoginBtnActionPerformed
+    boolean validEmail = false;
+    boolean authentication = false;
+    Connection connection = null;
+    Statement st = null;
+    PreparedStatement pst = null;
+   
+    ResultSet result = null;
+    DatabaseCredentials dbc = new DatabaseCredentials();
+    String databaseUrl = dbc.getDatabaseUrl();
+    String StoredUsername = "";
+    String AdminPassword = "123456";
+   
 
     public boolean checkNull(ArrayList< String> s) {
         boolean val1 = false;
@@ -519,171 +709,6 @@ public class LoginPage extends javax.swing.JFrame {
         }
         return unique;
     }
-    private void signupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
-        // TODO add your handling code here:
-        String insertFirstName = firstNameTxt.getText();
-        String insertLastName = lastNameTxt.getText();
-        String em = EmailTxt.getText();
-        String ph = phoneTxt.getText();
-        String pas = newPassTxt.getText();
-        String retypedPassword = retypePassTxt.getText();
-        String bD = selectText.getText();
-        String gnd = genderTxt.getText();
-        ArrayList< String> stList = new ArrayList<>();
-        stList.add(insertFirstName);
-        stList.add(insertLastName);
-        stList.add(em);
-        stList.add(ph);
-        stList.add(pas);
-        stList.add(bD);
-        stList.add(gnd);
-        boolean nullVal = checkNull(stList);
-        boolean checkStrong = checkStrongPassword(pas);
-        boolean validMob = checkValidPhoneNumber(ph);
-        // boolean uniqueUser =uniqueUsername(em);
-
-        int flag = 0;
-        String insertSQL = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender) Values"
-                + " ('" + insertFirstName + "','" + insertLastName + "','" + em + "','" + ph + "','" + pas + "','" + bD + "','" + gnd + "' )";
-
-        if (validEmail == true && checkStrong == true && validMob == true && nullVal != true) {
-            flag = 1;
-        } else if (pas != retypedPassword )
-        {
-            JOptionPane.showMessageDialog(null, "Password didn't Match",
-                    "Warninng", JOptionPane.WARNING_MESSAGE);
-        }
-        else if (checkStrong != true) {
-            JOptionPane.showMessageDialog(null, "Enter some special character.",
-                    "Swing Tester", JOptionPane.WARNING_MESSAGE);
-        } else if (validEmail != true) {
-            JOptionPane.showMessageDialog(null, "Username is incorrect",
-                    "Swing Tester", JOptionPane.WARNING_MESSAGE);
-        } else if (validMob != true) {
-            JOptionPane.showMessageDialog(null, "Enter a valid phone number.",
-                    "Swing Tester", JOptionPane.WARNING_MESSAGE);
-        } else if (nullVal == true) {
-            JOptionPane.showMessageDialog(null, "Fill up the required fields information.", "Swing Tester", JOptionPane.ERROR_MESSAGE);
-        } else {
-            System.out.println("NO!");
-        }
-
-        try {
-            
-                firstNameTxt.setText("");
-                lastNameTxt.setText("");
-                EmailTxt.setText("");
-                phoneTxt.setText("");
-                newPassTxt.setText("");
-                selectText.setText("");
-                genderTxt.setText("");
-
-            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            st = connection.createStatement();
-
-            if (flag == 1) {
-                st.executeUpdate(insertSQL);
-            }
-
-            //System.out.println("Inserteddd!!");
-        } catch (SQLException e) {
-            System.out.println("Connection Failed");
-            e.printStackTrace();
-        }
-
-        maleRadioBtn.setSelected(false);
-        femaleRadioBtn.setSelected(false);
-        otherRadioBtn.setSelected(false);
-
-
-    }//GEN-LAST:event_signupBtnActionPerformed
-
-    private void EmailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTxtActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_EmailTxtActionPerformed
-
-    private void lastNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameTxtActionPerformed
-
-    private void EmailTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmailTxtKeyPressed
-        // TODO add your handling code here:
-
-        ArrayList<String> emails = new ArrayList<>();
-        String inp = EmailTxt.getText();
-        emails.add(inp);
-
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
-                + "[a-zA-Z0-9_+&*-]+)*@"
-                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
-                + "A-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailRegex);
-
-        for (String email : emails) {
-            Matcher matcher = pattern.matcher(email);
-            if (matcher.matches()) {
-                validEmail = true;
-            } else {
-                validEmail = false;
-            }
-
-        }
-
-    }//GEN-LAST:event_EmailTxtKeyPressed
-
-    private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
-        // TODO add your handling code here:
-        String query = "SELECT Email,FirstName,AdvocatePassword FROM Advocate WHERE Email = ? ";
-       
-        String user = usernameText.getText();
-        String pass = passwordField.getText();
-        MainDashboard objhome = new MainDashboard();
-        try {
-
-            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            pst = connection.prepareStatement(query);
-          
-            pst.setString(1, user);
-
-            result = pst.executeQuery();
-          
-            if (!result.isBeforeFirst()) {
-                System.out.println("User Doesn't Exist");
-                JOptionPane.showMessageDialog(null, "Username Doesn't Exist!",
-                        "Swing Tester", JOptionPane.WARNING_MESSAGE);
-            } else {
-                while (result.next()) {
-                    String retrievedPass = result.getString("AdvocatePassword");
-                   
-                    if (retrievedPass.equals(pass)) {
-                        System.out.println("Password Matched!!");
-                        authentication = true;
-                        StoredUsername = result.getString("FirstName");
-                        MainDashboard phaseObj = new MainDashboard(StoredUsername);
-                        
-                        
-                    } else {
-                        System.out.println("Password Didn't match!");
-                        JOptionPane.showMessageDialog(null, "Wrong Password!",
-                                "Swing Tester", JOptionPane.WARNING_MESSAGE);
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (authentication == true) {
-            objhome.setVisible(true);
-            this.setVisible(false);
-                      usernameText.setText("");
-            passwordField.setText("");
-
-        }
-    }//GEN-LAST:event_LoginBtnActionPerformed
-
     public boolean checkStrongPassword(String p) {
         boolean checkStrongPass = false;
 
@@ -695,13 +720,7 @@ public class LoginPage extends javax.swing.JFrame {
             checkStrongPass = true;
         }
         return checkStrongPass;
-    }
-    private void newPassTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPassTxtActionPerformed
-        // TODO add your handling code here:/
-
-
-    }//GEN-LAST:event_newPassTxtActionPerformed
-    public boolean checkValidPhoneNumber(String ph) {
+    }    public boolean checkValidPhoneNumber(String ph) {
         String validPh = phoneTxt.getText();
         boolean valid = false;
         if (validPh.length() == 11 && validPh.startsWith("01")) {
@@ -709,40 +728,6 @@ public class LoginPage extends javax.swing.JFrame {
         }
         return valid;
     }
-    private void phoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTxtActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_phoneTxtActionPerformed
-
-    private void maleRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioBtnActionPerformed
-        // TODO add your handling code here:
-        if (maleRadioBtn.isSelected()) {
-            femaleRadioBtn.setSelected(false);
-            otherRadioBtn.setSelected(false);
-        }
-    }//GEN-LAST:event_maleRadioBtnActionPerformed
-
-    private void femaleRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioBtnActionPerformed
-        // TODO add your handling code here:
-        if (femaleRadioBtn.isSelected()) {
-            maleRadioBtn.setSelected(false);
-            otherRadioBtn.setSelected(false);
-        }
-
-    }//GEN-LAST:event_femaleRadioBtnActionPerformed
-
-    private void otherRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherRadioBtnActionPerformed
-        // TODO add your handling code here:
-        if (otherRadioBtn.isSelected()) {
-            femaleRadioBtn.setSelected(false);
-            maleRadioBtn.setSelected(false);
-        }
-    }//GEN-LAST:event_otherRadioBtnActionPerformed
-
-    private void retypePassTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retypePassTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_retypePassTxtActionPerformed
-
     public static void main(String args[]) {
               LoginPage loginObj = new LoginPage();
         loginObj.setVisible(true);
@@ -757,7 +742,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JTextField EmailTxt;
     private javax.swing.JLabel GenderLabel;
     private javax.swing.JButton LoginBtn;
-    private javax.swing.JLabel LoginJlabel;
     private javax.swing.JPanel LoginJpane;
     private javax.swing.JLabel SignUp;
     private com.toedter.calendar.JDateChooser birthdateChooser;
