@@ -27,6 +27,9 @@ public int r1,r2,r3,r4,g1,g2,g3,g4,b1,b2,b3,b4;
         // SECONDARY LIGHT BLUE = [200,227,246]
         // PURPLE = [15,245,251]
         // COMPLIMENTARY  = [250,250,250]
+        
+        // NAVBAR COLOR = [2,41,84]
+        // MENUBAR COLOR = [53,76,124]
 
          r1 = Integer.valueOf(hexColor1.substring(1, 3), 16);
          g1 = Integer.valueOf(hexColor1.substring(3, 5), 16);

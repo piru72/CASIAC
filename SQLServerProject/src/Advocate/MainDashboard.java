@@ -177,7 +177,7 @@ public class MainDashboard extends javax.swing.JFrame {
 
         main_container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header_container.setBackground(new java.awt.Color(0, 0, 0));
+        header_container.setBackground(new java.awt.Color(2, 41, 84));
         header_container.setPreferredSize(new java.awt.Dimension(540, 444));
 
         software_name.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,11 +220,13 @@ public class MainDashboard extends javax.swing.JFrame {
 
         main_container.add(header_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 80));
 
-        menu_container.setBackground(new java.awt.Color(255, 255, 102));
+        menu_container.setBackground(new java.awt.Color(53, 76, 124));
 
-        Panel_dashbord_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_dashbord_menu.setBackground(new java.awt.Color(53, 76, 124));
 
         label_dashboard_menu.setBackground(new java.awt.Color(255, 255, 102));
+        label_dashboard_menu.setFont(new java.awt.Font("Montserrat Black", 1, 14)); // NOI18N
+        label_dashboard_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_dashboard_menu.setText("Dashboard");
         label_dashboard_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -245,18 +247,20 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_dashbord_menuLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(label_dashboard_menu)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         Panel_dashbord_menuLayout.setVerticalGroup(
             Panel_dashbord_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_dashbord_menuLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(label_dashboard_menu)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        Panel_AddressBook_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_AddressBook_menu.setBackground(new java.awt.Color(53, 76, 124));
 
+        label_addressBook_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_addressBook_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_addressBook_menu.setText("Address Book");
         label_addressBook_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -275,20 +279,22 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_AddressBook_menuLayout.setHorizontalGroup(
             Panel_AddressBook_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_AddressBook_menuLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(label_addressBook_menu)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         Panel_AddressBook_menuLayout.setVerticalGroup(
             Panel_AddressBook_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_AddressBook_menuLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(label_addressBook_menu)
                 .addContainerGap())
         );
 
-        Panel_Appointment_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_Appointment_menu.setBackground(new java.awt.Color(53, 76, 124));
 
+        label_appointment_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_appointment_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_appointment_menu.setText("Appointment");
         label_appointment_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -307,20 +313,22 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_Appointment_menuLayout.setHorizontalGroup(
             Panel_Appointment_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_Appointment_menuLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(label_appointment_menu)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         Panel_Appointment_menuLayout.setVerticalGroup(
             Panel_Appointment_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Appointment_menuLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(label_appointment_menu)
                 .addContainerGap())
         );
 
-        Panel_toDoList_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_toDoList_menu.setBackground(new java.awt.Color(53, 76, 124));
 
+        label_todoList_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_todoList_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_todoList_menu.setText("To Do List");
         label_todoList_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -341,18 +349,20 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(Panel_toDoList_menuLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(label_todoList_menu)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         Panel_toDoList_menuLayout.setVerticalGroup(
             Panel_toDoList_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_toDoList_menuLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(label_todoList_menu)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        Panel_caseFolder_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_caseFolder_menu.setBackground(new java.awt.Color(53, 76, 124));
 
+        label_caseFolder_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_caseFolder_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_caseFolder_menu.setText("Case Folders");
         label_caseFolder_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -371,9 +381,9 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_caseFolder_menuLayout.setHorizontalGroup(
             Panel_caseFolder_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_caseFolder_menuLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(label_caseFolder_menu)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         Panel_caseFolder_menuLayout.setVerticalGroup(
             Panel_caseFolder_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,8 +393,11 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGap(34, 34, 34))
         );
 
-        Panel_account_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_account_menu.setBackground(new java.awt.Color(53, 76, 124));
+        Panel_account_menu.setForeground(new java.awt.Color(250, 250, 250));
 
+        label_account_menu.setFont(new java.awt.Font("Metropolis Black", 0, 14)); // NOI18N
+        label_account_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_account_menu.setText("Accounts");
         label_account_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -415,8 +428,10 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Panel_communication_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_communication_menu.setBackground(new java.awt.Color(53, 76, 124));
 
+        label_communication_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_communication_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_communication_menu.setText("Communication");
         label_communication_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -435,20 +450,20 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_communication_menuLayout.setHorizontalGroup(
             Panel_communication_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_communication_menuLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(label_communication_menu)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(0, 147, Short.MAX_VALUE))
         );
         Panel_communication_menuLayout.setVerticalGroup(
             Panel_communication_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_communication_menuLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(label_communication_menu)
-                .addContainerGap())
+                .addGap(0, 36, Short.MAX_VALUE)
+                .addComponent(label_communication_menu))
         );
 
-        Panel_setting_menu.setBackground(new java.awt.Color(255, 255, 102));
+        Panel_setting_menu.setBackground(new java.awt.Color(53, 76, 124));
 
+        label_settings_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_settings_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_settings_menu.setText("Settings");
         label_settings_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -503,9 +518,9 @@ public class MainDashboard extends javax.swing.JFrame {
         menu_containerLayout.setVerticalGroup(
             menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_containerLayout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_AddressBook_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -524,7 +539,7 @@ public class MainDashboard extends javax.swing.JFrame {
 
         menu_containerLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {Panel_AddressBook_menu, Panel_Appointment_menu, Panel_communication_menu, Panel_dashbord_menu, Panel_toDoList_menu});
 
-        main_container.add(menu_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 130, 690));
+        main_container.add(menu_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 690));
 
         tab_dashboard.setBackground(new java.awt.Color(102, 255, 255));
 
