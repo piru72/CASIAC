@@ -18,37 +18,18 @@ import javax.swing.JOptionPane;
  *
  * @author parve
  */
-public class NoteDao implements INoteDAO {
-    private Connection connection;
-
-    DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
-    String AdminPassword = "123456";
+public class NoteDao extends Executioner implements INoteDAO {
+    
 
     @Override
     public void createNote(Note note) {
-//         String query = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender,Address_) Values"
-//                + " ('" + advocate.getFirstName() + "','" + advocate.getLastName() + "','" + advocate.getEmail() + "','" + advocate.getPhoneNumber()
-//                + "','" + advocate.getAdvocatePassword() + "','" + advocate.getDateOfbirth() + "','" + advocate.getGender() + "','" + advocate.getAddress__()+ "' )";
-//
-//        try {
-//            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-//            Statement statement;
-//            statement = connection.createStatement();
-//            statement.executeUpdate(query);
-//            JOptionPane.showMessageDialog(null, "Signed up for casiac",
-//                    "Success", JOptionPane.WARNING_MESSAGE);
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Sign up failed!!",
-//                    "Failure!!", JOptionPane.WARNING_MESSAGE);
-//        } finally {
-//            try {
-//                connection.close();
-//            } catch (SQLException e) {
-//                JOptionPane.showMessageDialog(null, "Connection closing failed",
-//                        "Failure!!", JOptionPane.WARNING_MESSAGE);
-//            }
-//        }
+
+        String query = "INSERT into Advocate (ClientId,ModifiedBy,CreatedBy,Note) Values"
+                + " ('" + note.getClientId() + "','" + note.getModifiedBy() + "','" + note.getCreatedBy() + "','" + note.getNote() +  "' )";
+        String successMessage = "Note added for client!!";
+        String failedMessage = "Note adding failed!!";
+        
+        executeInsertQuery(query, successMessage, failedMessage);
     }
     
 }
