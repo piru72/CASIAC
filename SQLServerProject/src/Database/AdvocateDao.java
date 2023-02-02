@@ -19,7 +19,7 @@ import model.Advocate;
  *
  * @author parve
  */
-public class AdvocateDao implements IAdvocateDAO {
+public class AdvocateDao extends Executioner implements IAdvocateDAO  {
 
     private Connection connection;
 
@@ -33,26 +33,10 @@ public class AdvocateDao implements IAdvocateDAO {
         String query = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender,Address_) Values"
                 + " ('" + advocate.getFirstName() + "','" + advocate.getLastName() + "','" + advocate.getEmail() + "','" + advocate.getPhoneNumber()
                 + "','" + advocate.getAdvocatePassword() + "','" + advocate.getDateOfbirth() + "','" + advocate.getGender() + "','" + advocate.getAddress__()+ "' )";
-
-        try {
-            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            Statement statement;
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-            JOptionPane.showMessageDialog(null, "Signed up for casiac",
-                    "Success", JOptionPane.WARNING_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Sign up failed!!",
-                    "Failure!!", JOptionPane.WARNING_MESSAGE);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Connection closing failed",
-                        "Failure!!", JOptionPane.WARNING_MESSAGE);
-            }
-        }
-
+        String successMessage = "Signed up for casiac!!";
+        String failedMessage = "Sign up failed!!";
+        
+        executeQuery(query, successMessage, failedMessage);
     }
 
 }
