@@ -18,37 +18,20 @@ import javax.swing.JOptionPane;
  *
  * @author parve
  */
-public class CaseDao implements ICaseDAO {
-    private Connection connection;
-
-    DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
-    String AdminPassword = "123456";
+public class CaseDao extends Executioner implements ICaseDAO {
+    
 
     @Override
     public void createCase(Case case_) {
-//        String query = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender,Address_) Values"
-//                + " ('" + advocate.getFirstName() + "','" + advocate.getLastName() + "','" + advocate.getEmail() + "','" + advocate.getPhoneNumber()
-//                + "','" + advocate.getAdvocatePassword() + "','" + advocate.getDateOfbirth() + "','" + advocate.getGender() + "','" + advocate.getAddress__()+ "' )";
-//
-//        try {
-//            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-//            Statement statement;
-//            statement = connection.createStatement();
-//            statement.executeUpdate(query);
-//            JOptionPane.showMessageDialog(null, "Signed up for casiac",
-//                    "Success", JOptionPane.WARNING_MESSAGE);
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Sign up failed!!",
-//                    "Failure!!", JOptionPane.WARNING_MESSAGE);
-//        } finally {
-//            try {
-//                connection.close();
-//            } catch (SQLException e) {
-//                JOptionPane.showMessageDialog(null, "Connection closing failed",
-//                        "Failure!!", JOptionPane.WARNING_MESSAGE);
-//            }
-//        }
+        
+        String query = "INSERT into Advocate (ClientId,Category,CaseWorker,IntroducedBy,CaseLocation,OpeningDate,PaymentId) Values"
+                + " ('" + case_.getClientId() + "','" + case_.getCategory() + "','" + case_.getCaseWorker() + "','" + case_.getIntroducedBy()
+                + "','" + case_.getLocation() + "','" + case_.getOpeningDate() + "','" + case_.getPaymentId() + "' )";
+        String successMessage = "Case Added!!";
+        String failedMessage = "Case adding failed!!";
+        
+        executeInsertQuery(query, successMessage, failedMessage);
+
     }
     
 }

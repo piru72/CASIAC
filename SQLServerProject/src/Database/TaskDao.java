@@ -17,13 +17,8 @@ import javax.swing.JOptionPane;
  *
  * @author parve
  */
-public class TaskDao implements ITaskDAO {
-    private Connection connection;
-
-    DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
-    String AdminPassword = "123456";
-
+public class TaskDao extends Executioner implements ITaskDAO {
+    
     @Override
     public void createAdvocate(Task task) {
         String query = "INSERT into Advocate (TaskDetails,Deadline,TaskPriority,LawyerId,TaskStatus,CreatedTime) Values"
@@ -32,25 +27,7 @@ public class TaskDao implements ITaskDAO {
         String successMessage = "Task added!!";
         String failedMessage = "Task adding failed";
 
-        try {
-            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            Statement statement;
-            statement = connection.createStatement();
-            statement.executeUpdate(query);
-            
-            JOptionPane.showMessageDialog(null, successMessage,
-                    "Success", JOptionPane.WARNING_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Sign up failed!!",
-                    "Failure!!", JOptionPane.WARNING_MESSAGE);
-        } finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Connection closing failed",
-                        "Failure!!", JOptionPane.WARNING_MESSAGE);
-            }
-        }
+       executeInsertQuery(query, successMessage, failedMessage);
     }
     
 }

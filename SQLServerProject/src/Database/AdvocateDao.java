@@ -21,12 +21,7 @@ import model.Advocate;
  */
 public class AdvocateDao extends Executioner implements IAdvocateDAO  {
 
-    private Connection connection;
-
-    DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
-    String AdminPassword = "123456";
-
+    
     @Override
     public void createAdvocate(Advocate advocate) {
 
@@ -36,7 +31,7 @@ public class AdvocateDao extends Executioner implements IAdvocateDAO  {
         String successMessage = "Signed up for casiac!!";
         String failedMessage = "Sign up failed!!";
         
-        executeQuery(query, successMessage, failedMessage);
+        executeInsertQuery(query, successMessage, failedMessage);
     }
 
 }

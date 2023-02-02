@@ -23,3 +23,5 @@ INSERT INTO CLIENT  VALUES('Arman', 'Mahy','arman.cse.200104110@aust.edu' , '016
 --> SELECT STATEMENTS TO VIEW<--
 --> ALL THE DATA
 Select *From CLIENT
+
+SELECT * FROM CLIENT where Location = 'Badda- Dhaka'

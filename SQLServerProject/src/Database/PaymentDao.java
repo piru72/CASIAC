@@ -18,37 +18,19 @@ import javax.swing.JOptionPane;
  *
  * @author parve
  */
-public class PaymentDao implements IPaymentDAO {
-    private Connection connection;
-
-    DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
-    String AdminPassword = "123456";
+public class PaymentDao extends Executioner implements IPaymentDAO {
+    
 
     @Override
     public void createPayment(Payment payment) {
-//        String query = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender,Address_) Values"
-//                + " ('" + advocate.getFirstName() + "','" + advocate.getLastName() + "','" + advocate.getEmail() + "','" + advocate.getPhoneNumber()
-//                + "','" + advocate.getAdvocatePassword() + "','" + advocate.getDateOfbirth() + "','" + advocate.getGender() + "','" + advocate.getAddress__()+ "' )";
-//
-//        try {
-//            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-//            Statement statement;
-//            statement = connection.createStatement();
-//            statement.executeUpdate(query);
-//            JOptionPane.showMessageDialog(null, "Signed up for casiac",
-//                    "Success", JOptionPane.WARNING_MESSAGE);
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Sign up failed!!",
-//                    "Failure!!", JOptionPane.WARNING_MESSAGE);
-//        } finally {
-//            try {
-//                connection.close();
-//            } catch (SQLException e) {
-//                JOptionPane.showMessageDialog(null, "Connection closing failed",
-//                        "Failure!!", JOptionPane.WARNING_MESSAGE);
-//            }
-//        }
+
+        String query = "INSERT into Advocate (ClientId,CreatedTime,UpdatedTime,Status,Amount,Detail) Values"
+                + " ('" + payment.getClientId() + "','" + payment.getCreatedTime() + "','" + payment.getUpdatedTime() + "','" + payment.getStatus()
+                + "','" + payment.getAmount() + "','" + payment.getDetail() + "' )";
+        String successMessage = "Payment added";
+        String failedMessage = "Payment adding failed";
+        
+        executeInsertQuery(query, successMessage, failedMessage);
     }
     
 }

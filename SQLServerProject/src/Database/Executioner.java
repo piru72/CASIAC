@@ -23,7 +23,7 @@ public class Executioner {
     String databaseUrl = dbc.getDatabaseUrl();
     String AdminPassword = "123456";
     
-    void executeQuery (String query , String successMessage , String failureMessage)
+    void executeInsertQuery (String query , String successMessage , String failureMessage)
     {
          try {
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);

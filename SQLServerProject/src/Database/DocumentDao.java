@@ -18,37 +18,17 @@ import javax.swing.JOptionPane;
  *
  * @author parve
  */
-public class DocumentDao implements IDocumentDAO {
+public class DocumentDao extends Executioner implements IDocumentDAO {
 
-    private Connection connection;
-
-    DatabaseCredentials dbc = new DatabaseCredentials();
-    String databaseUrl = dbc.getDatabaseUrl();
-    String AdminPassword = "123456";
     @Override
     public void createDocument(Document document) {
-//         String query = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,AdvocatePassword,DateOfBirth,Gender,Address_) Values"
-//                + " ('" + advocate.getFirstName() + "','" + advocate.getLastName() + "','" + advocate.getEmail() + "','" + advocate.getPhoneNumber()
-//                + "','" + advocate.getAdvocatePassword() + "','" + advocate.getDateOfbirth() + "','" + advocate.getGender() + "','" + advocate.getAddress__()+ "' )";
-//
-//        try {
-//            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-//            Statement statement;
-//            statement = connection.createStatement();
-//            statement.executeUpdate(query);
-//            JOptionPane.showMessageDialog(null, "Signed up for casiac",
-//                    "Success", JOptionPane.WARNING_MESSAGE);
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Sign up failed!!",
-//                    "Failure!!", JOptionPane.WARNING_MESSAGE);
-//        } finally {
-//            try {
-//                connection.close();
-//            } catch (SQLException e) {
-//                JOptionPane.showMessageDialog(null, "Connection closing failed",
-//                        "Failure!!", JOptionPane.WARNING_MESSAGE);
-//            }
-//        }
+
+        String query = "INSERT into Advocate (DocumentType,ClientId,DocumentLocation) Values"
+                + " ('" + document.getDocumentType()+ "','" + document.getClientId() + "','" + document.getDocumentLocation()+ "' )";
+        String successMessage = "Document Added!!";
+        String failedMessage = "Document adding failed!!";
+        
+        executeInsertQuery(query, successMessage, failedMessage);
     }
     
 }
