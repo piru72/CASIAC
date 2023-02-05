@@ -15,4 +15,5 @@ import model.Case;
 public interface ICaseDAO {
     
     void createCase (Case case_);
+   
 }

@@ -5,6 +5,7 @@
 package model;
 
 import java.util.Date;
+import javax.swing.JTable;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Advocate {
     private String dateOfbirth;
     private String Gender;
     private String address__;
-
+   private JTable jTable;
     public Advocate() {
 
     }
@@ -98,4 +99,13 @@ public class Advocate {
         return address__;
     }
 
+    public JTable getjTable() {
+        return jTable;
+    }
+
+    public void setjTable(JTable jTable) {
+        this.jTable = jTable;
+    }
+ 
+          
 }
