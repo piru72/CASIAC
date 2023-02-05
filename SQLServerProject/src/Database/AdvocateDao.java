@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import model.Advocate;
 
 /**
@@ -34,4 +35,14 @@ public class AdvocateDao extends Executioner implements IAdvocateDAO  {
         executeInsertQuery(query, successMessage, failedMessage);
     }
 
+    @Override
+   public   void createAdvocateTable(Advocate advocate)  
+   {
+       String query ="Select AdvocateId,FirstName,LastName,Email,PhoneNumber,DateOfBirth,Gender,Address_ From Advocate";
+        String successMessage = "Table created Successfully!";
+        String failedMessage = "Failed!!";
+        JTable jTable = advocate.getjTable();
+        executeTable(query,successMessage,failedMessage,jTable);
+     
+   }
 }

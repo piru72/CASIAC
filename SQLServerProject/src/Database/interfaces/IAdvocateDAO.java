@@ -4,6 +4,7 @@
  */
 package Database.interfaces;
 
+import javax.swing.JTable;
 import model.Advocate;
 
 /**
@@ -14,4 +15,5 @@ public interface IAdvocateDAO {
     
     
     void createAdvocate (Advocate advocate);
+    void createAdvocateTable(Advocate advocate);
 }
