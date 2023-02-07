@@ -5,13 +5,7 @@
 package Database;
 
 import Database.interfaces.INoteDAO;
-import DatabaseCredentials.DatabaseCredentials;
-import java.sql.Connection;
 import model.Note;
-import java.sql.Statement;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 
 /**
