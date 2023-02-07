@@ -11,11 +11,11 @@ import model.Client;
  *
  * @author parve
  */
-public class  ClientDao extends Executioner implements IClientDAO {
+public class ClientDao extends Executioner implements IClientDAO {
 
     @Override
     public void createClient(Client client) {
-        String query = "INSERT into Advocate (FirstName,LastName,Email,PhoneNumber,Location) Values"
+        String query = "INSERT into Client (FirstName,LastName,Email,PhoneNumber,Location) Values"
                 + " ('" + client.getFirstName() + "','" + client.getLastName() + "','" + client.getEmail() + "','" + client.getPhoneNumber()
                 + "','" + client.getLocation() + "' )";
         String successMessage = "Client Added!!";
@@ -24,4 +24,25 @@ public class  ClientDao extends Executioner implements IClientDAO {
         executeInsertQuery(query, successMessage, failedMessage);
     }
 
+    @Override
+    public void FindClient(Client client) {
+        //This method is for CasejPanel
+        String query = "Select ClientId From CLIENT";
+        String successMessage = "User Exists.";
+        String failedMessage = "User Doesn't Exist";
+        String userInput = client.getClientId();
+
+        executeFindQuery(query, successMessage, failedMessage, userInput);
+    }
+    @Override
+    public int FindClientID(Client client)
+    {
+        //This method is for ClientjPanel 
+        String query ="SELECT ClientId FROM Client where Email = ?";
+        String successMessage = "User Exists.";
+        String failedMessage = "User Doesn't Exist";
+        String userInput = client.getEmail();
+        int retrievedID = executeFindClientID(query,successMessage,failedMessage,userInput);
+        return retrievedID;
+    }
 }

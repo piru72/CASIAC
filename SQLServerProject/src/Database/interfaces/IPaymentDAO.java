@@ -12,4 +12,5 @@ import model.Payment;
  */
 public interface IPaymentDAO {
     void createPayment (Payment payment);
+    void FindPaymentID(Payment payment);
 }

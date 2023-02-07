@@ -25,6 +25,18 @@ public class PaymentDao extends Executioner implements IPaymentDAO {
         String failedMessage = "Payment adding failed";
         
         executeInsertQuery(query, successMessage, failedMessage);
+    
     }
     
+    @Override
+    public void FindPaymentID(Payment payment)
+    {
+        String query ="SELECT PaymentId FROM PAYMENT";
+        String successMessage = "User Exists.";
+        String failedMessage = "User Doesn't Exist";
+        String userInput = payment.getPaymentId();
+
+        executeFindQuery(query, successMessage, failedMessage, userInput);
+
+    }
 }

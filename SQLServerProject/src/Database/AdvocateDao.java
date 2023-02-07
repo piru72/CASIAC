@@ -5,6 +5,18 @@
 package Database;
 
 import Database.interfaces.IAdvocateDAO;
+<<<<<<< HEAD
+=======
+import DatabaseCredentials.DatabaseCredentials;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+>>>>>>> 5670aca65178d40972fc23a6ed2e8ddc99e457df
 import model.Advocate;
 
 /**
@@ -26,4 +38,14 @@ public class AdvocateDao extends Executioner implements IAdvocateDAO  {
         executeInsertQuery(query, successMessage, failedMessage);
     }
 
+    @Override
+   public   void createAdvocateTable(Advocate advocate)  
+   {
+       String query ="Select AdvocateId,FirstName,LastName,Email,PhoneNumber,DateOfBirth,Gender,Address_ From Advocate";
+        String successMessage = "Table created Successfully!";
+        String failedMessage = "Failed!!";
+        JTable jTable = advocate.getjTable();
+        executeTable(query,successMessage,failedMessage,jTable);
+     
+   }
 }
