@@ -5,13 +5,7 @@
 package Database;
 
 import Database.interfaces.ITaskDAO;
-import DatabaseCredentials.DatabaseCredentials;
-import java.sql.Connection;
 import model.Task;
-import java.sql.Statement;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  *

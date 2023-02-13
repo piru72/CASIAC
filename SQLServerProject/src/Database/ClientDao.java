@@ -5,13 +5,7 @@
 package Database;
 
 import Database.interfaces.IClientDAO;
-import DatabaseCredentials.DatabaseCredentials;
-import java.sql.Connection;
 import model.Client;
-import java.sql.Statement;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  *

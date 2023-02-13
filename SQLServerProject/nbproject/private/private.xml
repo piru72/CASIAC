@@ -3,8 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Advocate/LoginPage.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/PaymentDao.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/Executioner.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/DocumentDao.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/model/Case.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/NoteDao.java</file>
             <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/AdvocateDao.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/model/Advocate.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/CaseDao.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/ClientDao.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/TaskDao.java</file>
+            <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Advocate/MainDashboard.java</file>
             <file>file:/D:/GITHUB_REPOS/CASIAC/SQLServerProject/src/Database/interfaces/IAdvocateDAO.java</file>
         </group>
     </open-files>
