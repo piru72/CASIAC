@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -31,6 +32,7 @@ public class Executioner {
     PreparedStatement prepareStatement = null;
     ResultSet result = null;
     Statement statement = null;
+    DefaultTableModel tblModel;
 
     void executeInsertQuery(String query, String successMessage, String failureMessage) {
         try {
@@ -100,8 +102,7 @@ public class Executioner {
         return savedID;
     }
 
-    void executeTable(String query, String successMessage, String failedMessage,JTable jt) {
-       
+    void executeTable(String query, String successMessage, String failedMessage, JTable jt) {
 
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
@@ -118,13 +119,44 @@ public class Executioner {
                 String Gender = result.getString("Gender");
                 String address = result.getString("Address_");
                 String tbData[] = {SID, FirstName, LastName, Email, phoneNumber, BirthDate, Gender, address};
-                DefaultTableModel tblModel = (DefaultTableModel) jt.getModel();
+                tblModel = (DefaultTableModel) jt.getModel();
                 tblModel.addRow(tbData);
             }
         } catch (SQLException ex) {
-          ex.printStackTrace();
+            ex.printStackTrace();
         }
-        
+
+    }
+
+    public void executeCaseTable(String query, String successMessage, String failedMessage, JTable jtable) {
+
+        //  Model.setRowCount(0);
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+            DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+            jtable.setModel(model1);
+          while (result.next()) {
+                String CaseId = result.getString("CaseId");
+                String ClientName = result.getString("Client Name");
+                String Category = result.getString("Category");
+                String CaseLocation = result.getString("CaseLocation");
+                String OpeningDate = result.getString("OpeningDate");
+                String caseWorkerName = result.getString("Case Worker");
+                String caseIntroducer = result.getString("Case Introducer");
+                String amount = result.getString("Amount");
+               String tableData[] = {CaseId, ClientName, Category, CaseLocation, OpeningDate,caseWorkerName,caseIntroducer,amount};
+               model1.addRow(tableData);
+//System.out.println("id "+CaseId+" client name "+ClientName+" Category"+Category+" loc"+CaseLocation+" openin date"+OpeningDate);
+//System.out.println("case worker "+caseWorkerName+" case intro "+caseIntroducer+" amount "+amount);
+
+                            }
+            //connection.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
 }

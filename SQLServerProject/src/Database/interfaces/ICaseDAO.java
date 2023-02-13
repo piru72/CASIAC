@@ -4,6 +4,7 @@
  */
 package Database.interfaces;
 
+import java.util.ArrayList;
 import model.Case;
 
 
@@ -15,5 +16,6 @@ import model.Case;
 public interface ICaseDAO {
     
     void createCase (Case case_);
+    void createJoinedCaseTable(Case case_);
    
 }

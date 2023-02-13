@@ -4,20 +4,31 @@
  */
 package model;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author parve
  */
 public class Case {
-    
-        private String CaseId ;
-	private String ClientId ;
-	private String Category ;
-	private String CaseWorker;
-	private String IntroducedBy ;
-	private String Location ;
-	private String OpeningDate;
-	private String PaymentId ;
+
+    private String CaseId;
+    private String ClientId;
+    private String Category;
+    private String CaseWorker;
+    private String IntroducedBy;
+    private String Location;
+    private String OpeningDate;
+    private String PaymentId;
+    private JTable jTable;
+
+    public JTable getjTable() {
+        return jTable;
+    }
+
+    public void setjTable(JTable jTable) {
+        this.jTable = jTable;
+    }
 
     public Case() {
     }
@@ -85,7 +96,5 @@ public class Case {
     public void setPaymentId(String PaymentId) {
         this.PaymentId = PaymentId;
     }
-        
-        
-    
+
 }
