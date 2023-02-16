@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import model.Advocate;
 
 /**
  *
@@ -21,13 +22,13 @@ public class TaskDao extends Executioner implements ITaskDAO {
     
     @Override
     public void createAdvocate(Task task) {
-        String query = "INSERT into Advocate (TaskDetails,Deadline,TaskPriority,LawyerId,TaskStatus,CreatedTime) Values"
+        String query = "INSERT into Tasks (TaskDetails,Deadline,TaskPriority,LawyerId,TaskStatus,CreatedTime) Values"
                 + " ('" + task.getTaskDetails() + "','" + task.getDeadline() + "','" + task.getTaskPriority() + "','" + task.getLawyerId()
-                + "','" + task.getTaskStatus() + "','" + task.getCreatedTime() + "' )";
+                + "','" + task.getTaskStatus() + "','"+ task.getCreatedTime() + "' )";
         String successMessage = "Task added!!";
         String failedMessage = "Task adding failed";
 
        executeInsertQuery(query, successMessage, failedMessage);
     }
-    
+      
 }

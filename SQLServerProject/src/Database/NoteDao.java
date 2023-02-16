@@ -24,7 +24,7 @@ public class NoteDao extends Executioner implements INoteDAO {
     @Override
     public void createNote(Note note) {
 
-        String query = "INSERT into Advocate (ClientId,ModifiedBy,CreatedBy,Note) Values"
+        String query = "INSERT into NOTE (ClientId,ModifiedBy,CreatedBy,Note) Values"
                 + " ('" + note.getClientId() + "','" + note.getModifiedBy() + "','" + note.getCreatedBy() + "','" + note.getNote() +  "' )";
         String successMessage = "Note added for client!!";
         String failedMessage = "Note adding failed!!";
