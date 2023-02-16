@@ -5,15 +5,11 @@
 package Database;
 
 import Database.interfaces.ICaseDAO;
-import DatabaseCredentials.DatabaseCredentials;
-import java.sql.Connection;
 import model.Case;
-import java.sql.Statement;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+
+
+
+
 
 /**
  *

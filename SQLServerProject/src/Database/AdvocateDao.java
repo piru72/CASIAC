@@ -5,6 +5,8 @@
 package Database;
 
 import Database.interfaces.IAdvocateDAO;
+<<<<<<< HEAD
+=======
 import DatabaseCredentials.DatabaseCredentials;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -14,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+>>>>>>> 5670aca65178d40972fc23a6ed2e8ddc99e457df
 import model.Advocate;
 
 /**
