@@ -37,21 +37,20 @@ public class Executioner {
     void executeInsertQuery(String query, String successMessage, String failureMessage) {
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            Statement statement;
-            statement = connection.createStatement();
+             statement = connection.createStatement();
             statement.executeUpdate(query);
 
             JOptionPane.showMessageDialog(null, successMessage,
                     "Success", JOptionPane.OK_OPTION);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, failureMessage,
-                    "Failure!!", JOptionPane.WARNING_MESSAGE);
+                    "Failure1!!", JOptionPane.WARNING_MESSAGE);
         } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Connection closing failed",
-                        "Failure!!", JOptionPane.WARNING_MESSAGE);
+                        "Failure2!!", JOptionPane.WARNING_MESSAGE);
             }
         }
     }
@@ -60,14 +59,16 @@ public class Executioner {
         boolean flag = false;
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
-            PreparedStatement prepareStatement = connection.prepareStatement(query);
+             prepareStatement = connection.prepareStatement(query);
             result = prepareStatement.executeQuery();
             while (result.next()) {
                 int retrievedID = result.getInt("ClientId");
                 String ID = Integer.toString(retrievedID);
                 if (ID.equals(userInput)) {
+                    System.out.println(retrievedID);
+                    System.out.println(ID);
                     flag = true;
-                    //     break;
+                     break;
                 }
 
             }
@@ -79,7 +80,7 @@ public class Executioner {
             JOptionPane.showMessageDialog(null, failureMessage,
                     "Failure!!", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, failureMessage,
+            JOptionPane.showMessageDialog(null, successMessage,
                     "DONE!!", JOptionPane.OK_OPTION);
         }
     }
@@ -128,7 +129,7 @@ public class Executioner {
 
     }
 
-    public void executeCaseTable(String query, String successMessage, String failedMessage, JTable jtable) {
+     void executeCaseTable(String query, String successMessage, String failedMessage, JTable jtable) {
 
         //  Model.setRowCount(0);
         try {
@@ -158,5 +159,35 @@ public class Executioner {
         }
 
     }
+    void executeFindAdvocate(String query,String successMessage,String failedMessage,String userInput)
+    {
+         boolean flag = false;
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            PreparedStatement prepareStatement = connection.prepareStatement(query);
+            result = prepareStatement.executeQuery();
+            while (result.next()) {
+                int retrievedID = result.getInt("AdvocateId");
+               
+                String ID = Integer.toString(retrievedID);
+                if (ID.equals(userInput)) {
+                    flag = true;
+                        break;
+                }
+
+            }
+
+        } catch (SQLException ex) {
+ex.printStackTrace();
+        }
+        if (flag != true) {
+            JOptionPane.showMessageDialog(null, failedMessage,
+                    "Failed to Find Advocate ID!!", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, successMessage,
+                    "DONE!!", JOptionPane.OK_OPTION);
+        }
+    }
+    
 
 }

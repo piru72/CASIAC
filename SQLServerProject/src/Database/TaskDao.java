@@ -6,6 +6,14 @@ package Database;
 
 import Database.interfaces.ITaskDAO;
 import model.Task;
+<<<<<<< HEAD
+import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import model.Advocate;
+=======
+>>>>>>> e6d5232abdcc0b046009b28a17f0519871660a31
 
 /**
  *
@@ -15,13 +23,13 @@ public class TaskDao extends Executioner implements ITaskDAO {
     
     @Override
     public void createAdvocate(Task task) {
-        String query = "INSERT into Advocate (TaskDetails,Deadline,TaskPriority,LawyerId,TaskStatus,CreatedTime) Values"
+        String query = "INSERT into Tasks (TaskDetails,Deadline,TaskPriority,LawyerId,TaskStatus,CreatedTime) Values"
                 + " ('" + task.getTaskDetails() + "','" + task.getDeadline() + "','" + task.getTaskPriority() + "','" + task.getLawyerId()
-                + "','" + task.getTaskStatus() + "','" + task.getCreatedTime() + "' )";
+                + "','" + task.getTaskStatus() + "','"+ task.getCreatedTime() + "' )";
         String successMessage = "Task added!!";
         String failedMessage = "Task adding failed";
 
        executeInsertQuery(query, successMessage, failedMessage);
     }
-    
+      
 }

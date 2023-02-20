@@ -4,6 +4,7 @@
  */
 package Database.interfaces;
 
+import model.Advocate;
 import model.Task;
 
 /**
@@ -12,4 +13,5 @@ import model.Task;
  */
 public interface ITaskDAO {
     void createAdvocate (Task task);
+   
 }

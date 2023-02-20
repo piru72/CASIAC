@@ -17,7 +17,7 @@ public class DocumentDao extends Executioner implements IDocumentDAO {
     @Override
     public void createDocument(Document document) {
 
-        String query = "INSERT into Advocate (DocumentType,ClientId,DocumentLocation) Values"
+        String query = "INSERT into Document (DocumentType,ClientId,DocumentLocation) Values"
                 + " ('" + document.getDocumentType()+ "','" + document.getClientId() + "','" + document.getDocumentLocation()+ "' )";
         String successMessage = "Document Added!!";
         String failedMessage = "Document adding failed!!";

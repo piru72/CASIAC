@@ -48,4 +48,13 @@ public class AdvocateDao extends Executioner implements IAdvocateDAO  {
         executeTable(query,successMessage,failedMessage,jTable);
      
    }
+    @Override
+   public void FindAdvocateID(Advocate advocate)
+   {
+       String query = "Select AdvocateId From Advocate";
+         String successMessage = "Successfull!";
+        String failedMessage = "Failed!!";
+      String userInput = advocate.getAdvocateId();
+      executeFindAdvocate(query,successMessage,failedMessage,userInput);
+   }
 }

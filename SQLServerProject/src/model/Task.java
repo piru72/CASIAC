@@ -14,12 +14,11 @@ public class Task {
     
     private String TaskId;
     private String TaskDetails;
-    private Date Deadline;
+    private String Deadline;
     private String TaskPriority;
     private String LawyerId;
     private String TaskStatus;
-    private String CompeletedTime;
-    private String CreatedTime;
+      private String CreatedTime;
 
     public Task() {
       
@@ -41,11 +40,11 @@ public class Task {
         this.TaskDetails = TaskDetails;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return Deadline;
     }
 
-    public void setDeadline(Date Deadline) {
+    public void setDeadline(String Deadline) {
         this.Deadline = Deadline;
     }
 
@@ -73,14 +72,7 @@ public class Task {
         this.TaskStatus = TaskStatus;
     }
 
-    public String getCompeletedTime() {
-        return CompeletedTime;
-    }
-
-    public void setCompeletedTime(String CompeletedTime) {
-        this.CompeletedTime = CompeletedTime;
-    }
-
+    
     public String getCreatedTime() {
         return CreatedTime;
     }

@@ -20,7 +20,10 @@ import Colour.*;
 import Database.AdvocateDao;
 import Database.CaseDao;
 import Database.ClientDao;
+import Database.DocumentDao;
+import Database.NoteDao;
 import Database.PaymentDao;
+import Database.TaskDao;
 import java.util.*;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -35,7 +38,10 @@ import javax.swing.table.TableRowSorter;
 import model.Advocate;
 import model.Case;
 import model.Client;
+import model.Document;
+import model.Note;
 import model.Payment;
+import model.Task;
 
 /**
  *
@@ -91,8 +97,8 @@ public class MainDashboard extends javax.swing.JFrame {
         menu_container = new javax.swing.JPanel();
         Panel_dashbord_menu = new javax.swing.JPanel();
         label_dashboard_menu = new javax.swing.JLabel();
-        Panel_AddressBook_menu = new javax.swing.JPanel();
-        label_addressBook_menu = new javax.swing.JLabel();
+        Panel_Documents_menu = new javax.swing.JPanel();
+        label_Documents_menu = new javax.swing.JLabel();
         Panel_Appointment_menu = new javax.swing.JPanel();
         label_appointment_menu = new javax.swing.JLabel();
         Panel_toDoList_menu = new javax.swing.JPanel();
@@ -101,16 +107,23 @@ public class MainDashboard extends javax.swing.JFrame {
         label_caseFolder_menu = new javax.swing.JLabel();
         Panel_account_menu = new javax.swing.JPanel();
         label_account_menu = new javax.swing.JLabel();
-        Panel_communication_menu = new javax.swing.JPanel();
-        label_communication_menu = new javax.swing.JLabel();
+        Panel_tasks_menu = new javax.swing.JPanel();
+        label_tasks_menu = new javax.swing.JLabel();
         Panel_setting_menu = new javax.swing.JPanel();
         label_settings_menu = new javax.swing.JLabel();
         tab_container = new javax.swing.JTabbedPane();
         tab_dashboard = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         storedUserLabel = new javax.swing.JLabel();
-        tab_address_book = new javax.swing.JPanel();
+        tab_Documents = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        documentTypejLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        documentLocJLabel = new javax.swing.JLabel();
+        documentTypeTextField = new javax.swing.JTextField();
+        documentclientIdTextField = new javax.swing.JTextField();
+        documentLocationTextField = new javax.swing.JTextField();
+        documentSaveBtn = new javax.swing.JButton();
         tab_appointment = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tab_todoList = new javax.swing.JPanel();
@@ -186,10 +199,25 @@ public class MainDashboard extends javax.swing.JFrame {
         activeFolderjPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        MyFolderjPanel = new javax.swing.JPanel();
         tab_accounts = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        tab_communication = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
+        tab_tasks = new javax.swing.JPanel();
+        taskDetailJLabel = new javax.swing.JLabel();
+        deadlineJLabel = new javax.swing.JLabel();
+        taskPriorityJLabel = new javax.swing.JLabel();
+        lawyerIdJLabel = new javax.swing.JLabel();
+        taskStatusJLabel = new javax.swing.JLabel();
+        createdTimeJLabel = new javax.swing.JLabel();
+        taskDetailTextField = new javax.swing.JTextField();
+        deadlineTextField = new javax.swing.JTextField();
+        taskPriorityTextField = new javax.swing.JTextField();
+        taskLawyerIdTextField = new javax.swing.JTextField();
+        taskStatusTextField = new javax.swing.JTextField();
+        taskCreatedTimeDateChooser = new com.toedter.calendar.JDateChooser();
+        createdTimeTextField = new javax.swing.JTextField();
+        taskSaveBtn = new javax.swing.JButton();
+        deadlineDateChooser = new com.toedter.calendar.JDateChooser();
         tab_settings = new javax.swing.JPanel();
         ScrollPane_user_list = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -286,37 +314,37 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        Panel_AddressBook_menu.setBackground(new java.awt.Color(53, 76, 124));
+        Panel_Documents_menu.setBackground(new java.awt.Color(53, 76, 124));
 
-        label_addressBook_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
-        label_addressBook_menu.setForeground(new java.awt.Color(250, 250, 250));
-        label_addressBook_menu.setText("Address Book");
-        label_addressBook_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+        label_Documents_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_Documents_menu.setForeground(new java.awt.Color(250, 250, 250));
+        label_Documents_menu.setText("Documents");
+        label_Documents_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_addressBook_menuMouseClicked(evt);
+                label_Documents_menuMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                label_addressBook_menuMousePressed(evt);
+                label_Documents_menuMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                label_addressBook_menuMouseReleased(evt);
+                label_Documents_menuMouseReleased(evt);
             }
         });
 
-        javax.swing.GroupLayout Panel_AddressBook_menuLayout = new javax.swing.GroupLayout(Panel_AddressBook_menu);
-        Panel_AddressBook_menu.setLayout(Panel_AddressBook_menuLayout);
-        Panel_AddressBook_menuLayout.setHorizontalGroup(
-            Panel_AddressBook_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_AddressBook_menuLayout.createSequentialGroup()
+        javax.swing.GroupLayout Panel_Documents_menuLayout = new javax.swing.GroupLayout(Panel_Documents_menu);
+        Panel_Documents_menu.setLayout(Panel_Documents_menuLayout);
+        Panel_Documents_menuLayout.setHorizontalGroup(
+            Panel_Documents_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_Documents_menuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(label_addressBook_menu)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addComponent(label_Documents_menu)
+                .addContainerGap(183, Short.MAX_VALUE))
         );
-        Panel_AddressBook_menuLayout.setVerticalGroup(
-            Panel_AddressBook_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_AddressBook_menuLayout.createSequentialGroup()
+        Panel_Documents_menuLayout.setVerticalGroup(
+            Panel_Documents_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Documents_menuLayout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(label_addressBook_menu)
+                .addComponent(label_Documents_menu)
                 .addContainerGap())
         );
 
@@ -457,36 +485,37 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Panel_communication_menu.setBackground(new java.awt.Color(53, 76, 124));
+        Panel_tasks_menu.setBackground(new java.awt.Color(53, 76, 124));
 
-        label_communication_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
-        label_communication_menu.setForeground(new java.awt.Color(250, 250, 250));
-        label_communication_menu.setText("Communication");
-        label_communication_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+        label_tasks_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
+        label_tasks_menu.setForeground(new java.awt.Color(250, 250, 250));
+        label_tasks_menu.setText("Tasks");
+        label_tasks_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label_communication_menuMouseClicked(evt);
+                label_tasks_menuMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                label_communication_menuMousePressed(evt);
+                label_tasks_menuMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                label_communication_menuMouseReleased(evt);
+                label_tasks_menuMouseReleased(evt);
             }
         });
 
-        javax.swing.GroupLayout Panel_communication_menuLayout = new javax.swing.GroupLayout(Panel_communication_menu);
-        Panel_communication_menu.setLayout(Panel_communication_menuLayout);
-        Panel_communication_menuLayout.setHorizontalGroup(
-            Panel_communication_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_communication_menuLayout.createSequentialGroup()
-                .addComponent(label_communication_menu)
-                .addGap(0, 163, Short.MAX_VALUE))
+        javax.swing.GroupLayout Panel_tasks_menuLayout = new javax.swing.GroupLayout(Panel_tasks_menu);
+        Panel_tasks_menu.setLayout(Panel_tasks_menuLayout);
+        Panel_tasks_menuLayout.setHorizontalGroup(
+            Panel_tasks_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_tasks_menuLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(label_tasks_menu)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
-        Panel_communication_menuLayout.setVerticalGroup(
-            Panel_communication_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_communication_menuLayout.createSequentialGroup()
+        Panel_tasks_menuLayout.setVerticalGroup(
+            Panel_tasks_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_tasks_menuLayout.createSequentialGroup()
                 .addGap(0, 36, Short.MAX_VALUE)
-                .addComponent(label_communication_menu))
+                .addComponent(label_tasks_menu))
         );
 
         Panel_setting_menu.setBackground(new java.awt.Color(53, 76, 124));
@@ -532,17 +561,17 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(Panel_toDoList_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Panel_communication_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Panel_tasks_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Panel_account_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Panel_caseFolder_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Panel_AddressBook_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel_Documents_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        menu_containerLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {Panel_AddressBook_menu, Panel_Appointment_menu, Panel_communication_menu, Panel_dashbord_menu, Panel_toDoList_menu});
+        menu_containerLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {Panel_Appointment_menu, Panel_Documents_menu, Panel_dashbord_menu, Panel_tasks_menu, Panel_toDoList_menu});
 
         menu_containerLayout.setVerticalGroup(
             menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -550,7 +579,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Panel_AddressBook_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Panel_Documents_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
@@ -560,13 +589,13 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_account_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Panel_communication_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Panel_tasks_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
 
-        menu_containerLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {Panel_AddressBook_menu, Panel_Appointment_menu, Panel_communication_menu, Panel_dashbord_menu, Panel_toDoList_menu});
+        menu_containerLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {Panel_Appointment_menu, Panel_Documents_menu, Panel_dashbord_menu, Panel_tasks_menu, Panel_toDoList_menu});
 
         main_container.add(menu_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 690));
 
@@ -615,28 +644,77 @@ public class MainDashboard extends javax.swing.JFrame {
 
         tab_container.addTab("tab1", tab_dashboard);
 
-        tab_address_book.setBackground(new java.awt.Color(204, 0, 102));
+        tab_Documents.setBackground(new java.awt.Color(204, 0, 102));
 
         jLabel6.setText("jLabel6");
 
-        javax.swing.GroupLayout tab_address_bookLayout = new javax.swing.GroupLayout(tab_address_book);
-        tab_address_book.setLayout(tab_address_bookLayout);
-        tab_address_bookLayout.setHorizontalGroup(
-            tab_address_bookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab_address_bookLayout.createSequentialGroup()
-                .addGap(354, 354, 354)
+        documentTypejLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        documentTypejLabel.setText("Document Type");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel1.setText("Client ID");
+
+        documentLocJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        documentLocJLabel.setText("Location");
+
+        documentSaveBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        documentSaveBtn.setText("Save");
+        documentSaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                documentSaveBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tab_DocumentsLayout = new javax.swing.GroupLayout(tab_Documents);
+        tab_Documents.setLayout(tab_DocumentsLayout);
+        tab_DocumentsLayout.setHorizontalGroup(
+            tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_DocumentsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addGap(142, 142, 142))
+            .addGroup(tab_DocumentsLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(documentTypejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(documentLocJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(46, 46, 46)
+                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(documentTypeTextField)
+                        .addComponent(documentclientIdTextField)
+                        .addComponent(documentLocationTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                    .addComponent(documentSaveBtn))
+                .addContainerGap(493, Short.MAX_VALUE))
         );
-        tab_address_bookLayout.setVerticalGroup(
-            tab_address_bookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab_address_bookLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
+        tab_DocumentsLayout.setVerticalGroup(
+            tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_DocumentsLayout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addContainerGap(537, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(documentTypejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(documentTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(documentclientIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab_DocumentsLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(documentLocJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab_DocumentsLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(documentLocationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(77, 77, 77)
+                .addComponent(documentSaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(310, 310, 310))
         );
 
-        tab_container.addTab("tab3", tab_address_book);
+        tab_container.addTab("tab3", tab_Documents);
 
         tab_appointment.setBackground(new java.awt.Color(102, 255, 204));
 
@@ -679,6 +757,11 @@ public class MainDashboard extends javax.swing.JFrame {
 
         NoteSaveBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         NoteSaveBtn.setText("SAVE");
+        NoteSaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoteSaveBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tab_todoListLayout = new javax.swing.GroupLayout(tab_todoList);
         tab_todoList.setLayout(tab_todoListLayout);
@@ -794,14 +877,14 @@ public class MainDashboard extends javax.swing.JFrame {
         nestedCaseMenuBarLayout.setHorizontalGroup(
             nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addGap(120, 120, 120)
                 .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
                         .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(openNewCaseRadioBtn)
                             .addComponent(activeFolderRadioBtn)
                             .addComponent(MyFolderRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(15, 497, Short.MAX_VALUE))
                     .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
                         .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(boxArchiveRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -814,7 +897,7 @@ public class MainDashboard extends javax.swing.JFrame {
         nestedCaseMenuBarLayout.setVerticalGroup(
             nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(openNewCaseRadioBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MyFolderRadioBtn)
@@ -828,7 +911,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(folderLocRadioBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(boxArchiveRadioBtn)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addGap(153, 153, 153))
         );
 
         nestedTabbedCase.addTab("", nestedCaseMenuBar);
@@ -1234,6 +1317,19 @@ public class MainDashboard extends javax.swing.JFrame {
 
         nestedTabbedCase.addTab("tab5", activeFolderjPanel);
 
+        javax.swing.GroupLayout MyFolderjPanelLayout = new javax.swing.GroupLayout(MyFolderjPanel);
+        MyFolderjPanel.setLayout(MyFolderjPanelLayout);
+        MyFolderjPanelLayout.setHorizontalGroup(
+            MyFolderjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 734, Short.MAX_VALUE)
+        );
+        MyFolderjPanelLayout.setVerticalGroup(
+            MyFolderjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 389, Short.MAX_VALUE)
+        );
+
+        nestedTabbedCase.addTab("tab6", MyFolderjPanel);
+
         javax.swing.GroupLayout tab_caseFolderLayout = new javax.swing.GroupLayout(tab_caseFolder);
         tab_caseFolder.setLayout(tab_caseFolderLayout);
         tab_caseFolderLayout.setHorizontalGroup(
@@ -1285,28 +1381,103 @@ public class MainDashboard extends javax.swing.JFrame {
 
         tab_container.addTab("tab3", tab_accounts);
 
-        tab_communication.setBackground(new java.awt.Color(153, 0, 255));
+        tab_tasks.setBackground(new java.awt.Color(153, 0, 255));
 
-        jLabel17.setText("jLabel6");
+        taskDetailJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        taskDetailJLabel.setText("Task Details");
 
-        javax.swing.GroupLayout tab_communicationLayout = new javax.swing.GroupLayout(tab_communication);
-        tab_communication.setLayout(tab_communicationLayout);
-        tab_communicationLayout.setHorizontalGroup(
-            tab_communicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab_communicationLayout.createSequentialGroup()
-                .addGap(354, 354, 354)
-                .addComponent(jLabel17)
-                .addContainerGap(469, Short.MAX_VALUE))
+        deadlineJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        deadlineJLabel.setText("Deadline");
+
+        taskPriorityJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        taskPriorityJLabel.setText("Task Priority");
+
+        lawyerIdJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lawyerIdJLabel.setText("Lawyer ID ");
+
+        taskStatusJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        taskStatusJLabel.setText("Task Status");
+
+        createdTimeJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        createdTimeJLabel.setText("Created Time");
+
+        taskSaveBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        taskSaveBtn.setText("Save");
+        taskSaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taskSaveBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tab_tasksLayout = new javax.swing.GroupLayout(tab_tasks);
+        tab_tasks.setLayout(tab_tasksLayout);
+        tab_tasksLayout.setHorizontalGroup(
+            tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_tasksLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(taskDetailJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deadlineJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskPriorityJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lawyerIdJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskStatusJLabel)
+                    .addComponent(createdTimeJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(taskDetailTextField)
+                    .addComponent(taskPriorityTextField)
+                    .addComponent(taskLawyerIdTextField)
+                    .addComponent(taskStatusTextField)
+                    .addComponent(taskCreatedTimeDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(deadlineDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(211, 211, 211)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deadlineTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createdTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskSaveBtn))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
-        tab_communicationLayout.setVerticalGroup(
-            tab_communicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tab_communicationLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jLabel17)
-                .addContainerGap(537, Short.MAX_VALUE))
+        tab_tasksLayout.setVerticalGroup(
+            tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_tasksLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(taskDetailJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskDetailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deadlineJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deadlineDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(taskPriorityJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskPriorityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lawyerIdJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskLawyerIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(taskStatusJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskStatusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addComponent(deadlineTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab_tasksLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(createdTimeJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab_tasksLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(taskCreatedTimeDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab_tasksLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(createdTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41)
+                .addComponent(taskSaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
-        tab_container.addTab("tab3", tab_communication);
+        tab_container.addTab("tab3", tab_tasks);
 
         tab_settings.setBackground(new java.awt.Color(79, 164, 250));
 
@@ -1477,25 +1648,25 @@ public class MainDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logOut_buttonActionPerformed
 
-    private void label_addressBook_menuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_addressBook_menuMouseReleased
+    private void label_Documents_menuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Documents_menuMouseReleased
         // TODO add your handling code here:
-        label_addressBook_menu.setForeground(defaultColor);
+        label_Documents_menu.setForeground(defaultColor);
         jTable1.setVisible(false);
-    }//GEN-LAST:event_label_addressBook_menuMouseReleased
+    }//GEN-LAST:event_label_Documents_menuMouseReleased
 
-    private void label_addressBook_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_addressBook_menuMousePressed
+    private void label_Documents_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Documents_menuMousePressed
         // TODO add your handling code here:
-        label_addressBook_menu.setForeground(white);
+        label_Documents_menu.setForeground(white);
         jTable1.setVisible(false);
-    }//GEN-LAST:event_label_addressBook_menuMousePressed
+    }//GEN-LAST:event_label_Documents_menuMousePressed
 
-    private void label_addressBook_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_addressBook_menuMouseClicked
+    private void label_Documents_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Documents_menuMouseClicked
         // TODO add your handling code here:
 
-        tab_container.setSelectedIndex(2);
+        tab_container.setSelectedIndex(1);
         jTable1.setVisible(false);
 
-    }//GEN-LAST:event_label_addressBook_menuMouseClicked
+    }//GEN-LAST:event_label_Documents_menuMouseClicked
 
     private void label_todoList_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_todoList_menuMouseClicked
         // TODO add your handling code here:
@@ -1511,19 +1682,21 @@ public class MainDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_label_todoList_menuMouseReleased
 
-    private void label_communication_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_communication_menuMouseClicked
+    private void label_tasks_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_tasks_menuMouseClicked
         // TODO add your handling code here:
+        deadlineTextField.setVisible(false);
+          createdTimeTextField.setVisible(false);
         tab_container.setSelectedIndex(6);
         jTable1.setVisible(false);
-    }//GEN-LAST:event_label_communication_menuMouseClicked
+    }//GEN-LAST:event_label_tasks_menuMouseClicked
 
-    private void label_communication_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_communication_menuMousePressed
+    private void label_tasks_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_tasks_menuMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_label_communication_menuMousePressed
+    }//GEN-LAST:event_label_tasks_menuMousePressed
 
-    private void label_communication_menuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_communication_menuMouseReleased
+    private void label_tasks_menuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_tasks_menuMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_label_communication_menuMouseReleased
+    }//GEN-LAST:event_label_tasks_menuMouseReleased
 
     private void label_caseFolder_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_caseFolder_menuMouseClicked
         // TODO add your handling code here:
@@ -1931,6 +2104,107 @@ public class MainDashboard extends javax.swing.JFrame {
     private void folderCategoriesRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_folderCategoriesRadioBtnMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_folderCategoriesRadioBtnMouseClicked
+void checkExistingAdvocateID(String advocateId)
+{
+    Advocate advocate = new Advocate();
+    advocate.setAdvocateId(advocateId);
+    AdvocateDao obj = new AdvocateDao();
+    obj.FindAdvocateID(advocate);
+    
+    
+}
+    private void taskSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskSaveBtnActionPerformed
+        // TODO add your handling code here:
+        
+        String taskDetails = taskDetailTextField.getText();
+        String taskDeadline = ((JTextField) deadlineDateChooser.getDateEditor().getUiComponent()).getText();
+        deadlineTextField.setText(taskDeadline);
+        String taskPriority = taskPriorityTextField.getText();
+        String taskLawyerId = taskLawyerIdTextField.getText();
+        String taskStatus = taskStatusTextField.getText();
+        String taskCreatedTime =((JTextField) taskCreatedTimeDateChooser.getDateEditor().getUiComponent()).getText();
+        createdTimeTextField.setText(taskCreatedTime);
+         ArrayList< String> taskList = new ArrayList<>();
+         
+         taskList.add(taskDetails);
+         taskList.add(taskDeadline);
+         taskList.add(taskPriority);
+         taskList.add(taskLawyerId);
+         taskList.add(taskStatus);
+         taskList.add(taskCreatedTime);
+         
+         Task task = new Task();
+         task.setTaskDetails(taskDetails);
+         task.setDeadline(taskDeadline);
+         task.setTaskPriority(taskPriority);
+         task.setLawyerId(taskLawyerId);
+         task.setTaskStatus(taskStatus);
+         
+         task.setCreatedTime(taskCreatedTime);
+         
+         
+         boolean taskInfoNullCheck =nullCheck(taskList); 
+         if(!taskInfoNullCheck)
+         {
+             checkExistingAdvocateID(taskLawyerId);
+             TaskDao taskDao = new TaskDao();
+            taskDao.createAdvocate(task);
+         }
+         
+    }//GEN-LAST:event_taskSaveBtnActionPerformed
+
+    private void documentSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentSaveBtnActionPerformed
+        // TODO add your handling code here:
+        String documentType = documentTypeTextField.getText();
+        String documentClientID = documentclientIdTextField.getText();
+        String documentLocation = documentLocationTextField.getText();
+           ArrayList< String> documentList = new ArrayList<>();
+         documentList.add(documentType);
+         documentList.add(documentClientID);
+         documentList.add(documentLocation);
+         
+         Document doc = new Document();
+         doc.setDocumentType(documentType);
+         doc.setClientId(documentClientID);
+         doc.setDocumentLocation(documentLocation);
+         
+        boolean documentNullCheck = nullCheck(documentList);
+        if(!documentNullCheck)
+        {
+          CheckExistingClientID(documentClientID);
+          DocumentDao object1 = new DocumentDao();
+          object1.createDocument(doc);
+        }
+    }//GEN-LAST:event_documentSaveBtnActionPerformed
+
+    private void NoteSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoteSaveBtnActionPerformed
+        // TODO add your handling code here:
+        String NoteClientID = clientIdNoteTextField.getText();
+        String NoteModifiedBy = modifiedbyTextField.getText();
+        String NoteCreatedBy = createdByTextField.getText();
+        String Note = noteTextField.getText();
+        
+        ArrayList< String> NoteList = new ArrayList<>();
+        NoteList.add(NoteClientID);
+        NoteList.add(NoteModifiedBy);
+        NoteList.add(NoteCreatedBy);
+        NoteList.add(Note);
+        boolean NoteNullCheck = nullCheck(NoteList);
+        Note note = new Note();
+        note.setClientId(NoteClientID);
+        note.setModifiedBy(NoteModifiedBy);
+        note.setCreatedBy(NoteCreatedBy);
+        note.setNote(Note);
+        
+        if(!NoteNullCheck)
+        {
+            CheckExistingClientID(NoteClientID);
+            checkExistingAdvocateID(NoteModifiedBy);
+            checkExistingAdvocateID(NoteCreatedBy);
+            NoteDao object1 = new NoteDao();
+            object1.createNote(note);
+        }
+    }//GEN-LAST:event_NoteSaveBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1981,15 +2255,16 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel AddPaymentjPanel;
     private javax.swing.JLabel ClientBackjLabel;
     private javax.swing.JRadioButton MyFolderRadioBtn;
+    private javax.swing.JPanel MyFolderjPanel;
     private javax.swing.JLabel NoteClientId;
     private javax.swing.JButton NoteSaveBtn;
-    private javax.swing.JPanel Panel_AddressBook_menu;
     private javax.swing.JPanel Panel_Appointment_menu;
+    private javax.swing.JPanel Panel_Documents_menu;
     private javax.swing.JPanel Panel_account_menu;
     private javax.swing.JPanel Panel_caseFolder_menu;
-    private javax.swing.JPanel Panel_communication_menu;
     private javax.swing.JPanel Panel_dashbord_menu;
     private javax.swing.JPanel Panel_setting_menu;
+    private javax.swing.JPanel Panel_tasks_menu;
     private javax.swing.JPanel Panel_toDoList_menu;
     private javax.swing.JScrollPane ScrollPane_user_list;
     private javax.swing.JRadioButton activeFolderRadioBtn;
@@ -2015,10 +2290,21 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JTextField createdByTextField;
     private javax.swing.JLabel createdByjLabel;
     private com.toedter.calendar.JDateChooser createdTimeDateChooser;
+    private javax.swing.JLabel createdTimeJLabel;
+    private javax.swing.JTextField createdTimeTextField;
     private javax.swing.JLabel createdTimejLabel;
     private javax.swing.JTextField createdTimejTextField;
+    private com.toedter.calendar.JDateChooser deadlineDateChooser;
+    private javax.swing.JLabel deadlineJLabel;
+    private javax.swing.JTextField deadlineTextField;
     private javax.swing.JLabel detailJlabel;
     private javax.swing.JTextField detailTextField;
+    private javax.swing.JLabel documentLocJLabel;
+    private javax.swing.JTextField documentLocationTextField;
+    private javax.swing.JButton documentSaveBtn;
+    private javax.swing.JTextField documentTypeTextField;
+    private javax.swing.JLabel documentTypejLabel;
+    private javax.swing.JTextField documentclientIdTextField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField firstNameTextField;
@@ -2027,26 +2313,27 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel header_container;
     private javax.swing.JTextField introTextField;
     private javax.swing.JLabel introjLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JLabel label_Documents_menu;
     private javax.swing.JLabel label_account_menu;
-    private javax.swing.JLabel label_addressBook_menu;
     private javax.swing.JLabel label_appointment_menu;
     private javax.swing.JLabel label_caseFolder_menu;
-    private javax.swing.JLabel label_communication_menu;
     private javax.swing.JLabel label_dashboard_menu;
     private javax.swing.JLabel label_settings_menu;
+    private javax.swing.JLabel label_tasks_menu;
     private javax.swing.JLabel label_todoList_menu;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameTextField;
+    private javax.swing.JLabel lawyerIdJLabel;
     private javax.swing.JLabel locationLabel;
     private javax.swing.JTextField locationTextField;
     private javax.swing.JButton logOut_button;
@@ -2080,15 +2367,24 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JTextField statusTextField;
     private javax.swing.JLabel statusjLabel;
     private static javax.swing.JLabel storedUserLabel;
+    private javax.swing.JPanel tab_Documents;
     private javax.swing.JPanel tab_accounts;
-    private javax.swing.JPanel tab_address_book;
     private javax.swing.JPanel tab_appointment;
     private javax.swing.JPanel tab_caseFolder;
-    private javax.swing.JPanel tab_communication;
     private javax.swing.JTabbedPane tab_container;
     private javax.swing.JPanel tab_dashboard;
     private javax.swing.JPanel tab_settings;
+    private javax.swing.JPanel tab_tasks;
     private javax.swing.JPanel tab_todoList;
+    private com.toedter.calendar.JDateChooser taskCreatedTimeDateChooser;
+    private javax.swing.JLabel taskDetailJLabel;
+    private javax.swing.JTextField taskDetailTextField;
+    private javax.swing.JTextField taskLawyerIdTextField;
+    private javax.swing.JLabel taskPriorityJLabel;
+    private javax.swing.JTextField taskPriorityTextField;
+    private javax.swing.JButton taskSaveBtn;
+    private javax.swing.JLabel taskStatusJLabel;
+    private javax.swing.JTextField taskStatusTextField;
     private javax.swing.JLabel title_searchBox_userName;
     private com.toedter.calendar.JDateChooser updatedTimeDateChooser;
     private javax.swing.JTextField updatedTimeTextField;

@@ -16,4 +16,5 @@ public interface IAdvocateDAO {
     
     void createAdvocate (Advocate advocate);
     void createAdvocateTable(Advocate advocate);
+    void FindAdvocateID(Advocate advocate);
 }
