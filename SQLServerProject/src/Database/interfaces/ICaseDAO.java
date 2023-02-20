@@ -17,5 +17,7 @@ public interface ICaseDAO {
     
     void createCase (Case case_);
     void createJoinedCaseTable(Case case_);
-   
+    void createCaseTableForMyFolder(Case case_);
+   void createCaseTableByCategory(Case case_);
+   void createCaseTableByLocation(Case case_);
 }
