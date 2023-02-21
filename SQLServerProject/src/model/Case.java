@@ -20,6 +20,7 @@ public class Case {
     private String Location;
     private String OpeningDate;
     private String PaymentId;
+    private String CaseStatus;
     private JTable jTable;
 
     public JTable getjTable() {
@@ -67,6 +68,14 @@ public class Case {
 
     public String getIntroducedBy() {
         return IntroducedBy;
+    }
+
+    public String getCaseStatus() {
+        return CaseStatus;
+    }
+
+    public void setCaseStatus(String CaseStatus) {
+        this.CaseStatus = CaseStatus;
     }
 
     public void setIntroducedBy(String IntroducedBy) {

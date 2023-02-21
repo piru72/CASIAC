@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -54,6 +56,7 @@ public class Executioner {
     }
 
     void executeFindQuery(String query, String successMessage, String failureMessage, String userInput) {
+
         boolean flag = false;
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
@@ -63,8 +66,7 @@ public class Executioner {
                 int retrievedID = result.getInt("ClientId");
                 String ID = Integer.toString(retrievedID);
                 if (ID.equals(userInput)) {
-                    //  System.out.println(retrievedID);
-                    //  System.out.println(ID);
+
                     flag = true;
                     break;
                 }
@@ -77,9 +79,6 @@ public class Executioner {
         if (flag != true) {
             JOptionPane.showMessageDialog(null, failureMessage,
                     "Failure!!", JOptionPane.WARNING_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, successMessage,
-                    "DONE!!", JOptionPane.OK_OPTION);
         }
     }
 
@@ -88,7 +87,7 @@ public class Executioner {
         int savedID = -1;
         try {
             connection = DriverManager.getConnection(query);
-            PreparedStatement prepareStatement = connection.prepareStatement(query);
+            prepareStatement = connection.prepareStatement(query);
 
             prepareStatement.setString(1, userInput);
             result = prepareStatement.executeQuery();
@@ -318,4 +317,79 @@ public class Executioner {
         }
 
     }
+
+    void executeCaseTableForActiveCases(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        if (count > 1) {
+            int i = jtable.getRowCount();
+            for (int j = 0; j < i; j++) {
+                model1.removeRow(0);
+            }
+        }
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+                String CaseId = result.getString("CaseId");
+                String ClientId = result.getString("ClientId");
+                String Category = result.getString("Category");
+                String caseIntroducer = result.getString("IntroducedBy");
+                String CaseLocation = result.getString("CaseLocation");
+                String OpeningDate = result.getString("OpeningDate");
+                String paymentId = result.getString("PaymentId");
+                String tableData[] = {CaseId, ClientId, Category, caseIntroducer, CaseLocation, OpeningDate, paymentId};
+                model1.addRow(tableData);
+//System.out.println("id "+CaseId+" client name "+ClientName+" Category"+Category+" loc"+CaseLocation+" openin date"+OpeningDate);
+//System.out.println("case worker "+caseWorkerName+" case intro "+caseIntroducer+" amount "+amount);
+
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    void executeFindCaseID(String query, String successMessage, String failureMessage, String userInput) {
+        boolean flag = false;
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            prepareStatement = connection.prepareStatement(query);
+            result = prepareStatement.executeQuery();
+            while (result.next()) {
+                int retrievedID = result.getInt("CaseId");
+                String ID = Integer.toString(retrievedID);
+                if (ID.equals(userInput)) {
+
+                    flag = true;
+                    break;
+                }
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+        if (flag != true) {
+            JOptionPane.showMessageDialog(null, failureMessage,
+                    "Failure!!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    void executeArchiveCase(String query, String successMessage, String failureMessage) {
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            prepareStatement = connection.prepareStatement(query);
+            prepareStatement.setString(1, "Archived");
+            prepareStatement.executeUpdate();
+
+        } catch (SQLException ex) {
+
+        }
+
+    }
+
 }

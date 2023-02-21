@@ -20,4 +20,7 @@ public interface ICaseDAO {
     void createCaseTableForMyFolder(Case case_);
    void createCaseTableByCategory(Case case_);
    void createCaseTableByLocation(Case case_);
+   void createCaseTableForActiveCases(Case case_);
+   void checkExistingCaseID(Case case_);
+   void archiveCaseID(Case case_);
 }
