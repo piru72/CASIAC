@@ -76,9 +76,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(890, 600));
-        setResizable(false);
 
         LoginJpane.setBackground(new java.awt.Color(79, 164, 250));
 
@@ -636,7 +634,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void LoginBtnActionPerformed(ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
         // TODO add your handling code here:
-        String query = "SELECT Email,FirstName,AdvocatePassword FROM Advocate WHERE Email = ? ";
+        String query = "SELECT FirstName,AdvocatePassword,AdvocateId FROM Advocate WHERE Email = ? ";
 
         String user = usernameText.getText();
         String pass = passwordField.getText();
@@ -656,13 +654,15 @@ public class LoginPage extends javax.swing.JFrame {
                         "Swing Tester", JOptionPane.WARNING_MESSAGE);
             } else {
                 while (result.next()) {
+                    
                     String retrievedPass = result.getString("AdvocatePassword");
 
                     if (retrievedPass.equals(pass)) {
-                        System.out.println("Password Matched!!");
+                        //System.out.println("Password Matched!!");
                         authentication = true;
                         StoredUsername = result.getString("FirstName");
-                        MainDashboard phaseObj = new MainDashboard(StoredUsername);
+                        StoredUserID = result.getInt("AdvocateId");
+                        MainDashboard phaseObj = new MainDashboard(StoredUsername,StoredUserID);
 
                     } else {
                         System.out.println("Password Didn't match!");
@@ -697,6 +697,7 @@ public class LoginPage extends javax.swing.JFrame {
     DatabaseCredentials dbc = new DatabaseCredentials();
     String databaseUrl = dbc.getDatabaseUrl();
     String StoredUsername = "";
+    int StoredUserID =-1;
     String AdminPassword = "123456";
 
     public boolean checkNull(ArrayList< String> s) {

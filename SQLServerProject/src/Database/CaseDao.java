@@ -18,13 +18,14 @@ public class CaseDao extends Executioner implements ICaseDAO {
     static int countForMyFolder = 1;
     static int countForMyFolderCategory = 1;
     static int countForMyFolderLocation = 1;
+    static int countForActiveCases = 1;
 
     @Override
     public void createCase(Case case_) {
 
-        String query = "INSERT into CASES (ClientId,Category,CaseWorker,IntroducedBy,CaseLocation,OpeningDate,PaymentId) Values"
+        String query = "INSERT into CASES (ClientId,Category,CaseWorker,IntroducedBy,CaseLocation,OpeningDate,PaymentId,CaseStatus) Values"
                 + " ('" + case_.getClientId() + "','" + case_.getCategory() + "','" + case_.getCaseWorker() + "','" + case_.getIntroducedBy()
-                + "','" + case_.getLocation() + "','" + case_.getOpeningDate() + "','" + case_.getPaymentId() + "' )";
+                + "','" + case_.getLocation() + "','" + case_.getOpeningDate() + "','" + case_.getPaymentId() + "','"+case_.getCaseStatus()+"' )";
 
         String successMessage = "Case Added!!";
         String failedMessage = "Case adding failed!!";
@@ -100,14 +101,43 @@ public class CaseDao extends Executioner implements ICaseDAO {
                 + " From CASES C INNER JOIN CLIENT Client ON Client.ClientId = C.ClientId INNER JOIN Advocate Aw ON C.CaseWorker = Aw.AdvocateId INNER JOIN Advocate Ai ON C.IntroducedBy = Ai.AdvocateId INNER JOIN PAYMENT P ON P.PaymentId = C.PaymentId"
                 + " AND C.CaseLocation ='" + case_.getLocation() + "' ";
 
-        String successMessage = "Data Showed For My Folder By Category";
+        String successMessage = "Data Showed For My Folder By Location";
         String failedMessage = "Failed";
         JTable jtable = case_.getjTable();
         
         executeCaseTableForMyFolderLocation(Query, successMessage, failedMessage, jtable, countForMyFolderLocation);
         countForMyFolderLocation +=1;
 }
+    @Override
+    public   void createCaseTableForActiveCases(Case case_)
+    {
+        String query = "SELECT CaseId,ClientId,Category,IntroducedBy,CaseLocation,OpeningDate,"
+                + "PaymentId From CASES Where CaseStatus ='Active' AND CaseWorker = '"+case_.getCaseWorker()+"' ";
+         String successMessage = "Data Showed For active cases";
+        String failedMessage = "Failed";
+        JTable jtable = case_.getjTable();
+               executeCaseTableForActiveCases(query,successMessage,failedMessage,jtable,countForActiveCases);
+         countForActiveCases = countForActiveCases + 1;
+
+    }
+    @Override
+    public void checkExistingCaseID(Case case_)
+    {
+        String query ="SELECT CaseId FROM CASES";
+        String successMessage = "User Exists.";
+        String failedMessage = "User Doesn't Exist";
+        String savedCaseId = case_.getCaseId();
+        executeFindCaseID(query,successMessage,failedMessage,savedCaseId);
+    }
     
+    @Override
+  public  void archiveCaseID(Case case_)
+    {
+        String query = "UPDATE CASES SET CaseStatus ='Archived' WHERE CaseId = '"+case_.getCaseId()+"' ";
+        String successMessage ="Case has been archived";
+        String failedMessage ="Failed";
+        executeArchiveCase(query,successMessage,failedMessage);
+    }
 }
 //From. error ashle comma extra last e
 //ClientIdInner Invalid column ashle same line e inner join operation korte hobe
