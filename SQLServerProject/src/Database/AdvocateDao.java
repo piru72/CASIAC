@@ -5,8 +5,7 @@
 package Database;
 
 import Database.interfaces.IAdvocateDAO;
-<<<<<<< HEAD
-=======
+
 import DatabaseCredentials.DatabaseCredentials;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -16,7 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
->>>>>>> 5670aca65178d40972fc23a6ed2e8ddc99e457df
 import model.Advocate;
 
 /**
@@ -24,7 +22,7 @@ import model.Advocate;
  * @author parve
  */
 public class AdvocateDao extends Executioner implements IAdvocateDAO  {
-
+static int count = 1;
     
     @Override
     public void createAdvocate(Advocate advocate) {
@@ -45,8 +43,10 @@ public class AdvocateDao extends Executioner implements IAdvocateDAO  {
         String successMessage = "Table created Successfully!";
         String failedMessage = "Failed!!";
         JTable jTable = advocate.getjTable();
-        executeTable(query,successMessage,failedMessage,jTable);
-     
+        
+        executeTable(query,successMessage,failedMessage,jTable,count);
+        count = count  + 1;
+            
    }
     @Override
    public void FindAdvocateID(Advocate advocate)
@@ -55,6 +55,7 @@ public class AdvocateDao extends Executioner implements IAdvocateDAO  {
          String successMessage = "Successfull!";
         String failedMessage = "Failed!!";
       String userInput = advocate.getAdvocateId();
+      
       executeFindAdvocate(query,successMessage,failedMessage,userInput);
    }
 }

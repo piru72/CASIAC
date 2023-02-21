@@ -199,7 +199,32 @@ public class MainDashboard extends javax.swing.JFrame {
         activeFolderjPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        MyFolderjPanel = new javax.swing.JPanel();
+        activeFolderBackjLabel = new javax.swing.JLabel();
+        myFolderHomejPanel = new javax.swing.JPanel();
+        myFolderComboBox = new javax.swing.JComboBox<>();
+        myCasesjLabel = new javax.swing.JLabel();
+        myFolderHomejLabel = new javax.swing.JLabel();
+        myFolderIDjPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        EnterYourIDJlabel = new javax.swing.JLabel();
+        UserInputTextField = new javax.swing.JTextField();
+        myFolderTableShowBtn = new javax.swing.JButton();
+        myFolderBackjLabel = new javax.swing.JLabel();
+        myFolderCategoryjPanel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        myFolderCategoryjLabel = new javax.swing.JLabel();
+        enterCategoryjLabel = new javax.swing.JLabel();
+        categoryInputTextField = new javax.swing.JTextField();
+        categoryShowBtn = new javax.swing.JButton();
+        myFolderLocationjPanel = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        myfolderLocjLabel = new javax.swing.JLabel();
+        myFolderLocInputTextField = new javax.swing.JTextField();
+        locationBackjLabel = new javax.swing.JLabel();
+        myFolderLocationShowBtn = new javax.swing.JButton();
         tab_accounts = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         tab_tasks = new javax.swing.JPanel();
@@ -884,7 +909,7 @@ public class MainDashboard extends javax.swing.JFrame {
                             .addComponent(openNewCaseRadioBtn)
                             .addComponent(activeFolderRadioBtn)
                             .addComponent(MyFolderRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 497, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
                         .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(boxArchiveRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1285,7 +1310,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(savePaymentBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backPaymentjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         nestedTabbedCase.addTab("tab4", AddPaymentjPanel);
@@ -1298,37 +1323,310 @@ public class MainDashboard extends javax.swing.JFrame {
                 "Case_Id", "Client Name", "Category", "Case Location", "Opening Date", "Case Worker", "Case Introducer", "Amount"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable2);
+
+        activeFolderBackjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        activeFolderBackjLabel.setText("  Back");
+        activeFolderBackjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                activeFolderBackjLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout activeFolderjPanelLayout = new javax.swing.GroupLayout(activeFolderjPanel);
         activeFolderjPanel.setLayout(activeFolderjPanelLayout);
         activeFolderjPanelLayout.setHorizontalGroup(
             activeFolderjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(activeFolderjPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, activeFolderjPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(activeFolderBackjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
         );
         activeFolderjPanelLayout.setVerticalGroup(
             activeFolderjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(activeFolderjPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(activeFolderBackjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         nestedTabbedCase.addTab("tab5", activeFolderjPanel);
 
-        javax.swing.GroupLayout MyFolderjPanelLayout = new javax.swing.GroupLayout(MyFolderjPanel);
-        MyFolderjPanel.setLayout(MyFolderjPanelLayout);
-        MyFolderjPanelLayout.setHorizontalGroup(
-            MyFolderjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 734, Short.MAX_VALUE)
+        myFolderComboBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        myFolderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Search By ID", "Search By Category", "Search By Location", " " }));
+        myFolderComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myFolderComboBoxActionPerformed(evt);
+            }
+        });
+
+        myCasesjLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 12)); // NOI18N
+        myCasesjLabel.setText("My Cases");
+
+        myFolderHomejLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        myFolderHomejLabel.setText("Back");
+        myFolderHomejLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                myFolderHomejLabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout myFolderHomejPanelLayout = new javax.swing.GroupLayout(myFolderHomejPanel);
+        myFolderHomejPanel.setLayout(myFolderHomejPanelLayout);
+        myFolderHomejPanelLayout.setHorizontalGroup(
+            myFolderHomejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myFolderHomejPanelLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(myFolderHomejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(myFolderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myCasesjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myFolderHomejPanelLayout.createSequentialGroup()
+                .addContainerGap(544, Short.MAX_VALUE)
+                .addComponent(myFolderHomejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123))
         );
-        MyFolderjPanelLayout.setVerticalGroup(
-            MyFolderjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+        myFolderHomejPanelLayout.setVerticalGroup(
+            myFolderHomejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myFolderHomejPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(myCasesjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(myFolderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                .addComponent(myFolderHomejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
 
-        nestedTabbedCase.addTab("tab6", MyFolderjPanel);
+        nestedTabbedCase.addTab("tab7", myFolderHomejPanel);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Case_ID", "Client Name", "Category", "Case Introducer", "Location", "Opening Date", "Amount"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable3);
+
+        EnterYourIDJlabel.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        EnterYourIDJlabel.setText("Enter Your ID");
+
+        myFolderTableShowBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        myFolderTableShowBtn.setText("Show");
+        myFolderTableShowBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myFolderTableShowBtnActionPerformed(evt);
+            }
+        });
+
+        myFolderBackjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        myFolderBackjLabel.setText("Back");
+        myFolderBackjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                myFolderBackjLabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout myFolderIDjPanelLayout = new javax.swing.GroupLayout(myFolderIDjPanel);
+        myFolderIDjPanel.setLayout(myFolderIDjPanelLayout);
+        myFolderIDjPanelLayout.setHorizontalGroup(
+            myFolderIDjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myFolderIDjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+            .addGroup(myFolderIDjPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(myFolderIDjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EnterYourIDJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(myFolderIDjPanelLayout.createSequentialGroup()
+                        .addComponent(UserInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82)
+                        .addComponent(myFolderTableShowBtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myFolderIDjPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(myFolderBackjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
+        );
+        myFolderIDjPanelLayout.setVerticalGroup(
+            myFolderIDjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myFolderIDjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(EnterYourIDJlabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(myFolderIDjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UserInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myFolderTableShowBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(myFolderBackjLabel)
+                .addGap(20, 20, 20))
+        );
+
+        nestedTabbedCase.addTab("tab6", myFolderIDjPanel);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Case_ID", "Client_Name", "Category", "Case_Introducer", "Case_Worker", "Location", "Opening Date", "Amount"
+            }
+        ));
+        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable4MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTable4);
+
+        myFolderCategoryjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        myFolderCategoryjLabel.setText("Back");
+
+        enterCategoryjLabel.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        enterCategoryjLabel.setText("Enter the Category");
+
+        categoryShowBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        categoryShowBtn.setText("Show");
+        categoryShowBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoryShowBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout myFolderCategoryjPanelLayout = new javax.swing.GroupLayout(myFolderCategoryjPanel);
+        myFolderCategoryjPanel.setLayout(myFolderCategoryjPanelLayout);
+        myFolderCategoryjPanelLayout.setHorizontalGroup(
+            myFolderCategoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myFolderCategoryjPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(myFolderCategoryjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(myFolderCategoryjPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(myFolderCategoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(enterCategoryjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoryInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
+                .addComponent(categoryShowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(182, 182, 182))
+        );
+        myFolderCategoryjPanelLayout.setVerticalGroup(
+            myFolderCategoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myFolderCategoryjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(enterCategoryjLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(myFolderCategoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoryInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoryShowBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(myFolderCategoryjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        nestedTabbedCase.addTab("tab8", myFolderCategoryjPanel);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Case_ID", "Client_Name", "Category", "Case Introducer", "Case Worker", "Location", "Opening Date", "Amount"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable5);
+
+        myfolderLocjLabel.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        myfolderLocjLabel.setText("Enter the Location");
+
+        locationBackjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        locationBackjLabel.setText("Back");
+        locationBackjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                locationBackjLabelMouseClicked(evt);
+            }
+        });
+
+        myFolderLocationShowBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        myFolderLocationShowBtn.setText("Show");
+        myFolderLocationShowBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myFolderLocationShowBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout myFolderLocationjPanelLayout = new javax.swing.GroupLayout(myFolderLocationjPanel);
+        myFolderLocationjPanel.setLayout(myFolderLocationjPanelLayout);
+        myFolderLocationjPanelLayout.setHorizontalGroup(
+            myFolderLocationjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myFolderLocationjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(myFolderLocationjPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(myFolderLocationjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(myFolderLocationjPanelLayout.createSequentialGroup()
+                        .addComponent(myfolderLocjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(myFolderLocationjPanelLayout.createSequentialGroup()
+                        .addComponent(myFolderLocInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(myFolderLocationShowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(151, 151, 151))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myFolderLocationjPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(locationBackjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
+        );
+        myFolderLocationjPanelLayout.setVerticalGroup(
+            myFolderLocationjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myFolderLocationjPanelLayout.createSequentialGroup()
+                .addComponent(myfolderLocjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(myFolderLocationjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(myFolderLocInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myFolderLocationShowBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(locationBackjLabel)
+                .addGap(11, 11, 11))
+        );
+
+        nestedTabbedCase.addTab("tab9", myFolderLocationjPanel);
 
         javax.swing.GroupLayout tab_caseFolderLayout = new javax.swing.GroupLayout(tab_caseFolder);
         tab_caseFolder.setLayout(tab_caseFolderLayout);
@@ -1493,6 +1791,11 @@ public class MainDashboard extends javax.swing.JFrame {
         jTable1.setEditingColumn(0);
         jTable1.setEditingRow(0);
         jTable1.setSelectionBackground(new java.awt.Color(200, 227, 246));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         ScrollPane_user_list.setViewportView(jTable1);
 
         searchBox_userName.addActionListener(new java.awt.event.ActionListener() {
@@ -1685,7 +1988,7 @@ public class MainDashboard extends javax.swing.JFrame {
     private void label_tasks_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_tasks_menuMouseClicked
         // TODO add your handling code here:
         deadlineTextField.setVisible(false);
-          createdTimeTextField.setVisible(false);
+        createdTimeTextField.setVisible(false);
         tab_container.setSelectedIndex(6);
         jTable1.setVisible(false);
     }//GEN-LAST:event_label_tasks_menuMouseClicked
@@ -1768,19 +2071,20 @@ public class MainDashboard extends javax.swing.JFrame {
             this.openingDateTextField.setVisible(false);
             MyFolderRadioBtn.setSelected(false);
             activeFolderRadioBtn.setSelected(false);
+            folderCategoriesRadioBtn.setSelected(false);
             this.nestedTabbedCase.setSelectedIndex(1);
         }
         //  
     }//GEN-LAST:event_openNewCaseRadioBtnMouseClicked
     public void DisplayTable() {
         jTable2.setVisible(true);
-          Case case_ = new Case();
+        Case case_ = new Case();
         case_.setjTable(jTable2);
         CaseDao caseDao = new CaseDao();
         caseDao.createJoinedCaseTable(case_);
-  
 
-   /*     String testQueryAnother = "SELECT C.CaseId, A.AdvocateId,C.Category, A.FirstName+' '+A.LastName AS 'Name',C.CaseLocation,C.OpeningDate "
+
+        /*     String testQueryAnother = "SELECT C.CaseId, A.AdvocateId,C.Category, A.FirstName+' '+A.LastName AS 'Name',C.CaseLocation,C.OpeningDate "
                 + "From CASES C INNER JOIN Advocate A ON A.AdvocateId = C.IntroducedBy";
 
         try {
@@ -1808,12 +2112,9 @@ public class MainDashboard extends javax.swing.JFrame {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }*/
-       
-        
-/*for (String lang : tbData) {
+ /*for (String lang : tbData) {
             list.add(lang);
         }*/
-       
     }
 
     private void activeFolderRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeFolderRadioBtnMouseClicked
@@ -1830,12 +2131,28 @@ public class MainDashboard extends javax.swing.JFrame {
             DisplayTable();
         }
     }//GEN-LAST:event_activeFolderRadioBtnMouseClicked
+    public void DisplayMyFolderTable(String s1) {
 
+        Case case_ = new Case();
+        case_.setjTable(jTable3);
+        CaseDao caseDao = new CaseDao();
+
+        // System.out.println("Id"+s1);
+        checkExistingAdvocateID(s1);
+        case_.setCaseWorker(s1);
+        caseDao.createCaseTableForMyFolder(case_);
+
+    }
     private void MyFolderRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyFolderRadioBtnMouseClicked
         // TODO add your handling code here:
         if (MyFolderRadioBtn.isSelected()) {
             openNewCaseRadioBtn.setSelected(false);
             activeFolderRadioBtn.setSelected(false);
+            folderCategoriesRadioBtn.setSelected(false);
+            folderLocRadioBtn.setSelected(false);
+            boxArchiveRadioBtn.setSelected(false);
+            this.nestedTabbedCase.setSelectedIndex(5);
+
     }//GEN-LAST:event_MyFolderRadioBtnMouseClicked
     }
     private void backJlabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backJlabelMouseClicked
@@ -1945,6 +2262,14 @@ public class MainDashboard extends javax.swing.JFrame {
 
     private void folderCategoriesRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderCategoriesRadioBtnActionPerformed
         // TODO add your handling code here:
+        if (folderCategoriesRadioBtn.isSelected()) {
+            openNewCaseRadioBtn.setSelected(false);
+            activeFolderRadioBtn.setSelected(false);
+            MyFolderRadioBtn.setSelected(false);
+            folderLocRadioBtn.setSelected(false);
+            boxArchiveRadioBtn.setSelected(false);
+
+        }
 
     }//GEN-LAST:event_folderCategoriesRadioBtnActionPerformed
 
@@ -2104,53 +2429,49 @@ public class MainDashboard extends javax.swing.JFrame {
     private void folderCategoriesRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_folderCategoriesRadioBtnMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_folderCategoriesRadioBtnMouseClicked
-void checkExistingAdvocateID(String advocateId)
-{
-    Advocate advocate = new Advocate();
-    advocate.setAdvocateId(advocateId);
-    AdvocateDao obj = new AdvocateDao();
-    obj.FindAdvocateID(advocate);
-    
-    
-}
+    void checkExistingAdvocateID(String advocateId) {
+        Advocate advocate = new Advocate();
+        advocate.setAdvocateId(advocateId);
+        AdvocateDao obj = new AdvocateDao();
+        obj.FindAdvocateID(advocate);
+
+    }
     private void taskSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskSaveBtnActionPerformed
         // TODO add your handling code here:
-        
+
         String taskDetails = taskDetailTextField.getText();
         String taskDeadline = ((JTextField) deadlineDateChooser.getDateEditor().getUiComponent()).getText();
         deadlineTextField.setText(taskDeadline);
         String taskPriority = taskPriorityTextField.getText();
         String taskLawyerId = taskLawyerIdTextField.getText();
         String taskStatus = taskStatusTextField.getText();
-        String taskCreatedTime =((JTextField) taskCreatedTimeDateChooser.getDateEditor().getUiComponent()).getText();
+        String taskCreatedTime = ((JTextField) taskCreatedTimeDateChooser.getDateEditor().getUiComponent()).getText();
         createdTimeTextField.setText(taskCreatedTime);
-         ArrayList< String> taskList = new ArrayList<>();
-         
-         taskList.add(taskDetails);
-         taskList.add(taskDeadline);
-         taskList.add(taskPriority);
-         taskList.add(taskLawyerId);
-         taskList.add(taskStatus);
-         taskList.add(taskCreatedTime);
-         
-         Task task = new Task();
-         task.setTaskDetails(taskDetails);
-         task.setDeadline(taskDeadline);
-         task.setTaskPriority(taskPriority);
-         task.setLawyerId(taskLawyerId);
-         task.setTaskStatus(taskStatus);
-         
-         task.setCreatedTime(taskCreatedTime);
-         
-         
-         boolean taskInfoNullCheck =nullCheck(taskList); 
-         if(!taskInfoNullCheck)
-         {
-             checkExistingAdvocateID(taskLawyerId);
-             TaskDao taskDao = new TaskDao();
+        ArrayList< String> taskList = new ArrayList<>();
+
+        taskList.add(taskDetails);
+        taskList.add(taskDeadline);
+        taskList.add(taskPriority);
+        taskList.add(taskLawyerId);
+        taskList.add(taskStatus);
+        taskList.add(taskCreatedTime);
+
+        Task task = new Task();
+        task.setTaskDetails(taskDetails);
+        task.setDeadline(taskDeadline);
+        task.setTaskPriority(taskPriority);
+        task.setLawyerId(taskLawyerId);
+        task.setTaskStatus(taskStatus);
+
+        task.setCreatedTime(taskCreatedTime);
+
+        boolean taskInfoNullCheck = nullCheck(taskList);
+        if (!taskInfoNullCheck) {
+            checkExistingAdvocateID(taskLawyerId);
+            TaskDao taskDao = new TaskDao();
             taskDao.createAdvocate(task);
-         }
-         
+        }
+
     }//GEN-LAST:event_taskSaveBtnActionPerformed
 
     private void documentSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentSaveBtnActionPerformed
@@ -2158,22 +2479,21 @@ void checkExistingAdvocateID(String advocateId)
         String documentType = documentTypeTextField.getText();
         String documentClientID = documentclientIdTextField.getText();
         String documentLocation = documentLocationTextField.getText();
-           ArrayList< String> documentList = new ArrayList<>();
-         documentList.add(documentType);
-         documentList.add(documentClientID);
-         documentList.add(documentLocation);
-         
-         Document doc = new Document();
-         doc.setDocumentType(documentType);
-         doc.setClientId(documentClientID);
-         doc.setDocumentLocation(documentLocation);
-         
+        ArrayList< String> documentList = new ArrayList<>();
+        documentList.add(documentType);
+        documentList.add(documentClientID);
+        documentList.add(documentLocation);
+
+        Document doc = new Document();
+        doc.setDocumentType(documentType);
+        doc.setClientId(documentClientID);
+        doc.setDocumentLocation(documentLocation);
+
         boolean documentNullCheck = nullCheck(documentList);
-        if(!documentNullCheck)
-        {
-          CheckExistingClientID(documentClientID);
-          DocumentDao object1 = new DocumentDao();
-          object1.createDocument(doc);
+        if (!documentNullCheck) {
+            CheckExistingClientID(documentClientID);
+            DocumentDao object1 = new DocumentDao();
+            object1.createDocument(doc);
         }
     }//GEN-LAST:event_documentSaveBtnActionPerformed
 
@@ -2183,7 +2503,7 @@ void checkExistingAdvocateID(String advocateId)
         String NoteModifiedBy = modifiedbyTextField.getText();
         String NoteCreatedBy = createdByTextField.getText();
         String Note = noteTextField.getText();
-        
+
         ArrayList< String> NoteList = new ArrayList<>();
         NoteList.add(NoteClientID);
         NoteList.add(NoteModifiedBy);
@@ -2195,9 +2515,8 @@ void checkExistingAdvocateID(String advocateId)
         note.setModifiedBy(NoteModifiedBy);
         note.setCreatedBy(NoteCreatedBy);
         note.setNote(Note);
-        
-        if(!NoteNullCheck)
-        {
+
+        if (!NoteNullCheck) {
             CheckExistingClientID(NoteClientID);
             checkExistingAdvocateID(NoteModifiedBy);
             checkExistingAdvocateID(NoteCreatedBy);
@@ -2205,6 +2524,124 @@ void checkExistingAdvocateID(String advocateId)
             object1.createNote(note);
         }
     }//GEN-LAST:event_NoteSaveBtnActionPerformed
+
+    private void myFolderTableShowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myFolderTableShowBtnActionPerformed
+        // TODO add your handling code here:
+        String input = UserInputTextField.getText();
+        if (input.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Enter the ID",
+                    "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        } else {
+            DisplayMyFolderTable(input);
+        }
+    }//GEN-LAST:event_myFolderTableShowBtnActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        boolean check = jTable1.isEditing();
+        if (check == false) {
+            JOptionPane.showMessageDialog(null, "You can't Edit this table!", "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        boolean check = jTable2.isEditing();
+        if (check == false) {
+            JOptionPane.showMessageDialog(null, "You can't Edit this table!", "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        boolean check = jTable3.isEditing();
+        if (check == false) {
+            JOptionPane.showMessageDialog(null, "You can't Edit this table!", "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void activeFolderBackjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_activeFolderBackjLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(0);
+    }//GEN-LAST:event_activeFolderBackjLabelMouseClicked
+
+    private void myFolderBackjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myFolderBackjLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(5);
+    }//GEN-LAST:event_myFolderBackjLabelMouseClicked
+
+    private void myFolderComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myFolderComboBoxActionPerformed
+        // TODO add your handling code here:
+        if (myFolderComboBox.getSelectedIndex() == 0) {
+            this.nestedTabbedCase.setSelectedIndex(6);
+        } else if (myFolderComboBox.getSelectedIndex() == 1) {
+
+            this.nestedTabbedCase.setSelectedIndex(7);
+        }
+        else if(myFolderComboBox.getSelectedIndex() == 2)
+        {
+            this.nestedTabbedCase.setSelectedIndex(8);
+        }
+    }//GEN-LAST:event_myFolderComboBoxActionPerformed
+
+    private void myFolderHomejLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myFolderHomejLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(0);
+    }//GEN-LAST:event_myFolderHomejLabelMouseClicked
+    public void DisplayCategorywiseTable(String input) {
+        Case case_ = new Case();
+        case_.setjTable(jTable4);
+        CaseDao caseDao = new CaseDao();
+        case_.setCategory(input);
+
+        caseDao.createCaseTableByCategory(case_);
+
+    }
+    private void categoryShowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryShowBtnActionPerformed
+        // TODO add your handling code here:
+        String getInput = categoryInputTextField.getText();
+        if (getInput.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Enter the ID",
+                    "Swing Tester", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            DisplayCategorywiseTable(getInput);
+        }
+    }//GEN-LAST:event_categoryShowBtnActionPerformed
+
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+        // TODO add your handling code here:
+        boolean check = jTable4.isEditing();
+        if (check == false) {
+            JOptionPane.showMessageDialog(null, "You can't Edit this table!", "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jTable4MouseClicked
+
+    private void locationBackjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_locationBackjLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(5);
+    }//GEN-LAST:event_locationBackjLabelMouseClicked
+
+    public void DisplayLocationWiseTable(String input) {
+        Case case_ = new Case();
+        case_.setjTable(jTable5);
+        case_.setLocation(input);
+        CaseDao caseDao = new CaseDao();
+        caseDao.createCaseTableByLocation(case_);
+    }
+    private void myFolderLocationShowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myFolderLocationShowBtnActionPerformed
+        // TODO add your handling code here:
+        String getInput = myFolderLocInputTextField.getText();
+        if (getInput.length() == 0) {
+            JOptionPane.showMessageDialog(null, "Enter the ID",
+                    "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        } else {
+             DisplayLocationWiseTable(getInput);
+        }
+    }//GEN-LAST:event_myFolderLocationShowBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2249,13 +2686,26 @@ void checkExistingAdvocateID(String advocateId)
         phObject.setVisible(true);
 
     }
+    /*
+     String input = UserInputTextField.getText();
+        if(input.length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Enter the ID",
+                    "Swing Tester", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            DisplayMyFolderTable(input);
+        }
+
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AddClientjPanel;
     private javax.swing.JPanel AddPaymentjPanel;
     private javax.swing.JLabel ClientBackjLabel;
+    private javax.swing.JLabel EnterYourIDJlabel;
     private javax.swing.JRadioButton MyFolderRadioBtn;
-    private javax.swing.JPanel MyFolderjPanel;
     private javax.swing.JLabel NoteClientId;
     private javax.swing.JButton NoteSaveBtn;
     private javax.swing.JPanel Panel_Appointment_menu;
@@ -2267,6 +2717,8 @@ void checkExistingAdvocateID(String advocateId)
     private javax.swing.JPanel Panel_tasks_menu;
     private javax.swing.JPanel Panel_toDoList_menu;
     private javax.swing.JScrollPane ScrollPane_user_list;
+    private javax.swing.JTextField UserInputTextField;
+    private javax.swing.JLabel activeFolderBackjLabel;
     private javax.swing.JRadioButton activeFolderRadioBtn;
     private javax.swing.JPanel activeFolderjPanel;
     private javax.swing.JButton addClientBtn;
@@ -2281,6 +2733,8 @@ void checkExistingAdvocateID(String advocateId)
     private javax.swing.JLabel caseLocjLabel;
     private javax.swing.JTextField caseWorkerTextField;
     private javax.swing.JLabel caseworkerjLabel;
+    private javax.swing.JTextField categoryInputTextField;
+    private javax.swing.JButton categoryShowBtn;
     private javax.swing.JTextField categoryTextField;
     private javax.swing.JLabel categoryjLabel;
     private javax.swing.JLabel clientFirstName;
@@ -2307,6 +2761,7 @@ void checkExistingAdvocateID(String advocateId)
     private javax.swing.JTextField documentclientIdTextField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel enterCategoryjLabel;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JRadioButton folderCategoriesRadioBtn;
     private javax.swing.JRadioButton folderLocRadioBtn;
@@ -2321,8 +2776,14 @@ void checkExistingAdvocateID(String advocateId)
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private static javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JLabel label_Documents_menu;
     private javax.swing.JLabel label_account_menu;
     private javax.swing.JLabel label_appointment_menu;
@@ -2334,6 +2795,7 @@ void checkExistingAdvocateID(String advocateId)
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameTextField;
     private javax.swing.JLabel lawyerIdJLabel;
+    private javax.swing.JLabel locationBackjLabel;
     private javax.swing.JLabel locationLabel;
     private javax.swing.JTextField locationTextField;
     private javax.swing.JButton logOut_button;
@@ -2341,6 +2803,19 @@ void checkExistingAdvocateID(String advocateId)
     private javax.swing.JPanel menu_container;
     private javax.swing.JLabel modifiedByJLabel;
     private javax.swing.JTextField modifiedbyTextField;
+    private javax.swing.JLabel myCasesjLabel;
+    private javax.swing.JLabel myFolderBackjLabel;
+    private javax.swing.JLabel myFolderCategoryjLabel;
+    private javax.swing.JPanel myFolderCategoryjPanel;
+    private javax.swing.JComboBox<String> myFolderComboBox;
+    private javax.swing.JLabel myFolderHomejLabel;
+    private javax.swing.JPanel myFolderHomejPanel;
+    private javax.swing.JPanel myFolderIDjPanel;
+    private javax.swing.JTextField myFolderLocInputTextField;
+    private javax.swing.JButton myFolderLocationShowBtn;
+    private javax.swing.JPanel myFolderLocationjPanel;
+    private javax.swing.JButton myFolderTableShowBtn;
+    private javax.swing.JLabel myfolderLocjLabel;
     private javax.swing.JPanel nestedCaseMenuBar;
     private javax.swing.JTabbedPane nestedTabbedCase;
     private javax.swing.JLabel noteJlabel;

@@ -6,14 +6,13 @@ package Database;
 
 import Database.interfaces.ITaskDAO;
 import model.Task;
-<<<<<<< HEAD
+
 import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Advocate;
-=======
->>>>>>> e6d5232abdcc0b046009b28a17f0519871660a31
+
 
 /**
  *
