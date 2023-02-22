@@ -5,6 +5,8 @@
 package Database;
 
 import Database.interfaces.IPaymentDAO;
+import javax.swing.JTable;
+import model.Case;
 import model.Payment;
 
 
@@ -14,7 +16,9 @@ import model.Payment;
  */
 public class PaymentDao extends Executioner implements IPaymentDAO {
     
+    static int countForAllPayments = 1;
 
+    static int countForAllPendingPayments = 1;
     @Override
     public void createPayment(Payment payment) {
 
@@ -38,5 +42,34 @@ public class PaymentDao extends Executioner implements IPaymentDAO {
 
         executeFindQuery(query, successMessage, failedMessage, userInput);
 
+    }
+    
+    @Override
+    public void viewAllMyPayments(Payment payment,Case case_)
+    {
+        String query = "SELECT P.PaymentId,P.CreatedTime,P.UpdatedTime,P.Status,P.Amount,P.Detail,"
+               +"Client.FirstName+' '+Client.LastName AS 'Client Name'"
+ + "FROM PAYMENT P INNER JOIN CLIENT Client ON  P.ClientId = Client.ClientId INNER JOIN CASES C ON C.PaymentId = P.PaymentId AND C.CaseWorker =  '" + case_.getCaseWorker() + "' AND C.CaseStatus = 'Active'";
+               // + "AND C.CaseWorker =  '" + case_.getCaseWorker() + "' AND C.CaseStatus = 'Active'";
+           String successMessage = "Table showed for All Payments.";
+        String failedMessage = "Failed";
+        JTable jtable = payment.getJtable();
+       executeCreateTableForAllPayments(query,successMessage,failedMessage,jtable,countForAllPayments);
+        countForAllPayments = countForAllPayments + 1;
+        
+    }
+    @Override
+    public void viewAllMyPendingPayments(Payment payment,Case case_)
+    {
+        String query = "SELECT P.PaymentId,P.CreatedTime,P.UpdatedTime,P.Status,P.Amount,P.Detail,"
+               +"Client.FirstName+' '+Client.LastName AS 'Client Name'"
+ + "FROM PAYMENT P INNER JOIN CLIENT Client ON  P.ClientId = Client.ClientId INNER JOIN CASES C ON C.PaymentId = P.PaymentId AND C.CaseWorker =  '" + case_.getCaseWorker() + "' AND C.CaseStatus = 'Active' AND P.Status = 'Pending'";
+               // + "AND C.CaseWorker =  '" + case_.getCaseWorker() + "' AND C.CaseStatus = 'Active'";
+           String successMessage = "Table showed for All Payments.";
+        String failedMessage = "Failed";
+        JTable jtable = payment.getJtable();
+        
+        executeCreateTableForAllPendingPayments(query,successMessage,failedMessage,jtable,countForAllPayments);
+        countForAllPendingPayments =countForAllPendingPayments + 1;
     }
 }

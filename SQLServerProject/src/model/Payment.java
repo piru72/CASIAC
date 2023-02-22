@@ -4,6 +4,8 @@
  */
 package model;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author parve
@@ -17,7 +19,15 @@ public class Payment {
     private String Status;
     private String Amount;
     private String Detail;
+    private JTable jtable;
 
+    public JTable getJtable() {
+        return jtable;
+    }
+
+    public void setJtable(JTable jtable) {
+        this.jtable = jtable;
+    }
     public Payment() {
     }
 

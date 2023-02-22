@@ -103,8 +103,8 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_tasks_menu = new javax.swing.JPanel();
         label_tasks_menu = new javax.swing.JLabel();
         Panel_setting_menu = new javax.swing.JPanel();
-        label_settings_menu = new javax.swing.JLabel();
         Panel_view_payments = new javax.swing.JPanel();
+        label_settings_menu = new javax.swing.JLabel();
         viewPaymentsJLabel = new javax.swing.JLabel();
         tab_container = new javax.swing.JTabbedPane();
         tab_dashboard = new javax.swing.JPanel();
@@ -267,6 +267,10 @@ public class MainDashboard extends javax.swing.JFrame {
         viewAllPaymentJLabel = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         viewAllPaymentsJTable = new javax.swing.JTable();
+        viewPendingCasesJPanel = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        viewPendingPaymentJTable = new javax.swing.JTable();
+        viewPendingPaymentBackJLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -559,6 +563,19 @@ public class MainDashboard extends javax.swing.JFrame {
 
         Panel_setting_menu.setBackground(new java.awt.Color(53, 76, 124));
 
+        javax.swing.GroupLayout Panel_setting_menuLayout = new javax.swing.GroupLayout(Panel_setting_menu);
+        Panel_setting_menu.setLayout(Panel_setting_menuLayout);
+        Panel_setting_menuLayout.setHorizontalGroup(
+            Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 93, Short.MAX_VALUE)
+        );
+        Panel_setting_menuLayout.setVerticalGroup(
+            Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 52, Short.MAX_VALUE)
+        );
+
+        Panel_view_payments.setBackground(new java.awt.Color(53, 76, 124));
+
         label_settings_menu.setFont(new java.awt.Font("Montserrat Black", 0, 14)); // NOI18N
         label_settings_menu.setForeground(new java.awt.Color(250, 250, 250));
         label_settings_menu.setText("Settings");
@@ -574,24 +591,22 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout Panel_setting_menuLayout = new javax.swing.GroupLayout(Panel_setting_menu);
-        Panel_setting_menu.setLayout(Panel_setting_menuLayout);
-        Panel_setting_menuLayout.setHorizontalGroup(
-            Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_setting_menuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout Panel_view_paymentsLayout = new javax.swing.GroupLayout(Panel_view_payments);
+        Panel_view_payments.setLayout(Panel_view_paymentsLayout);
+        Panel_view_paymentsLayout.setHorizontalGroup(
+            Panel_view_paymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_view_paymentsLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addComponent(label_settings_menu)
-                .addGap(23, 23, 23))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        Panel_setting_menuLayout.setVerticalGroup(
-            Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_setting_menuLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(label_settings_menu)
-                .addGap(19, 19, 19))
+        Panel_view_paymentsLayout.setVerticalGroup(
+            Panel_view_paymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_view_paymentsLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(label_settings_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        Panel_view_payments.setBackground(new java.awt.Color(53, 76, 124));
 
         viewPaymentsJLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         viewPaymentsJLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -601,23 +616,6 @@ public class MainDashboard extends javax.swing.JFrame {
                 viewPaymentsJLabelMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout Panel_view_paymentsLayout = new javax.swing.GroupLayout(Panel_view_payments);
-        Panel_view_payments.setLayout(Panel_view_paymentsLayout);
-        Panel_view_paymentsLayout.setHorizontalGroup(
-            Panel_view_paymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_view_paymentsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(viewPaymentsJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Panel_view_paymentsLayout.setVerticalGroup(
-            Panel_view_paymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_view_paymentsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(viewPaymentsJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
-        );
 
         javax.swing.GroupLayout menu_containerLayout = new javax.swing.GroupLayout(menu_container);
         menu_container.setLayout(menu_containerLayout);
@@ -640,7 +638,8 @@ public class MainDashboard extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Panel_view_payments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Panel_setting_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(Panel_setting_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewPaymentsJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -663,7 +662,9 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(Panel_activity_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Panel_tasks_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(60, 60, 60)
+                .addComponent(viewPaymentsJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_view_payments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2099,6 +2100,11 @@ public class MainDashboard extends javax.swing.JFrame {
 
         viewAllPaymentJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         viewAllPaymentJLabel.setText("Back");
+        viewAllPaymentJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewAllPaymentJLabelMouseClicked(evt);
+            }
+        });
 
         viewAllPaymentsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2126,7 +2132,7 @@ public class MainDashboard extends javax.swing.JFrame {
         viewAllPaymentsJPanelLayout.setVerticalGroup(
             viewAllPaymentsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewAllPaymentsJPanelLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(viewAllPaymentJLabel)
@@ -2134,6 +2140,49 @@ public class MainDashboard extends javax.swing.JFrame {
         );
 
         view_Payment_nestedTabbedPane.addTab("tab2", viewAllPaymentsJPanel);
+
+        viewPendingPaymentJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Payment ID", "Client Name", "Created Time", "Updated Time", "Status", "Amount", "Detail"
+            }
+        ));
+        jScrollPane8.setViewportView(viewPendingPaymentJTable);
+
+        viewPendingPaymentBackJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        viewPendingPaymentBackJLabel.setText("Back");
+        viewPendingPaymentBackJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewPendingPaymentBackJLabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout viewPendingCasesJPanelLayout = new javax.swing.GroupLayout(viewPendingCasesJPanel);
+        viewPendingCasesJPanel.setLayout(viewPendingCasesJPanelLayout);
+        viewPendingCasesJPanelLayout.setHorizontalGroup(
+            viewPendingCasesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewPendingCasesJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewPendingCasesJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewPendingPaymentBackJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113))
+        );
+        viewPendingCasesJPanelLayout.setVerticalGroup(
+            viewPendingCasesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewPendingCasesJPanelLayout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewPendingPaymentBackJLabel)
+                .addGap(13, 13, 13))
+        );
+
+        view_Payment_nestedTabbedPane.addTab("tab3", viewPendingCasesJPanel);
 
         javax.swing.GroupLayout tab_view_PaymentsLayout = new javax.swing.GroupLayout(tab_view_Payments);
         tab_view_Payments.setLayout(tab_view_PaymentsLayout);
@@ -2997,13 +3046,34 @@ public void DisplayArchivedCases(int id)
         // TODO add your handling code here:
         this.tab_container.setSelectedIndex(8);
     }//GEN-LAST:event_viewPaymentsJLabelMouseClicked
-
+public void viewMyPayments(int user)
+{
+    Payment payment = new Payment();
+    payment.setJtable(viewAllPaymentsJTable);
+   String intToString = String.valueOf(user);
+   Case case_ = new Case();
+   case_.setCaseWorker(intToString);
+   PaymentDao paymentDao = new PaymentDao();
+   paymentDao.viewAllMyPayments(payment, case_);
+}
+public void  viewMyPendingPayments(int user)
+{
+     Payment payment = new Payment();
+    payment.setJtable(viewPendingPaymentJTable);
+   String intToString = String.valueOf(user);
+   Case case_ = new Case();
+   case_.setCaseWorker(intToString);
+   PaymentDao paymentDao = new PaymentDao();
+    paymentDao.viewAllMyPendingPayments(payment, case_);
+}
     private void viewAllthePaymentsRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAllthePaymentsRadioBtnMouseClicked
         // TODO add your handling code here:
         if(viewAllthePaymentsRadioBtn.isSelected())
         {
             pendingPaymentsRadioBtn.setSelected(false);
             myMaxRevenueRadioBtn.setSelected(false);
+            this.view_Payment_nestedTabbedPane.setSelectedIndex(1);
+            viewMyPayments(loggedInUser);
         }
     }//GEN-LAST:event_viewAllthePaymentsRadioBtnMouseClicked
 
@@ -3013,8 +3083,20 @@ public void DisplayArchivedCases(int id)
         {
           viewAllthePaymentsRadioBtn.setSelected(false);
           myMaxRevenueRadioBtn.setSelected(false);
+          this.view_Payment_nestedTabbedPane.setSelectedIndex(2);
+          viewMyPendingPayments(loggedInUser);
         }
     }//GEN-LAST:event_pendingPaymentsRadioBtnActionPerformed
+
+    private void viewAllPaymentJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAllPaymentJLabelMouseClicked
+        // TODO add your handling code here:
+        this.view_Payment_nestedTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_viewAllPaymentJLabelMouseClicked
+
+    private void viewPendingPaymentBackJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPendingPaymentBackJLabelMouseClicked
+        // TODO add your handling code here:
+        this.view_Payment_nestedTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_viewPendingPaymentBackJLabelMouseClicked
 
     /**
      * @param title
@@ -3168,6 +3250,7 @@ public void DisplayArchivedCases(int id)
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private static javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable4;
@@ -3258,6 +3341,9 @@ public void DisplayArchivedCases(int id)
     private javax.swing.JRadioButton viewAllthePaymentsRadioBtn;
     private javax.swing.JPanel viewPaymentRadioButtonsJPanel;
     private javax.swing.JLabel viewPaymentsJLabel;
+    private javax.swing.JPanel viewPendingCasesJPanel;
+    private javax.swing.JLabel viewPendingPaymentBackJLabel;
+    private javax.swing.JTable viewPendingPaymentJTable;
     private javax.swing.JTabbedPane view_Payment_nestedTabbedPane;
     // End of variables declaration//GEN-END:variables
 }
