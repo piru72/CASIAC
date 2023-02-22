@@ -2062,6 +2062,11 @@ public class MainDashboard extends javax.swing.JFrame {
 
         pendingPaymentsRadioBtn.setFont(new java.awt.Font("Dubai Light", 1, 12)); // NOI18N
         pendingPaymentsRadioBtn.setText("View Pending Payments");
+        pendingPaymentsRadioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pendingPaymentsRadioBtnActionPerformed(evt);
+            }
+        });
 
         myMaxRevenueRadioBtn.setFont(new java.awt.Font("Dubai Light", 1, 12)); // NOI18N
         myMaxRevenueRadioBtn.setText("My Max Revenue");
@@ -3001,6 +3006,15 @@ public void DisplayArchivedCases(int id)
             myMaxRevenueRadioBtn.setSelected(false);
         }
     }//GEN-LAST:event_viewAllthePaymentsRadioBtnMouseClicked
+
+    private void pendingPaymentsRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingPaymentsRadioBtnActionPerformed
+        // TODO add your handling code here:
+        if(pendingPaymentsRadioBtn.isSelected())
+        {
+          viewAllthePaymentsRadioBtn.setSelected(false);
+          myMaxRevenueRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_pendingPaymentsRadioBtnActionPerformed
 
     /**
      * @param title

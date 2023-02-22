@@ -3270,6 +3270,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="View Pending Payments"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pendingPaymentsRadioBtnActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="myMaxRevenueRadioBtn">
                           <Properties>
