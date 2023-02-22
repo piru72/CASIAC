@@ -2998,6 +2998,7 @@ public void DisplayArchivedCases(int id)
         if(viewAllthePaymentsRadioBtn.isSelected())
         {
             pendingPaymentsRadioBtn.setSelected(false);
+            myMaxRevenueRadioBtn.setSelected(false);
         }
     }//GEN-LAST:event_viewAllthePaymentsRadioBtnMouseClicked
 
