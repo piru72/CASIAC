@@ -104,6 +104,8 @@ public class MainDashboard extends javax.swing.JFrame {
         label_tasks_menu = new javax.swing.JLabel();
         Panel_setting_menu = new javax.swing.JPanel();
         label_settings_menu = new javax.swing.JLabel();
+        Panel_view_payments = new javax.swing.JPanel();
+        viewPaymentsJLabel = new javax.swing.JLabel();
         tab_container = new javax.swing.JTabbedPane();
         tab_dashboard = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
@@ -202,6 +204,7 @@ public class MainDashboard extends javax.swing.JFrame {
         enterCaseIdjLabel = new javax.swing.JLabel();
         archiveCaseIdTextField = new javax.swing.JTextField();
         archiveCaseBtn = new javax.swing.JButton();
+        archiveCaseBackjLabel = new javax.swing.JLabel();
         myFolderCategoryjPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -216,6 +219,10 @@ public class MainDashboard extends javax.swing.JFrame {
         myFolderLocInputTextField = new javax.swing.JTextField();
         locationBackjLabel = new javax.swing.JLabel();
         myFolderLocationShowBtn = new javax.swing.JButton();
+        archiveCaseFolderJPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        archiveCasesJTable = new javax.swing.JTable();
+        archiveCaseFolderBackJlabel = new javax.swing.JLabel();
         tab_activity = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -250,6 +257,16 @@ public class MainDashboard extends javax.swing.JFrame {
         searchBox_userName3 = new javax.swing.JTextField();
         searchBox_userName4 = new javax.swing.JTextField();
         searchBox_userName6 = new javax.swing.JTextField();
+        tab_view_Payments = new javax.swing.JPanel();
+        view_Payment_nestedTabbedPane = new javax.swing.JTabbedPane();
+        viewPaymentRadioButtonsJPanel = new javax.swing.JPanel();
+        viewAllthePaymentsRadioBtn = new javax.swing.JRadioButton();
+        pendingPaymentsRadioBtn = new javax.swing.JRadioButton();
+        myMaxRevenueRadioBtn = new javax.swing.JRadioButton();
+        viewAllPaymentsJPanel = new javax.swing.JPanel();
+        viewAllPaymentJLabel = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        viewAllPaymentsJTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -528,15 +545,16 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_tasks_menuLayout.setHorizontalGroup(
             Panel_tasks_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_tasks_menuLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addComponent(label_tasks_menu)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         Panel_tasks_menuLayout.setVerticalGroup(
             Panel_tasks_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_tasks_menuLayout.createSequentialGroup()
-                .addGap(0, 36, Short.MAX_VALUE)
-                .addComponent(label_tasks_menu))
+            .addGroup(Panel_tasks_menuLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(label_tasks_menu)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         Panel_setting_menu.setBackground(new java.awt.Color(53, 76, 124));
@@ -560,17 +578,45 @@ public class MainDashboard extends javax.swing.JFrame {
         Panel_setting_menu.setLayout(Panel_setting_menuLayout);
         Panel_setting_menuLayout.setHorizontalGroup(
             Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_setting_menuLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_setting_menuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(label_settings_menu)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         Panel_setting_menuLayout.setVerticalGroup(
             Panel_setting_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_setting_menuLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_setting_menuLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(label_settings_menu)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
+        );
+
+        Panel_view_payments.setBackground(new java.awt.Color(53, 76, 124));
+
+        viewPaymentsJLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        viewPaymentsJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        viewPaymentsJLabel.setText("View Payments");
+        viewPaymentsJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewPaymentsJLabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_view_paymentsLayout = new javax.swing.GroupLayout(Panel_view_payments);
+        Panel_view_payments.setLayout(Panel_view_paymentsLayout);
+        Panel_view_paymentsLayout.setHorizontalGroup(
+            Panel_view_paymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_view_paymentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(viewPaymentsJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        Panel_view_paymentsLayout.setVerticalGroup(
+            Panel_view_paymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_view_paymentsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(viewPaymentsJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout menu_containerLayout = new javax.swing.GroupLayout(menu_container);
@@ -578,17 +624,23 @@ public class MainDashboard extends javax.swing.JFrame {
         menu_containerLayout.setHorizontalGroup(
             menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_containerLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Panel_toDoList_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Panel_tasks_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Panel_activity_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Panel_caseFolder_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Panel_Documents_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menu_containerLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Panel_toDoList_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Panel_tasks_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Panel_activity_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Panel_caseFolder_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Panel_Appointment_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Panel_Documents_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Panel_dashbord_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(menu_containerLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(menu_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Panel_view_payments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Panel_setting_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -611,7 +663,9 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(Panel_activity_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Panel_tasks_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(70, 70, 70)
+                .addComponent(Panel_view_payments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Panel_setting_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
@@ -648,7 +702,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(storedUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab_dashboardLayout.setVerticalGroup(
             tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -873,6 +927,11 @@ public class MainDashboard extends javax.swing.JFrame {
 
         archivedFolderRadioBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         archivedFolderRadioBtn.setText("All Archived Folder");
+        archivedFolderRadioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                archivedFolderRadioBtnActionPerformed(evt);
+            }
+        });
 
         folderCategoriesRadioBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         folderCategoriesRadioBtn.setText("Folder Categories");
@@ -914,7 +973,7 @@ public class MainDashboard extends javax.swing.JFrame {
                             .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(folderLocRadioBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(folderCategoriesRadioBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(92, 610, Short.MAX_VALUE))))
         );
         nestedCaseMenuBarLayout.setVerticalGroup(
             nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1032,7 +1091,7 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(paymentTextField))
                 .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, openNewCaseJpanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                         .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, openNewCaseJpanelLayout.createSequentialGroup()
                                 .addComponent(openingDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1140,7 +1199,7 @@ public class MainDashboard extends javax.swing.JFrame {
         AddClientjPanelLayout.setHorizontalGroup(
             AddClientjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AddClientjPanelLayout.createSequentialGroup()
-                .addGap(0, 444, Short.MAX_VALUE)
+                .addGap(0, 570, Short.MAX_VALUE)
                 .addComponent(saveClientInfo)
                 .addGap(149, 149, 149)
                 .addComponent(ClientBackjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1258,7 +1317,7 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(statusTextField)
                     .addComponent(amountTextField)
                     .addComponent(detailTextField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 414, Short.MAX_VALUE)
                 .addGroup(AddPaymentjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(createdTimejTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                     .addComponent(updatedTimeTextField))
@@ -1339,7 +1398,7 @@ public class MainDashboard extends javax.swing.JFrame {
             clientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(clientJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, clientJPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1400,7 +1459,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(myFolderHomejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(myFolderHomejPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(myFolderHomejPanelLayout.createSequentialGroup()
                         .addComponent(myCasesjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1439,6 +1498,14 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
+        archiveCaseBackjLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        archiveCaseBackjLabel.setText("Back");
+        archiveCaseBackjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                archiveCaseBackjLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout archiveCaseConfirmJPanelLayout = new javax.swing.GroupLayout(archiveCaseConfirmJPanel);
         archiveCaseConfirmJPanel.setLayout(archiveCaseConfirmJPanelLayout);
         archiveCaseConfirmJPanelLayout.setHorizontalGroup(
@@ -1450,6 +1517,10 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(archiveCaseIdTextField)
                     .addComponent(archiveCaseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, archiveCaseConfirmJPanelLayout.createSequentialGroup()
+                .addContainerGap(666, Short.MAX_VALUE)
+                .addComponent(archiveCaseBackjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
         archiveCaseConfirmJPanelLayout.setVerticalGroup(
             archiveCaseConfirmJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1460,7 +1531,9 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(archiveCaseIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(archiveCaseBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                .addComponent(archiveCaseBackjLabel)
+                .addGap(96, 96, 96))
         );
 
         nestedTabbedCase.addTab("tab6", archiveCaseConfirmJPanel);
@@ -1513,7 +1586,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addGroup(myFolderCategoryjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enterCategoryjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(categoryInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 394, Short.MAX_VALUE)
                 .addComponent(categoryShowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(182, 182, 182))
         );
@@ -1575,7 +1648,7 @@ public class MainDashboard extends javax.swing.JFrame {
             myFolderLocationjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(myFolderLocationjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(myFolderLocationjPanelLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
@@ -1610,6 +1683,48 @@ public class MainDashboard extends javax.swing.JFrame {
 
         nestedTabbedCase.addTab("tab9", myFolderLocationjPanel);
 
+        archiveCasesJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Case_Id", "Client_Id", "Category", "Introduced By", "Case Location", "Opening Date", "Payment Id"
+            }
+        ));
+        jScrollPane2.setViewportView(archiveCasesJTable);
+
+        archiveCaseFolderBackJlabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        archiveCaseFolderBackJlabel.setText("Back");
+        archiveCaseFolderBackJlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                archiveCaseFolderBackJlabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout archiveCaseFolderJPanelLayout = new javax.swing.GroupLayout(archiveCaseFolderJPanel);
+        archiveCaseFolderJPanel.setLayout(archiveCaseFolderJPanelLayout);
+        archiveCaseFolderJPanelLayout.setHorizontalGroup(
+            archiveCaseFolderJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(archiveCaseFolderJPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 815, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 45, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, archiveCaseFolderJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(archiveCaseFolderBackJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(173, 173, 173))
+        );
+        archiveCaseFolderJPanelLayout.setVerticalGroup(
+            archiveCaseFolderJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, archiveCaseFolderJPanelLayout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(archiveCaseFolderBackJlabel)
+                .addGap(10, 10, 10))
+        );
+
+        nestedTabbedCase.addTab("tab9", archiveCaseFolderJPanel);
+
         javax.swing.GroupLayout tab_caseFolderLayout = new javax.swing.GroupLayout(tab_caseFolder);
         tab_caseFolder.setLayout(tab_caseFolderLayout);
         tab_caseFolderLayout.setHorizontalGroup(
@@ -1622,7 +1737,7 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addGroup(tab_caseFolderLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab_caseFolderLayout.setVerticalGroup(
             tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1932,6 +2047,107 @@ public class MainDashboard extends javax.swing.JFrame {
         );
 
         tab_container.addTab("tab3", tab_settings);
+
+        tab_view_Payments.setBackground(new java.awt.Color(233, 100, 121));
+
+        viewPaymentRadioButtonsJPanel.setBackground(new java.awt.Color(125, 185, 182));
+
+        viewAllthePaymentsRadioBtn.setFont(new java.awt.Font("Dubai Light", 1, 12)); // NOI18N
+        viewAllthePaymentsRadioBtn.setText("View All the Payments");
+        viewAllthePaymentsRadioBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewAllthePaymentsRadioBtnMouseClicked(evt);
+            }
+        });
+
+        pendingPaymentsRadioBtn.setFont(new java.awt.Font("Dubai Light", 1, 12)); // NOI18N
+        pendingPaymentsRadioBtn.setText("View Pending Payments");
+
+        myMaxRevenueRadioBtn.setFont(new java.awt.Font("Dubai Light", 1, 12)); // NOI18N
+        myMaxRevenueRadioBtn.setText("My Max Revenue");
+
+        javax.swing.GroupLayout viewPaymentRadioButtonsJPanelLayout = new javax.swing.GroupLayout(viewPaymentRadioButtonsJPanel);
+        viewPaymentRadioButtonsJPanel.setLayout(viewPaymentRadioButtonsJPanelLayout);
+        viewPaymentRadioButtonsJPanelLayout.setHorizontalGroup(
+            viewPaymentRadioButtonsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewPaymentRadioButtonsJPanelLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(viewPaymentRadioButtonsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(myMaxRevenueRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pendingPaymentsRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewAllthePaymentsRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        viewPaymentRadioButtonsJPanelLayout.setVerticalGroup(
+            viewPaymentRadioButtonsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewPaymentRadioButtonsJPanelLayout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(viewAllthePaymentsRadioBtn)
+                .addGap(18, 18, 18)
+                .addComponent(pendingPaymentsRadioBtn)
+                .addGap(26, 26, 26)
+                .addComponent(myMaxRevenueRadioBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        view_Payment_nestedTabbedPane.addTab("tab1", viewPaymentRadioButtonsJPanel);
+
+        viewAllPaymentJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        viewAllPaymentJLabel.setText("Back");
+
+        viewAllPaymentsJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Payment Id", "Client Name", "Created Time", "Updated Time", "Status", "Amount", "Detail"
+            }
+        ));
+        jScrollPane7.setViewportView(viewAllPaymentsJTable);
+
+        javax.swing.GroupLayout viewAllPaymentsJPanelLayout = new javax.swing.GroupLayout(viewAllPaymentsJPanel);
+        viewAllPaymentsJPanel.setLayout(viewAllPaymentsJPanelLayout);
+        viewAllPaymentsJPanelLayout.setHorizontalGroup(
+            viewAllPaymentsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewAllPaymentsJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewAllPaymentJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
+            .addGroup(viewAllPaymentsJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        viewAllPaymentsJPanelLayout.setVerticalGroup(
+            viewAllPaymentsJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewAllPaymentsJPanelLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(viewAllPaymentJLabel)
+                .addGap(48, 48, 48))
+        );
+
+        view_Payment_nestedTabbedPane.addTab("tab2", viewAllPaymentsJPanel);
+
+        javax.swing.GroupLayout tab_view_PaymentsLayout = new javax.swing.GroupLayout(tab_view_Payments);
+        tab_view_Payments.setLayout(tab_view_PaymentsLayout);
+        tab_view_PaymentsLayout.setHorizontalGroup(
+            tab_view_PaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_view_PaymentsLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(view_Payment_nestedTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+        tab_view_PaymentsLayout.setVerticalGroup(
+            tab_view_PaymentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tab_view_PaymentsLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(view_Payment_nestedTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        tab_container.addTab("tab9", tab_view_Payments);
 
         main_container.add(tab_container, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 860, 710));
         tab_container.getAccessibleContext().setAccessibleDescription("");
@@ -2728,11 +2944,64 @@ void CheckExistingCaseID(String userInputCaseID)
         if (response == JOptionPane.YES_OPTION) {
             Case case_ = new Case();
            String savedArchiveID = archiveCaseIdTextField.getText();
+           
            CheckExistingCaseID(savedArchiveID);
+           case_.setCaseId(savedArchiveID);
             CaseDao caseDao = new CaseDao();
-           caseDao.archiveCaseID(case_);
+            caseDao.archiveCaseID(case_);
+        }
+        else
+        {
+            this.nestedTabbedCase.setSelectedIndex(6);
         }
     }//GEN-LAST:event_archiveCaseBtnActionPerformed
+
+    private void archiveCaseBackjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveCaseBackjLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(5);
+    }//GEN-LAST:event_archiveCaseBackjLabelMouseClicked
+public void DisplayArchivedCases(int id)
+{
+       Case case_ = new Case();
+        case_.setjTable(archiveCasesJTable);
+        String restoredCase_Id = String.valueOf(id);
+        case_.setCaseWorker(restoredCase_Id);
+        CaseDao caseDao = new CaseDao();
+        caseDao.createCaseTableForArchiveCases(case_);
+     
+}
+    private void archivedFolderRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivedFolderRadioBtnActionPerformed
+        // TODO add your handling code here:
+        if (archivedFolderRadioBtn.isSelected()) {
+            openNewCaseRadioBtn.setSelected(false);
+            clientRadioBtn.setSelected(false);
+            folderCategoriesRadioBtn.setSelected(false);
+            folderLocRadioBtn.setSelected(false);
+            MyFolderRadioBtn.setSelected(false);
+            this.nestedTabbedCase.setSelectedIndex(9);
+            DisplayArchivedCases(loggedInUser);
+        }
+    }//GEN-LAST:event_archivedFolderRadioBtnActionPerformed
+
+    private void archiveCaseFolderBackJlabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_archiveCaseFolderBackJlabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedTabbedCase.setSelectedIndex(0);
+    }//GEN-LAST:event_archiveCaseFolderBackJlabelMouseClicked
+
+    private void viewPaymentsJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPaymentsJLabelMouseClicked
+        // TODO add your handling code here:
+        this.tab_container.setSelectedIndex(8);
+    }//GEN-LAST:event_viewPaymentsJLabelMouseClicked
+
+    private void viewAllthePaymentsRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAllthePaymentsRadioBtnMouseClicked
+        // TODO add your handling code here:
+        if(viewAllthePaymentsRadioBtn.isSelected())
+        {
+            pendingPaymentsRadioBtn.setSelected(false);
+            myMaxRevenueRadioBtn.setSelected(false);
+            this.view_Payment_nestedTabbedPane.setSelectedIndex(1);
+        }
+    }//GEN-LAST:event_viewAllthePaymentsRadioBtnMouseClicked
 
     /**
      * @param title
@@ -2807,6 +3076,7 @@ void CheckExistingCaseID(String userInputCaseID)
     private javax.swing.JPanel Panel_setting_menu;
     private javax.swing.JPanel Panel_tasks_menu;
     private javax.swing.JPanel Panel_toDoList_menu;
+    private javax.swing.JPanel Panel_view_payments;
     private javax.swing.JScrollPane ScrollPane_user_list;
     private javax.swing.JLabel activeFolderBackjLabel;
     private javax.swing.JTable activityJTable;
@@ -2817,10 +3087,14 @@ void CheckExistingCaseID(String userInputCaseID)
     private javax.swing.JButton addPaymentBtn;
     private javax.swing.JTextField amountTextField;
     private javax.swing.JLabel amountjLabel;
+    private javax.swing.JLabel archiveCaseBackjLabel;
     private javax.swing.JButton archiveCaseBtn;
     private javax.swing.JPanel archiveCaseConfirmJPanel;
+    private javax.swing.JLabel archiveCaseFolderBackJlabel;
+    private javax.swing.JPanel archiveCaseFolderJPanel;
     private javax.swing.JTextField archiveCaseIdTextField;
     private javax.swing.JLabel archiveCaseJLabel;
+    private javax.swing.JTable archiveCasesJTable;
     private javax.swing.JRadioButton archivedFolderRadioBtn;
     private javax.swing.JLabel backJlabel;
     private javax.swing.JLabel backPaymentjLabel;
@@ -2875,10 +3149,12 @@ void CheckExistingCaseID(String userInputCaseID)
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private static javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable4;
@@ -2910,6 +3186,7 @@ void CheckExistingCaseID(String userInputCaseID)
     private javax.swing.JTextField myFolderLocInputTextField;
     private javax.swing.JButton myFolderLocationShowBtn;
     private javax.swing.JPanel myFolderLocationjPanel;
+    private javax.swing.JRadioButton myMaxRevenueRadioBtn;
     private javax.swing.JLabel myfolderLocjLabel;
     private javax.swing.JPanel nestedCaseMenuBar;
     private javax.swing.JTabbedPane nestedTabbedCase;
@@ -2923,6 +3200,7 @@ void CheckExistingCaseID(String userInputCaseID)
     private javax.swing.JLabel openingDatejLabel;
     private javax.swing.JLabel paymentIdjlabel;
     private javax.swing.JTextField paymentTextField;
+    private javax.swing.JRadioButton pendingPaymentsRadioBtn;
     private javax.swing.JLabel phoneTextField;
     private javax.swing.JButton saveBtn;
     private javax.swing.JButton saveClientInfo;
@@ -2946,6 +3224,7 @@ void CheckExistingCaseID(String userInputCaseID)
     private javax.swing.JPanel tab_settings;
     private javax.swing.JPanel tab_tasks;
     private javax.swing.JPanel tab_todoList;
+    private javax.swing.JPanel tab_view_Payments;
     private com.toedter.calendar.JDateChooser taskCreatedTimeDateChooser;
     private javax.swing.JLabel taskDetailJLabel;
     private javax.swing.JTextField taskDetailTextField;
@@ -2960,5 +3239,12 @@ void CheckExistingCaseID(String userInputCaseID)
     private javax.swing.JTextField updatedTimeTextField;
     private javax.swing.JLabel updatedTimejLabel;
     private javax.swing.JLabel user_name;
+    private javax.swing.JLabel viewAllPaymentJLabel;
+    private javax.swing.JPanel viewAllPaymentsJPanel;
+    private javax.swing.JTable viewAllPaymentsJTable;
+    private javax.swing.JRadioButton viewAllthePaymentsRadioBtn;
+    private javax.swing.JPanel viewPaymentRadioButtonsJPanel;
+    private javax.swing.JLabel viewPaymentsJLabel;
+    private javax.swing.JTabbedPane view_Payment_nestedTabbedPane;
     // End of variables declaration//GEN-END:variables
 }

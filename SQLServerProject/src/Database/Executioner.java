@@ -383,13 +383,49 @@ public class Executioner {
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
             prepareStatement = connection.prepareStatement(query);
-            prepareStatement.setString(1, "Archived");
+            // prepareStatement.setString(1, "Archived");
             prepareStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
 
         } catch (SQLException ex) {
-
+            ex.printStackTrace();
         }
 
     }
 
+    void executeCaseTableForArchiveCases(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        if (count > 1) {
+            int i = jtable.getRowCount();
+            for (int j = 0; j < i; j++) {
+                model1.removeRow(0);
+            }
+        }
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+                String CaseId = result.getString("CaseId");
+                String ClientId = result.getString("ClientId");
+                String Category = result.getString("Category");
+                String caseIntroducer = result.getString("IntroducedBy");
+                String CaseLocation = result.getString("CaseLocation");
+                String OpeningDate = result.getString("OpeningDate");
+                String paymentId = result.getString("PaymentId");
+                String tableData[] = {CaseId, ClientId, Category, caseIntroducer, CaseLocation, OpeningDate, paymentId};
+                model1.addRow(tableData);
+//System.out.println("id "+CaseId+" client name "+ClientName+" Category"+Category+" loc"+CaseLocation+" openin date"+OpeningDate);
+//System.out.println("case worker "+caseWorkerName+" case intro "+caseIntroducer+" amount "+amount);
+
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 }

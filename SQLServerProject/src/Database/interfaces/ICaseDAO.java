@@ -23,4 +23,5 @@ public interface ICaseDAO {
    void createCaseTableForActiveCases(Case case_);
    void checkExistingCaseID(Case case_);
    void archiveCaseID(Case case_);
+   void createCaseTableForArchiveCases(Case case_);
 }
