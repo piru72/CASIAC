@@ -271,6 +271,10 @@ public class MainDashboard extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         viewPendingPaymentJTable = new javax.swing.JTable();
         viewPendingPaymentBackJLabel = new javax.swing.JLabel();
+        myMaxRevenueJPanel = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        myMaxRevenueJTable = new javax.swing.JTable();
+        maxRevenueBackJLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -2071,6 +2075,11 @@ public class MainDashboard extends javax.swing.JFrame {
 
         myMaxRevenueRadioBtn.setFont(new java.awt.Font("Dubai Light", 1, 12)); // NOI18N
         myMaxRevenueRadioBtn.setText("My Max Revenue");
+        myMaxRevenueRadioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myMaxRevenueRadioBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout viewPaymentRadioButtonsJPanelLayout = new javax.swing.GroupLayout(viewPaymentRadioButtonsJPanel);
         viewPaymentRadioButtonsJPanel.setLayout(viewPaymentRadioButtonsJPanelLayout);
@@ -2093,7 +2102,7 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addComponent(pendingPaymentsRadioBtn)
                 .addGap(26, 26, 26)
                 .addComponent(myMaxRevenueRadioBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         view_Payment_nestedTabbedPane.addTab("tab1", viewPaymentRadioButtonsJPanel);
@@ -2175,7 +2184,7 @@ public class MainDashboard extends javax.swing.JFrame {
         viewPendingCasesJPanelLayout.setVerticalGroup(
             viewPendingCasesJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewPendingCasesJPanelLayout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(92, Short.MAX_VALUE)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewPendingPaymentBackJLabel)
@@ -2183,6 +2192,48 @@ public class MainDashboard extends javax.swing.JFrame {
         );
 
         view_Payment_nestedTabbedPane.addTab("tab3", viewPendingCasesJPanel);
+
+        myMaxRevenueJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Revenue", "Client ID", "Category"
+            }
+        ));
+        jScrollPane9.setViewportView(myMaxRevenueJTable);
+
+        maxRevenueBackJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        maxRevenueBackJLabel.setText("Back");
+        maxRevenueBackJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                maxRevenueBackJLabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout myMaxRevenueJPanelLayout = new javax.swing.GroupLayout(myMaxRevenueJPanel);
+        myMaxRevenueJPanel.setLayout(myMaxRevenueJPanelLayout);
+        myMaxRevenueJPanelLayout.setHorizontalGroup(
+            myMaxRevenueJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myMaxRevenueJPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myMaxRevenueJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(maxRevenueBackJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
+        );
+        myMaxRevenueJPanelLayout.setVerticalGroup(
+            myMaxRevenueJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myMaxRevenueJPanelLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(maxRevenueBackJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+
+        view_Payment_nestedTabbedPane.addTab("tab4", myMaxRevenueJPanel);
 
         javax.swing.GroupLayout tab_view_PaymentsLayout = new javax.swing.GroupLayout(tab_view_Payments);
         tab_view_Payments.setLayout(tab_view_PaymentsLayout);
@@ -3097,6 +3148,32 @@ public void  viewMyPendingPayments(int user)
         // TODO add your handling code here:
         this.view_Payment_nestedTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_viewPendingPaymentBackJLabelMouseClicked
+public void viewMyRevenue(int user)
+{
+    Case case_ = new Case();
+    case_.setjTable(myMaxRevenueJTable);
+    String userId = String.valueOf(user);
+    case_.setCaseWorker(userId);
+    CaseDao caseDao = new CaseDao();
+    caseDao.createCaseTableForRevenue(case_);
+    
+}
+    private void myMaxRevenueRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myMaxRevenueRadioBtnActionPerformed
+        // TODO add your handling code here:
+        if(myMaxRevenueRadioBtn.isSelected())
+        {
+            viewAllthePaymentsRadioBtn.setSelected(false);
+            myMaxRevenueRadioBtn.setSelected(false);
+
+            this.view_Payment_nestedTabbedPane.setSelectedIndex(3);
+            viewMyRevenue(loggedInUser);
+        }
+    }//GEN-LAST:event_myMaxRevenueRadioBtnActionPerformed
+
+    private void maxRevenueBackJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maxRevenueBackJLabelMouseClicked
+        // TODO add your handling code here:
+        this.view_Payment_nestedTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_maxRevenueBackJLabelMouseClicked
 
     /**
      * @param title
@@ -3251,6 +3328,7 @@ public void  viewMyPendingPayments(int user)
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private static javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable4;
@@ -3271,6 +3349,7 @@ public void  viewMyPendingPayments(int user)
     private javax.swing.JTextField locationTextField;
     private javax.swing.JButton logOut_button;
     private javax.swing.JPanel main_container;
+    private javax.swing.JLabel maxRevenueBackJLabel;
     private javax.swing.JPanel menu_container;
     private javax.swing.JLabel modifiedByJLabel;
     private javax.swing.JTextField modifiedbyTextField;
@@ -3282,6 +3361,8 @@ public void  viewMyPendingPayments(int user)
     private javax.swing.JTextField myFolderLocInputTextField;
     private javax.swing.JButton myFolderLocationShowBtn;
     private javax.swing.JPanel myFolderLocationjPanel;
+    private javax.swing.JPanel myMaxRevenueJPanel;
+    private javax.swing.JTable myMaxRevenueJTable;
     private javax.swing.JRadioButton myMaxRevenueRadioBtn;
     private javax.swing.JLabel myfolderLocjLabel;
     private javax.swing.JPanel nestedCaseMenuBar;

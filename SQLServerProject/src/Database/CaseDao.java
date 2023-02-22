@@ -20,7 +20,7 @@ public class CaseDao extends Executioner implements ICaseDAO {
     static int countForMyFolderLocation = 1;
     static int countForActiveCases = 1;
     static int countForArchiveCases = 1;
-
+    static int countForRevenue = 1;
     @Override
     public void createCase(Case case_) {
 
@@ -149,6 +149,21 @@ public class CaseDao extends Executioner implements ICaseDAO {
         JTable jtable = case_.getjTable();
        executeCaseTableForArchiveCases(query,successMessage,failedMessage,jtable,countForArchiveCases);
      countForArchiveCases = countForArchiveCases + 1;
+    }
+    @Override
+  public  void createCaseTableForRevenue(Case case_)
+    {
+        String query = "SELECT MAX(P.Amount) AS 'Revenue',C.ClientId,case_.Category From CASES case_"
+                + " INNER JOIN CLIENT C ON C.ClientId=case_.ClientId INNER JOIN PAYMENT P ON P.PaymentId=case_.PaymentId AND case_.CaseWorker ='" + case_.getCaseWorker() + "'"
+                + " Group By C.ClientId,case_.Category";
+        
+        String successMessage = "Data Showed For archive cases";
+        String failedMessage = "Failed";
+        JTable jtable = case_.getjTable();
+        
+        executeCaseTableForRevenue(query,successMessage,failedMessage,jtable,countForRevenue);
+        countForRevenue =countForRevenue + 1;
+        
     }
 }
 //From. error ashle comma extra last e

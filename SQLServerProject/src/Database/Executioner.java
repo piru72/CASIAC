@@ -500,5 +500,36 @@ public class Executioner {
 
             ex.printStackTrace();
         }
+          
+    }
+    
+  void   executeCaseTableForRevenue(String query, String successMessage, String failedMessage, JTable jtable, int count)
+    {
+         DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+         
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+            
+            while(result.next())
+            {
+                String  revenue = result.getString("Revenue");
+                String ClientId = result.getString("ClientId");
+                String category = result.getString("Category");
+                String tableData[]={revenue,ClientId,category};
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+          
+
+        
+
     }
 }
