@@ -34,6 +34,17 @@ public class Executioner {
     Statement statement = null;
     DefaultTableModel tblModel;
 
+    void ResetTable(JTable table, int count) {
+        DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+        table.setModel(model1);
+        if (count > 1) {
+            int i = table.getRowCount();
+            for (int j = 0; j < i; j++) {
+                model1.removeRow(0);
+            }
+        }
+    }
+
     void executeInsertQuery(String query, String successMessage, String failureMessage) {
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
@@ -383,13 +394,142 @@ public class Executioner {
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
             prepareStatement = connection.prepareStatement(query);
-            prepareStatement.setString(1, "Archived");
+            // prepareStatement.setString(1, "Archived");
             prepareStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
 
         } catch (SQLException ex) {
-
+            ex.printStackTrace();
         }
 
     }
 
+    void executeCaseTableForArchiveCases(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        if (count > 1) {
+            int i = jtable.getRowCount();
+            for (int j = 0; j < i; j++) {
+                model1.removeRow(0);
+            }
+        }
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+                String CaseId = result.getString("CaseId");
+                String ClientId = result.getString("ClientId");
+                String Category = result.getString("Category");
+                String caseIntroducer = result.getString("IntroducedBy");
+                String CaseLocation = result.getString("CaseLocation");
+                String OpeningDate = result.getString("OpeningDate");
+                String paymentId = result.getString("PaymentId");
+                String tableData[] = {CaseId, ClientId, Category, caseIntroducer, CaseLocation, OpeningDate, paymentId};
+                model1.addRow(tableData);
+//System.out.println("id "+CaseId+" client name "+ClientName+" Category"+Category+" loc"+CaseLocation+" openin date"+OpeningDate);
+//System.out.println("case worker "+caseWorkerName+" case intro "+caseIntroducer+" amount "+amount);
+
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    void executeCreateTableForAllPayments(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+        
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+            
+            while(result.next())
+            {
+                String paymentId = result.getString("PaymentId");
+                String ClientName = result.getString("Client Name");
+                String createdTime = result.getString("CreatedTime");
+                String updatedTime = result.getString("UpdatedTime");
+                String status = result.getString("Status");
+                String amount =result.getString("Amount");
+                String detail = result.getString("Detail");
+                String tableData[]={paymentId,ClientName,createdTime,updatedTime,status,amount,detail};
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+
+    }
+    
+    void executeCreateTableForAllPendingPayments(String query, String successMessage, String failedMessage, JTable jtable, int count)
+    
+    {
+       DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+      
+          try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+            
+            while(result.next())
+            {
+                String paymentId = result.getString("PaymentId");
+                String ClientName = result.getString("Client Name");
+                String createdTime = result.getString("CreatedTime");
+                String updatedTime = result.getString("UpdatedTime");
+                String status = result.getString("Status");
+                String amount =result.getString("Amount");
+                String detail = result.getString("Detail");
+                String tableData[]={paymentId,ClientName,createdTime,updatedTime,status,amount,detail};
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+          
+    }
+    
+  void   executeCaseTableForRevenue(String query, String successMessage, String failedMessage, JTable jtable, int count)
+    {
+         DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+         
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+            
+            while(result.next())
+            {
+                String  revenue = result.getString("Revenue");
+                String ClientId = result.getString("ClientId");
+                String category = result.getString("Category");
+                String tableData[]={revenue,ClientId,category};
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+          
+
+        
+
+    }
 }

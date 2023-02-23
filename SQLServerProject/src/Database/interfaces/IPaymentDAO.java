@@ -4,6 +4,7 @@
  */
 package Database.interfaces;
 
+import model.Case;
 import model.Payment;
 
 /**
@@ -13,4 +14,6 @@ import model.Payment;
 public interface IPaymentDAO {
     void createPayment (Payment payment);
     void FindPaymentID(Payment payment);
+    void viewAllMyPayments(Payment payment,Case case_);
+    void viewAllMyPendingPayments(Payment payment,Case case_);
 }
