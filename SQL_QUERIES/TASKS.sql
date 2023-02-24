@@ -17,6 +17,9 @@ CREATE	TABLE TASKS(
 --> ADDED A CHECK THAT THE LAWYER ID CANT BE LESS THAN 1000 
 ALTER TABLE TASKS ADD CHECK(LawyerId > 999);
 
+ALTER TABLE tasks
+ADD CaseId INT NOT NULL CONSTRAINT CaseId FOREIGN KEY REFERENCES Cases(CaseId) DEFAULT 6002;
+
 
 --> INSERT DATAS INTO THE TABLE
 INSERT INTO TASKS (TaskDetails,Deadline,TaskPriority,LawyerId,TaskStatus,CreatedTime) VALUES('FInd out the time of the hearing.' ,'2023-01-29','MEDIUM',1001,'PENDING' ,'2022-12-26');
@@ -42,6 +45,28 @@ SELECT * FROM TASKS
 
 --> TASK WITH A SPECIFIC PRIORITY
 SELECT * FROM TASKS WHERE TaskPriority = 'MEDIUM'
+
+--> TASk WITH COMING DEADLINE
+ -- > DEADLINES
+SELECT TaskDetails ,Deadline,TaskPriority ,TaskStatus FROM TASKS Where LawyerId = 1002 ORDER BY Deadline 
+
+--> TASK OVERDUE
+SELECT TaskDetails , Deadline , TaskPriority  , a.FirstName + ' '  + a.LastName as 'Working Lawyer'
+FROM TASKS 
+Join CASES c on 
+Tasks.CaseId = c.caseId
+JOIN Advocate a on
+c.CaseWorker = a.AdvocateId
+Where Deadline < GETDATE() AND TaskStatus = 'PENDING' 
+
+--> TASK DONE
+SELECT TaskDetails , Deadline , TaskPriority  , a.FirstName + ' '  + a.LastName as 'Working Lawyer'
+FROM TASKS 
+Join CASES c on 
+Tasks.CaseId = c.caseId
+JOIN Advocate a on
+c.CaseWorker = a.AdvocateId
+Where Deadline < GETDATE() AND TaskStatus = 'DONE' 
 
 
 --> SHOW THE DETAILS WITH A DIFFERENT COLUMN NAME

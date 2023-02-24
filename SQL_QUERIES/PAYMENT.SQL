@@ -22,6 +22,9 @@ CREATE TABLE PAYMENT(
 
 SELECT * FROM PAYMENT
 
+-- > TOTAL PAYMENT
+SELECT SUM(Amount) as 'TOTAL EARNING ' FROM PAYMENT where Status = 'DONE'
+
 -->  SHOW DETAILS WITH THE CLIENT NAME
 
 SELECT PaymentId , Client.FirstName + ' ' + CLIENT.LastName As 'Client Name' , CreatedTime ,UpdatedTime , Status, Amount , Detail
